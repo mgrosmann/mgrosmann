@@ -1,0 +1,272 @@
+/* Importer une police spéciale pour les liens */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); /* Exemple de police cursive */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-image: url('https://img.freepik.com/free-vector/abstract-technological-background_23-2148897676.jpg'); /* Arrière-plan technologique */
+    background-size: cover;
+    background-position: center;
+    color: #f4f4f4; /* Couleur claire pour le texte */
+    margin-left: 260px; /* Augmenter la marge pour faire de la place au menu à gauche */
+}
+
+header {
+    background-color: rgb(0, 0, 0); /* Arrière-plan semi-transparent pour le bandeau */
+    color: white;
+    padding: 1rem 0; /* Padding ajusté */
+    text-align: center; /* Alignement à droite */
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 350px; /* Réduit légèrement la largeur du menu à gauche */
+    display: flex;
+    flex-direction: column;
+    font-size: 1.0rem; /* Augmente la taille globale de la police dans le header */
+}
+
+header a {
+    font-family: 'Pacifico', cursive; /* Applique la police spéciale aux liens du bandeau */
+    color: goldenrod; /* Vous pouvez modifier la couleur si nécessaire */
+    text-decoration: none; /* Enlever le soulignement */
+    font-size: 1.5rem; /* Augmente la taille de la police des liens */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 15px 0; /* Espacement entre les liens */
+}
+
+nav ul li a:hover {
+    background-color: rgba(0, 0, 0, 0.9); /* Effet de survol */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Ombre subtile pour l'effet de survol */
+    transform: scale(1.05); /* Légère mise en avant à l'hover */
+}
+
+section {
+    padding: 2rem; /* Espace autour de la section */
+    margin-left: 200px; /* Espace pour le menu à gauche */
+    display: flex; /* Utilisation de flexbox pour aligner les contenus */
+    flex-direction: column; /* Aligner les éléments de la section verticalement */
+    align-items: center; /* Centrer les éléments horizontalement */
+}
+
+.container {
+    width: 90%; /* Ajuster la largeur du conteneur */
+    max-width: 1200px; /* Largeur maximale */
+    margin: 0 auto; /* Centre le conteneur dans la section */
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    padding: 2rem; /* Espacement interne */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Ajout d'une ombre pour un effet de profondeur */
+    margin-left: 1px;
+}
+
+/* Styles pour les liens qui doivent se comporter comme des boutons dans .container */
+.container .btn {
+    display: inline-block; /* Affichage en bloc pour permettre le padding */
+    padding: 10px 20px; /* Espacement interne du bouton */
+    margin: 10px; /* Espacement autour du bouton */
+    background-color: #007BFF; /* Couleur de fond du bouton */
+    color: #fff; /* Couleur du texte */
+    text-align: center; /* Centre le texte */
+    text-decoration: none; /* Retire le soulignement */
+    font-size: 16px; /* Taille de police */
+    font-weight: bold; /* Style plus fort pour le lien */
+    border-radius: 5px; /* Coins arrondis */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Effet fluide au survol */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Ombre subtile pour l'effet de bouton */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Bordure blanche subtile pour le bouton */
+}
+
+/* Hover effect pour les boutons dans les conteneurs */
+.container .btn:hover {
+    background-color: #0056b3; /* Couleur de fond au survol */
+    transform: scale(1.05); /* Légère mise en avant au survol */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Ombre accentuée au survol */
+}
+
+/* Effet lors du clic sur les liens dans les conteneurs */
+.container .btn:active {
+    background-color: #003f7f; /* Couleur de fond au clic */
+    transform: scale(0.98); /* Rétrécissement léger lors du clic */
+}
+
+
+h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem; /* Ajout d'un padding pour éviter que le texte touche les bords */
+    color: #00ccff; /* Couleur pour les titres, qui souligne le thème technologique */
+}
+
+.projet-liste, .stage-liste {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.projet, .stage {
+    background-color: rgba(255, 255, 255, 0.1); /* Transparence subtile pour les cartes */
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #fff; /* Couleur claire pour le texte dans les cartes */
+}
+
+.compétences-list {
+    list-style-type: none;
+    margin: 1rem 0;
+    padding-left: 1rem;
+    color: #f4f4f4;
+}
+
+.compétences-list li {
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.8); /* Footer avec transparence */
+    color: white;
+    padding: 1rem 2rem; /* Padding droit ajouté pour décaler le texte */
+    text-align: center; /* Aligne le texte à droite */
+}
+
+footer p {
+    margin: 0;
+}
+
+.cv-link {
+    color: #00ccff; /* Couleur personnalisée pour le lien */
+    text-decoration: none; /* Enlever le soulignement */
+    font-weight: bold; /* Style plus fort pour le lien */
+    transition: color 0.3s ease; /* Transition douce sur la couleur */
+}
+
+.cv-link:visited {
+    color: #00ccff; /* Garde la même couleur pour les liens visités */
+}
+
+.cv-link:hover {
+    color: #0099cc; /* Changer légèrement la couleur au survol */
+    text-decoration: underline; /* Ajouter un soulignement au survol pour l'effet visuel */
+}
+
+td {
+    border: 3px solid;
+    text-align: center;
+    border-color: black;
+    background-color: whitesmoke;
+}
+
+a {
+    color: purple;
+    text-decoration: none;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.bts-container {
+    width: 90%; /* Largeur du conteneur */
+    max-width: 1200px; /* Limite de largeur */
+    margin: 20px auto; /* Centre le conteneur et ajoute un espacement vertical */
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    padding: 2rem; /* Espacement interne */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombre pour le conteneur */
+    margin-left: 1px;
+}
+
+/* Optionnel : Vous pouvez également ajouter un effet de transition pour le hover */
+.bts-container:hover {
+    transform: scale(1.02); /* Légère mise en avant au survol */
+    transition: transform 0.3s ease; /* Transition douce */
+}
+.container:hover{
+    transform: scale(1.02); /* Légère mise en avant au survol */
+    transition: transform 0.3s ease; /* Transition douce */
+}
+/* Responsive design pour les petits écrans */
+@media (max-width: 768px) {
+    body {
+        margin-left: 0; /* Retirer la marge à gauche pour mobile */
+        background-size: cover; /* S'assurer que l'image de fond s'adapte bien */
+    }
+
+    header {
+        position: relative;
+        width: 100%; /* Utiliser toute la largeur de l'écran pour le menu */
+        height: auto;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column; /* Aligner les liens de navigation verticalement */
+        align-items: center; /* Centrer les éléments */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Réduire l'espacement entre les liens */
+    }
+
+    section {
+        padding: 1rem;
+        margin-left: 0; /* Retirer la marge à gauche pour mobile */
+        width: 100%;
+    }
+
+    .container, .bts-container {
+        width: 100%;
+        padding: 1rem; /* Réduire le padding pour les petits écrans */
+    }
+
+    h1, h2 {
+        font-size: 1.5rem; /* Réduire la taille des titres */
+    }
+
+    .btn {
+        padding: 8px 15px; /* Réduire les dimensions des boutons */
+        font-size: 14px; /* Réduire la taille de la police des boutons */
+    }
+
+    .projet-liste, .stage-liste {
+        grid-template-columns: 1fr; /* Les projets et stages s'affichent en une seule colonne */
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 0.5rem;
+    }
+
+    h1, h2 {
+        font-size: 1.2rem; /* Réduire encore la taille des titres pour les très petits écrans */
+    }
+
+    .btn {
+        padding: 6px 12px; /* Réduire encore la taille des boutons */
+        font-size: 12px; /* Réduire la taille de la police des boutons */
+    }
+
+    .container, .bts-container {
+        padding: 0.5rem;
+    }
+
+    .projet-liste, .stage-liste {
+        gap: 0.5rem; /* Réduire l'espacement entre les projets/stages */
+    }
+}

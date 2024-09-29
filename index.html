@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Matheo Grosmann</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://img.freepik.com/premium-vector/mg-logo-design_731343-231.jpg" type="image/jpeg">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Portfolio Matheo Grosmann</h1>
+            <nav>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li> <!-- Lien ajouté pour la section Accueil -->
+                    <li><a href="#profil">Profil</a></li>
+                    <li><a href="#parcours">Parcours</a></li>
+                    <li><a href="#bts_sio">BTS SIO</a></li>
+                    <li><a href="#projets">Projets</a></li>
+                    <li><a href="#stages">Stages</a></li>
+                    <li><a href="#compétences">Compétences</a></li>
+                    <li><a href="#veille">Veille Informatique</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+  
+</div>
+    <!-- Nouvelle section Accueil ajoutée ici -->
+    <section id="accueil" class="section">
+        <div class="container" style="text-align: center;">
+            <h2>Accueil</h2>
+            <p>Bonjour, je m'appelle <span style="color: red; font-weight: bold;">Mathéo Grosmann</span> et bienvenue sur mon portfolio</p>
+        </div>
+    </section>
+
+    <section id="profil" class="section">
+        <div class="container">
+            <h2>Profil</h2>
+            <p>Étudiant en deuxième année de BTS SIO (Services Informatiques aux Organisations) option SISR (Solutions d'Infrastructure, Systèmes et Réseaux), je suis passionné par l’informatique et la configuration de machine virtuelle.<br>
+                 Au cours de ma formation, j'ai acquis des compétences solides en administration réseau, gestion des machines linux mais aussi language de programmation comme python.<br><br>
+                Pour visualiser mon cv : <a href="CV Grosmann Mathéo.pdf" class="btn">CV Grosmann Mathéo.pdf</a><br>
+                Ou alors le télécharger : <a href="CV Grosmann Mathéo.pdf"class="btn" download>Télécharger</a>
+            </p>
+        </div>
+    </section>
+
+    <section id="parcours" class="section">
+        <div class="container">
+            <h2>Parcours</h2>
+            <p>Cursus scolaire:<br>
+                <p> 2023-Aujourd'hui: <span style="color: red; font-weight: bold;">BTS SIO Option SISR</span><br>
+                    Ensemble Scolaire La Salle 63 - Clermont-Ferrand (63): <a href="https://www.lasalle63.fr/" class="btn">Site de l'établissement</a><br>
+                    2021-2023: <span style="color: red; font-weight: bold;">BAC PRO SN option RISC</span><br>
+                    Lycée Professionel Albert einstein - Montluçon (03): <a href="https://albert-einstein-montlucon.ent.auvergnerhonealpes.fr/" class="btn">Site du Lycée</a><br>
+                 </p>
+        </div>
+    </section>
+
+    <section id="bts_sio" class="section">
+        <div class="container bts-container">
+            <h2>BTS SIO</h2>
+            <p>Le Brevet de Technicien Supérieur Services Informatiques aux Organisations est un diplôme national d'une durée de 2 ans. 
+                Il a pour objectif de former les étudiants aux différents métiers de l'informatique. Il se divise en 2 options: 
+                l'Option Solutions d'Infrastructure, Systèmes et Réseaux et l'Option Solutions Logicielles et Applications Métiers.
+            </p>
+        </div>
+
+        <div class="container bts-container">
+            <span style="color: red; font-weight: bold;">L'option Solutions d'Infrastructure, Systèmes et Réseaux (SISR):</span><br><br> 
+            L'option Solutions d'Infrastructure, Systèmes et Réseaux du BTS SIO est principalement axée sur les systèmes et réseaux. 
+            Elle forme les étudiants à la conception, l'installation, l'administration et la sécurisation des infrastructures informatiques. 
+            Cette spécialisation se concentre sur la gestion des réseaux et des systèmes, en couvrant à la fois les aspects matériels et logiciels. 
+            Les étudiants y apprennent à configurer des serveurs, à maintenir la sécurité des systèmes et à assurer la disponibilité des ressources réseau.<br><br>
+        </div>
+
+        <div class="container bts-container">
+            <span style="color: rgb(251, 255, 0); font-weight: bold;">L'option Solutions Logicielles et Applications Métiers (SLAM):</span><br><br> 
+            L'option Solutions Logicielles et Applications Métiers (SLAM) du BTS SIO est centrée sur la création, 
+            le développement et la gestion d'applications, de logiciels et de bases de données. 
+            Elle forme les étudiants aux fondamentaux du développement web et logiciel.
+            Les étudiants y découvrent plusieurs langages de programmation, tels que Java, Python et PHP.
+        </div>
+    </section>
+
+    <section id="projets" class="section">
+        <div class="container">
+            <h2>Projets</h2>
+            <div class="projet-liste">
+                <!-- Projet 1 -->
+                <div class="projet">
+                    <h3>Projet 1 : Conception de solution technique</h3>
+                    <p>Dans ce projet, une société fictive appelée "Spoon" avait une infrastructure informatique obsolète. 
+                    Nous avions pour mission de proposer diverses solutions techniques pour moderniser cette infrastructure tout en recherchant le meilleur rapport qualité/prix.</p>
+                </div>
+                <!-- Projet 2 -->
+                <div class="projet">
+                    <h3>Projet 2 : Mise en place de services informatiques avec VirtualBox</h3>
+                    <p>Dans ce second projet, toujours pour la société fictive "Spoon", nous devions mettre en place divers services à l'aide de machines virtuelles (VM) :</p>
+                    <ul>
+                        <li>Une VM Linux (Ubuntu/Debian) pour le serveur de messagerie (Postfix), le cloud local (Nextcloud) et le système de sauvegarde (Deja-dup).</li>
+                        <li>Une VM pfSense pour le serveur DHCP et le portail captif.</li>
+                        <li>Une VM TrueNAS pour le serveur fichier.</li>
+                        <li>Une VM Windows Server pour configurer un Active Directory.</li>
+                        <li>Une VM Windows 10 pour tester l'Active Directory, configurer le pare-feu pfSense sur l'interface web, et configurer les connexions à distance (RDP).</li>
+                    </ul>
+                    <p>Pour en savoir plus, vous pouvez accéder à la <a href="documentation.html" class="btn">documentation </a>du projet.</p>
+                </div>
+                <div class="projet">
+                    <h3>Projet 3 : Mise n place de services informatiques sur un serveur avec Proxmox</h3>
+                    <p>Dans ce troisième projet nous devions dans un premier temps installer proxmox sur un Serveur
+                       puis dans un deuxième temps y installer 3 VM:</p>
+                       <li>Une VM pfSense pour configurer un pare feu et le serveur dhcp de notre réseau</li>
+                       <li>Une VM Windows Server pour configurer un Active Directory.</li>
+                       <li>Une VM Windows 10 pour tester l'Active Directory et configurer le pare-feu pfSense sur l'interface web</li><br>
+                        <p> ce projet ressemble au prècedent mais il est plus poussé puisque cette fois ci on installe les vm directement sur un serveur</p>
+                       
+
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="stages" class="section">
+        <div class="container">
+            <h2>Stages</h2>
+            <div class="stage-liste">
+                <div class="stage">
+                    <h3>Stage de première année : Configuration Téléphonie IP - Resintel, Lempdes</h3>
+                    <p>Durée : 8 semaines</p>
+                    <p> - Mise en place/remplacement/paramétrage téléphonie <br>
+                        - Paramétrage P.T.I <br>
+                        - Mise à jour/correction des problème appel malade <br>
+                        - Script Visual basic pour récupérer les adresses MAC des cartes réseau pour le filtrage MAC <br>
+                        - Dépannage digicode <br>
+                    </p>
+                </div>
+                <div class="stage">
+                    <h3>Stage de deuxième année : A venir</h3>
+                    <p>Durée : 7 semaines</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="compétences" class="section">
+        <div class="container">
+            <h2>Compétences</h2>
+            <ul class="compétences-list">
+                <li>Langages : Python, PowerShell, Bash</li>
+                <li>Systèmes : Windows 10, Windows Server 2016, Linux (Debian/Ubuntu)</li>
+                <li>Web : HTML, CSS, PHP, MySQL</li>
+                <li>Serveur : Active Directory</li>
+                <li>Réseaux : IPv4, Routeurs et Commutateurs</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="veille" class="section">
+        <div class="container">
+            <h2>Veille Informatique</h2>
+            <p>.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact</h2>
+            <p>Vous pouvez me contacter par mail à l'adresse suivante : <a href="mailto:grosmannmatheo@gmail.com" class="btn">grosmannmatheo@gmail.com</a><br>
+                Lien vers mon LinkedIn : <a href="https://www.linkedin.com/in/math%C3%A9o-grosmann-137874280"class="btn">Mathéo Grosmann</a>
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Matheo Grosmann - Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>
