@@ -98,3 +98,112 @@ a:visited {
 .content {
     padding-top: 120px; /* Ajuster la hauteur en fonction de la taille du header */
 }
+
+/* Pour les écrans plus petits que 768px, comme les smartphones en orientation portrait */
+@media only screen and (max-width: 768px) {
+    body {
+        margin-left: 0; /* Supprimer la marge gauche sur les petits écrans */
+        padding: 0 20px; /* Ajouter un peu de padding pour éviter que le contenu touche les bords de l'écran */
+        background-size: cover; /* Conserver le fond d'écran en couverture */
+    }
+
+    /* Adapter la taille de la police et l'espacement */
+    a {
+        font-size: 14px; /* Réduire la taille de la police pour les boutons */
+        padding: 8px 15px; /* Réduire les espaces pour les boutons */
+    }
+
+    /* Ajuster les boutons dans le header */
+    .header a {
+        font-size: 14px; /* Réduire la taille des boutons du header */
+        padding: 8px 15px; /* Réduire les espaces pour les boutons du header */
+    }
+
+    /* Le header reste fixe, mais réduit la hauteur */
+    .header {
+        padding: 15px 0; /* Réduire le padding du header */
+        min-height: 80px; /* Réduire la hauteur minimale du header */
+    }
+
+    /* Ajuster l'espacement en haut du contenu pour correspondre à la nouvelle hauteur du header */
+    .content {
+        padding-top: 100px; /* Réduire l'espacement supérieur du contenu */
+    }
+}
+
+/* Pour les très petits écrans comme les smartphones en orientation paysage ou très petits appareils */
+@media only screen and (max-width: 480px) {
+    body {
+        padding: 0 10px; /* Ajouter un peu de padding pour les très petits écrans */
+    }
+
+    a {
+        font-size: 12px; /* Encore plus petit pour les boutons */
+        padding: 6px 10px; /* Réduire encore le padding */
+    }
+
+    .header a {
+        font-size: 12px; /* Adapter les boutons du header */
+        padding: 6px 10px; /* Réduire le padding des boutons du header */
+    }
+
+    .header {
+        padding: 10px 0; /* Réduire encore plus le padding du header */
+        min-height: 60px; /* Réduire la hauteur minimale du header */
+    }
+
+    .content {
+        padding-top: 80px; /* Ajuster l'espacement supérieur du contenu pour correspondre à la taille du header */
+    }
+}
+/* Pour les écrans plus petits que 768px, comme les smartphones en orientation portrait */
+@media only screen and (max-width: 768px) {
+    /* Header devient flexbox avec alignement vertical */
+    .header .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centre les liens sur l'axe horizontal */
+    }
+
+    /* Espacement entre les liens du header */
+    .header a {
+        margin: 10px 0; /* Ajoute un espace vertical entre chaque lien */
+        width: 80%; /* Les liens occupent 80% de la largeur de l'écran */
+        text-align: center; /* Centre le texte dans les liens */
+    }
+
+    /* Autres règles pour adapter la taille du header, taille de la police, etc. */
+    .header {
+        padding: 15px 0; /* Réduire le padding du header */
+        min-height: 80px; /* Réduire la hauteur minimale du header */
+    }
+
+    .content {
+        padding-top: 100px; /* Ajuster l'espacement supérieur du contenu */
+    }
+}
+
+/* Pour les très petits écrans comme les smartphones en orientation paysage ou très petits appareils */
+@media only screen and (max-width: 480px) {
+    /* Le header reste en flexbox avec alignement vertical */
+    .header .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Espacement plus important entre les liens */
+    .header a {
+        margin: 15px 0; /* Ajoute encore plus d'espace entre chaque lien */
+        width: 90%; /* Les liens occupent 90% de la largeur de l'écran */
+    }
+
+    .header {
+        padding: 10px 0;
+        min-height: 60px;
+    }
+
+    .content {
+        padding-top: 80px;
+    }
+}
