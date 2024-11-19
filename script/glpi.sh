@@ -30,11 +30,10 @@ sudo bash -c 'cat <<EOT > /etc/apache2/sites-available/glpi.conf
 EOT'
 sudo a2ensite glpi.conf
 sudo systemctl restart apache2
-#___________________________________________________________________
-
 wget https://github.com/glpi-project/glpi-agent/releases/download/1.11/glpi-agent-1.11-linux-installer.pl
 chmod +x glpi-agent-1.11-linux-installer.pl
 sudo ./glpi-agent-1.11-linux-installer.pl
-sudo bash -c 'echo "server = http://192.168.1.XXX/glpi/front/inventory.php" > /etc/glpi-agent/glpi-agent.conf'
+IP_ADDRESS=$(hostname -I | awk '{print $1}')
+sudo bash -c "echo 'server = http://$IP_ADDRESS/glpi/front/inventory.php' > /etc/glpi-agent/glpi-agent.conf"
 sudo systemctl start glpi-agent
 sudo systemctl enable glpi-agent
