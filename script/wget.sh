@@ -1,18 +1,18 @@
 #!/bin/bash
-wget http://sio.jbdelasalle.com/~mgrosmann/caca.sh
-wget http://sio.jbdelasalle.com/~mgrosmann/docker.sh
-wget http://sio.jbdelasalle.com/~mgrosmann/edit.sh
-wget http://sio.jbdelasalle.com/~mgrosmann/flemme.sh
-wget http://sio.jbdelasalle.com/~mgrosmann/fvcknextcloud.sh
-wget http://sio.jbdelasalle.com/~mgrosmann/glpi.sh
-wget http://sio.jbdelasalle.com/~mgrosmann/nextcloud.sh
-wget http://sio.jbdelasalle.com/~mgrosmann/nikphp.sh
-wget http://sio.jbdelasalle.com/~mgrosmann/promotheus.sh
-wget http://sio.jbdelasalle.com/~mgrosmann/rsync.sh
-wget http://sio.jbdelasalle.com/~mgrosmann/setup.sh
-wget http://sio.jbdelasalle.com/~mgrosmann/test.sh
-wget http://sio.jbdelasalle.com/~mgrosmann/uninstall.sh
-wget http://sio.jbdelasalle.com/~mgrosmann/update_php_8.1.sh
+wget https://mgrosmann.vercel.app/script/caca.sh
+wget https://mgrosmann.vercel.app/script/docker.sh
+wget https://mgrosmann.vercel.app/script/edit.sh
+wget https://mgrosmann.vercel.app/script/flemme.sh
+wget https://mgrosmann.vercel.app/script/fvcknextcloud.sh
+wget https://mgrosmann.vercel.app/script/glpi.sh
+wget https://mgrosmann.vercel.app/script/nextcloud.sh
+wget https://mgrosmann.vercel.app/script/nikphp.sh
+wget https://mgrosmann.vercel.app/script/promotheus.sh
+wget https://mgrosmann.vercel.app/script/rsync.sh
+wget https://mgrosmann.vercel.app/script/setup.sh
+wget https://mgrosmann.vercel.app/script/test.sh
+wget https://mgrosmann.vercel.app/script/uninstall.sh
+wget https://mgrosmann.vercel.app/script/update_php_8.1.sh
 chmod +x caca.sh
 chmod +x docker.sh
 chmod +x edit.sh
