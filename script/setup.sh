@@ -8,6 +8,7 @@ wget https://mgrosmann.vercel.app/script/glpi.sh
 wget https://mgrosmann.vercel.app/script/nextcloud.sh
 wget https://mgrosmann.vercel.app/script/nikphp.sh
 wget https://mgrosmann.vercel.app/script/promotheus.sh
+wget https://mgrosmann.vercel.app/script/remove.sh
 wget https://mgrosmann.vercel.app/script/rsync.sh
 wget https://mgrosmann.vercel.app/script/test.sh
 wget https://mgrosmann.vercel.app/script/uninstall.sh
@@ -21,6 +22,7 @@ chmod +x glpi.sh
 chmod +x nextcloud.sh
 chmod +x nikphp.sh
 chmod +x promotheus.sh
+chmod +x remove.sh
 chmod +x rsync.sh
 chmod +x test.sh
 chmod +x uninstall.sh
