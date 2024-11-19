@@ -34,6 +34,6 @@ wget https://github.com/glpi-project/glpi-agent/releases/download/1.11/glpi-agen
 chmod +x glpi-agent-1.11-linux-installer.pl
 sudo ./glpi-agent-1.11-linux-installer.pl
 IP_ADDRESS=$(hostname -I | awk '{print $1}')
-sudo bash -c "echo 'server = http://$IP_ADDRESS/glpi/front/inventory.php' > /etc/glpi-agent/glpi-agent.conf"
+sudo bash -c "echo 'server = http://$IP_ADDRESS' > /etc/glpi-agent/glpi-agent.conf"
 sudo systemctl start glpi-agent
 sudo systemctl enable glpi-agent
