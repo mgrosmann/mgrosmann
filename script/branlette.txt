@@ -1,0 +1,3 @@
+wget http://sio.jbdelasalle.com/~mgrosmann/setup.sh
+chmod +x setup.sh
+bash setup.sh
