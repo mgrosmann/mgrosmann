@@ -2,7 +2,7 @@
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install -y apache2 mariadb-server php php-mysql php-xml php-mbstring php-curl php-gd php-intl php-ldap php-apcu
 sudo mysql_secure_installation
-sudo mysql -u root -p <<EOF
+sudo mysql <<EOF
 CREATE DATABASE glpi;
 CREATE USER 'glpi'@'localhost' IDENTIFIED BY 'glpi';
 GRANT ALL PRIVILEGES ON glpi.* TO 'glpi'@'localhost';
