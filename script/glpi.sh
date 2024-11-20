@@ -1,7 +1,10 @@
 #!/bin/bash
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install -y apache2 mariadb-server php php-mysql php-xml php-mbstring php-curl php-gd php-intl php-ldap php-apcu
+
+# Automatiser mysql_secure_installation
 sudo mysql_secure_installation <<EOF
+
 n
 n
 n
@@ -9,6 +12,7 @@ n
 y
 y
 EOF
+
 sudo mysql <<EOF
 CREATE DATABASE glpi;
 CREATE USER 'glpi'@'localhost' IDENTIFIED BY 'glpi';
@@ -16,6 +20,7 @@ GRANT ALL PRIVILEGES ON glpi.* TO 'glpi'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
 EOF
+
 wget https://github.com/glpi-project/glpi/releases/download/10.0.17/glpi-10.0.17.tgz
 tar -xvzf glpi-10.0.17.tgz
 sudo mv glpi /var/www/html/
@@ -40,9 +45,15 @@ sudo systemctl restart apache2
 
 wget https://github.com/glpi-project/glpi-agent/releases/download/1.11/glpi-agent-1.11-linux-installer.pl
 chmod +x glpi-agent-1.11-linux-installer.pl
-sudo ./glpi-agent-1.11-linux-installer.pl
-
 IP_ADDRESS=$(hostname -I | awk '{print $1}')
+# Automatiser la configuration de l'URL du serveur GLPI
+expect <<EOF
+spawn sudo ./glpi-agent-1.11-linux-installer.pl
+expect "Please provide the GLPI server URL*" { send "http://$IP_ADDRESS\r" }
+expect "Press Enter to configure the local install path*" { send "\r" }
+expect "Press Enter to configure the tag*" { send "\r" }
+expect eof
+EOF
 sudo bash -c "echo 'server = http://$IP_ADDRESS' > /etc/glpi-agent/glpi-agent.conf"
 sudo systemctl start glpi-agent
 sudo systemctl enable glpi-agent
