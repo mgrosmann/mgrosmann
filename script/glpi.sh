@@ -27,7 +27,7 @@ sudo mv glpi /var/www/html/
 sudo chown -R www-data:www-data /var/www/html/glpi
 sudo chmod -R 755 /var/www/html/glpi
 IP_ADDRESS=$(hostname -I | awk '{print $1}')
-echo "Votre adresse IP est $IP_ADDRESS"
+echo -e "\e[31mVotre adresse IP est $IP_ADDRESS\e[0m"
 sudo bash -c 'cat <<EOT > /etc/apache2/sites-available/glpi.conf
 <VirtualHost *:80>
     ServerAdmin admin@example.com
