@@ -1,3 +1,11 @@
+Pour Ubuntu server=
+
+wget https://mgrosmann.vercel.app/script/setup.sh
+chmod +x setup.sh
+bash setup.sh
+
+Pour Debian=
+
 wget https://mgrosmann.vercel.app/script/setup.sh
 chmod +x setup.sh
 bash setup.sh
