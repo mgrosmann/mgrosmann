@@ -1,6 +1,5 @@
 #!/bin/bash
 wget https://mgrosmann.vercel.app/script/caca.sh
-wget https://mgrosmann.vercel.app/script/deb_docker.sh
 wget https://mgrosmann.vercel.app/script/docker.sh
 wget https://mgrosmann.vercel.app/script/edit.sh
 wget https://mgrosmann.vercel.app/script/flemme.sh
@@ -16,7 +15,6 @@ wget https://mgrosmann.vercel.app/script/uninstall.sh
 wget https://mgrosmann.vercel.app/script/update_php_8.1.sh
 chmod +x caca.sh
 chmod +x docker.sh
-chmod +x deb_docker.sh
 chmod +x edit.sh
 chmod +x flemme.sh
 chmod +x fvcknextcloud.sh
@@ -30,7 +28,6 @@ chmod +x test.sh
 chmod +x uninstall.sh
 chmod +x update_php_8.1.sh
 bash docker.sh
-bash deb_docker.sh
 bash glpi.sh
 bash promotheus.sh
 bash edit.sh nextcloud.sh nc.sh
