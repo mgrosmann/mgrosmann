@@ -32,7 +32,7 @@ sudo bash -c 'cat <<EOT > /etc/apache2/sites-available/glpi.conf
 <VirtualHost *:80>
     ServerAdmin admin@example.com
     DocumentRoot /var/www/html/glpi
-    ServerName $IP_ADDRESS
+    ServerName '$IP_ADDRESS'
     <Directory /var/www/html/glpi>
         Options FollowSymLinks
         AllowOverride All
