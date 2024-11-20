@@ -1,9 +1,9 @@
 #!/bin/bash
-wget https://mgrosmann.vercel.app/script/docker.sh
-wget https://mgrosmann.vercel.app/script/edit.sh
-wget https://mgrosmann.vercel.app/script/glpi.sh
-wget https://mgrosmann.vercel.app/script/nextcloud.sh
-wget https://mgrosmann.vercel.app/script/promotheus.sh
+wget https://mgrosmann.vercel.app/script/parrot/docker.sh
+wget https://mgrosmann.vercel.app/script/parrot/edit.sh
+wget https://mgrosmann.vercel.app/script/parrot/glpi.sh
+wget https://mgrosmann.vercel.app/script/parrot/nextcloud.sh
+wget https://mgrosmann.vercel.app/script/parrot/promotheus.sh
 wget https://mgrosmann.vercel.app/script/remove.sh
 chmod +x docker.sh
 chmod +x edit.sh
