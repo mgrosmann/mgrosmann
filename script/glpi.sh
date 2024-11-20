@@ -1,7 +1,14 @@
 #!/bin/bash
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install -y apache2 mariadb-server php php-mysql php-xml php-mbstring php-curl php-gd php-intl php-ldap php-apcu
-sudo mysql_secure_installation
+sudo mysql_secure_installation <<EOF
+n
+n
+n
+n
+y
+y
+EOF
 sudo mysql <<EOF
 CREATE DATABASE glpi;
 CREATE USER 'glpi'@'localhost' IDENTIFIED BY 'glpi';
@@ -30,9 +37,11 @@ sudo bash -c 'cat <<EOT > /etc/apache2/sites-available/glpi.conf
 EOT'
 sudo a2ensite glpi.conf
 sudo systemctl restart apache2
+
 wget https://github.com/glpi-project/glpi-agent/releases/download/1.11/glpi-agent-1.11-linux-installer.pl
 chmod +x glpi-agent-1.11-linux-installer.pl
 sudo ./glpi-agent-1.11-linux-installer.pl
+
 IP_ADDRESS=$(hostname -I | awk '{print $1}')
 sudo bash -c "echo 'server = http://$IP_ADDRESS' > /etc/glpi-agent/glpi-agent.conf"
 sudo systemctl start glpi-agent
