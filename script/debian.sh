@@ -14,6 +14,5 @@ chmod +x remove.sh
 apt install sudo
 bash deb_docker.sh
 bash glpi.sh
-bash agent-glpi.sh
 bash promotheus.sh
 bash nextcloud.sh
