@@ -46,14 +46,7 @@ sudo systemctl restart apache2
 wget https://github.com/glpi-project/glpi-agent/releases/download/1.11/glpi-agent-1.11-linux-installer.pl
 chmod +x glpi-agent-1.11-linux-installer.pl
 IP_ADDRESS=$(hostname -I | awk '{print $1}')
-# Automatiser la configuration de l'URL du serveur GLPI
-expect <<EOF
-spawn sudo ./glpi-agent-1.11-linux-installer.pl
-expect "Please provide the GLPI server URL*" { send "http://$IP_ADDRESS\r" }
-expect "Press Enter to configure the local install path*" { send "\r" }
-expect "Press Enter to configure the tag*" { send "\r" }
-expect eof
-EOF
+bash glpi-agent-1.11-linux-installer.pl
 sudo bash -c "echo 'server = http://$IP_ADDRESS' > /etc/glpi-agent/glpi-agent.conf"
 sudo systemctl start glpi-agent
 sudo systemctl enable glpi-agent
