@@ -9,6 +9,7 @@ chmod +x glpi.sh
 chmod +x nextcloud.sh
 chmod +x promotheus.sh
 chmod +x remove.sh
+apt install sudo
 bash docker.sh
 bash glpi.sh
 bash promotheus.sh
