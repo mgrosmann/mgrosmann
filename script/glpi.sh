@@ -1,6 +1,6 @@
 #!/bin/bash
-apt-get update && sudo apt-get upgrade -y
- apt-get install -y apache2 mariadb-server php php-mysql php-xml php-mbstring php-curl php-gd php-intl php-ldap php-apcu
+apt-get update && apt-get upgrade -y
+apt-get install -y apache2 mariadb-server php php-mysql php-xml php-mbstring php-curl php-gd php-intl php-ldap php-apcu
 mysql_secure_installation <<EOF
 n
 n
