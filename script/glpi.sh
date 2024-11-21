@@ -23,5 +23,4 @@ tar -xvzf glpi-10.0.17.tgz
 mv glpi /var/www/html/
 chown -R www-data:www-data /var/www/html/glpi
 chmod -R 755 /var/www/html/glpi
-a2ensite glpi.conf
 systemctl restart apache2
