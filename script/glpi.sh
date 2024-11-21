@@ -23,20 +23,5 @@ tar -xvzf glpi-10.0.17.tgz
 mv glpi /var/www/html/
 chown -R www-data:www-data /var/www/html/glpi
 chmod -R 755 /var/www/html/glpi
-bash -c 'cat <<EOT > /etc/apache2/sites-available/glpi.conf
-<VirtualHost *:80>
-    ServerAdmin admin@example.com
-    DocumentRoot /var/www/html/glpi
-    ServerName 192.168.1.78
-    <Directory /var/www/html/glpi>
-        Options FollowSymLinks
-        AllowOverride All
-        Require all granted
-    </Directory>
-    ErrorLog \${APACHE_LOG_DIR}/glpi_error.log
-    CustomLog \${APACHE_LOG_DIR}/glpi_access.log combined
-</VirtualHost>
-EOT'
-sudo a2ensite glpi.conf
-sudo systemctl restart apache2
-#___________________________________________________________________
+a2ensite glpi.conf
+systemctl restart apache2
