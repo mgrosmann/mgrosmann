@@ -1,4 +1,5 @@
-wget https://github.com/glpi-project/glpi-agent/releases/download/1.11/glpi-agent-1.11-with-snap-linux-installer.pl
-chmod +x glpi-agent-1.11-with-snap-linux-installer.pl
-./glpi-agent-1.11-with-snap-linux-installer.pl
+#!/bin/bash
+apt install perl
+wget https://github.com/glpi-project/glpi-agent/releases/download/1.7.1/glpi-agent-1.7.1-linux-installer.pl
+perl glpi-agent-1.7.1-linux-installer.pl -s http://192.168.1.207/front/inventory.php --runnow --install
 systemctl enable glpi-agent
