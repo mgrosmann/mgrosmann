@@ -16,8 +16,6 @@ GRANT ALL PRIVILEGES ON glpi.* TO 'glpi'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
 EOF
-IP_ADDRESS=$(hostname -I | awk '{print $1}')
-echo -e "\e[31mVotre adresse IP est $IP_ADDRESS\e[0m"
 wget https://github.com/glpi-project/glpi/releases/download/10.0.17/glpi-10.0.17.tgz
 tar -xvzf glpi-10.0.17.tgz
 mv glpi /var/www/html/
