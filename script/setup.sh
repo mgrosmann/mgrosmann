@@ -12,6 +12,5 @@ chmod +x nextcloud.sh
 chmod +x promotheus.sh
 chmod +x remove.sh
 bash docker.sh
-bash glpi.sh
 bash promotheus.sh
 bash nextcloud.sh
