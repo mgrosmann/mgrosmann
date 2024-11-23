@@ -1,6 +1,6 @@
 #!/bin/bash
-ALLOWED_IP="192.168.1.80" 
-mkdir /etc/iptables
+ALLOWED_IP="192.168.1.78"
+mkdir -p /etc/iptables
 touch /etc/iptables/rules.v4
 iptables -F
 iptables -X
@@ -16,5 +16,5 @@ sed -i '/^PermitRootLogin/s/yes/no/' /etc/ssh/sshd_config
 sed -i '/^#PasswordAuthentication/s/^#//' /etc/ssh/sshd_config
 sed -i '/^PasswordAuthentication/s/yes/no/' /etc/ssh/sshd_config
 echo "AllowUsers utilisateur@$ALLOWED_IP" >> /etc/ssh/sshd_config
-systemctl restart ssh
-echo "La configuration de la machine en DMZ  a été effectuée avec succès."
+sudo systemctl restart ssh
+echo "La configuration de la machine en DMZ a été effectuée avec succès."
