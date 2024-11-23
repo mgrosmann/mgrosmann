@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variables
-EMAIL="votre_email@example.com"
+EMAIL="grosmann14889@lasalle63.fr"
 SUBJECT="Rapport de tests de virtualisation"
 REPORT_FILE="/tmp/virtualization_report.txt"
 
