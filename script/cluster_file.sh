@@ -1,13 +1,25 @@
 #!/bin/bash
+
+# Variables
+EMAIL="grosmann14889@lasalle63.fr"
+SUBJECT="Alerte GlusterFS"
 NODES=("192.168.1.101" "192.168.1.102" "192.168.1.103") # Remplacez par les adresses IP de vos nœuds
 USER="ubuntu"
 VOLUME_NAME="data_volume"
 MOUNT_POINT="/mnt/glusterfs"
+REPORT_FILE="/tmp/glusterfs_report.txt"
+
+# Vérification de l'existence des disques
+check_disks() {
+    for NODE in "${NODES[@]}"; do
+        ssh "$USER@$NODE" "df -h | grep -q '$MOUNT_POINT' || { echo 'Volume non monté sur $NODE'; exit 1; }"
+    done
+}
 
 # Installer GlusterFS sur tous les nœuds
 install_glusterfs() {
     for NODE in "${NODES[@]}"; do
-        ssh "$USER@$NODE" "sudo apt update && sudo apt install -y glusterfs-server"
+        ssh "$USER@$NODE" "dpkg -l | grep glusterfs-server || sudo apt update && sudo apt install -y glusterfs-server"
         ssh "$USER@$NODE" "sudo systemctl start glusterd && sudo systemctl enable glusterd"
     done
 }
@@ -17,6 +29,11 @@ setup_glusterfs_cluster() {
     # Ajouter les nœuds au cluster
     for NODE in "${NODES[@]:1}"; do
         ssh "$USER@${NODES[0]}" "sudo gluster peer probe $NODE"
+    done
+
+    # Créer les répertoires de brick
+    for NODE in "${NODES[@]}"; do
+        ssh "$USER@$NODE" "sudo mkdir -p /data/brick1"
     done
 
     # Créer un volume GlusterFS
@@ -33,8 +50,13 @@ mount_glusterfs_volume() {
 }
 
 # Main
+echo "=== Début de la configuration GlusterFS ===" > $REPORT_FILE
 install_glusterfs
 setup_glusterfs_cluster
 mount_glusterfs_volume
+check_disks
+echo "=== Cluster GlusterFS configuré avec succès. ===" >> $REPORT_FILE
 
-echo "Cluster GlusterFS configuré avec succès."
+# Envoi du rapport par email
+echo "Envoi du rapport par email à $EMAIL..."
+mail -s "$SUBJECT" $EMAIL < $REPORT_FILE
