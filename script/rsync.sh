@@ -18,3 +18,4 @@ chmod +x save.sh
 chmod +x backup.sh
 bash mysql.sh
 bash mysql_dump.sh
+echo "installation finalisée, n'oubliez pas de modifier les fichiers save.sh et backup.sh afin de définir l'adresse ip et le user de la machine distante qui servira a stocker les sauvegarde et les restaurer"
