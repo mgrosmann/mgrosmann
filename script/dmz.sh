@@ -16,5 +16,5 @@ sed -i '/^PermitRootLogin/s/yes/no/' /etc/ssh/sshd_config
 sed -i '/^#PasswordAuthentication/s/^#//' /etc/ssh/sshd_config
 sed -i '/^PasswordAuthentication/s/yes/no/' /etc/ssh/sshd_config
 echo "AllowUsers utilisateur@$ALLOWED_IP" >> /etc/ssh/sshd_config
-systemctl restart sshd
+systemctl restart ssh
 echo "La configuration de la machine en DMZ  a été effectuée avec succès."
