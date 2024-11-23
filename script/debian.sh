@@ -17,5 +17,3 @@ apt install sudo
 bash deb_docker.sh
 bash promotheus.sh
 bash nextcloud.sh
-bash mysql.sh
-bash save_db.sh
