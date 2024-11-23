@@ -6,8 +6,8 @@ SUBJECT="Rapport de tests de virtualisation"
 REPORT_FILE="/tmp/virtualization_report.txt"
 API_KEY="d93122a21dde577e1672d0bd94fe2f0a"
 API_SECRET="4621386e806cbb838353ae50e77ecfd6"
-FROM_EMAIL="anonyme@example.com"
-FROM_NAME="grosmann14889@lasalle63.fr"
+FROM_EMAIL="grosmannmatheo@gmail.com"
+FROM_NAME="Le spécialiste des vm"
 
 # Créer un rapport fictif
 echo "=== Rapport de tests de virtualisation ===" > $REPORT_FILE
