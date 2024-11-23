@@ -1,5 +1,7 @@
 #!/bin/bash
-ALLOWED_IP="192.168.1.80"
+ALLOWED_IP="192.168.1.80" 
+mkdir /etc/iptables
+touch /etc/iptables/rules.v4
 iptables -F
 iptables -X
 iptables -A INPUT -p tcp --dport 22 -s $ALLOWED_IP -j ACCEPT
