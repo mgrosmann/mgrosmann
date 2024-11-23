@@ -1,8 +1,7 @@
 #!/bin/bash
-
-# Nom de l'interface réseau (remplacez par le nom de votre interface, par exemple eth0 ou ens33)
-INTERFACE="eth0"
-
+INTERFACE="enp0s3"
+sudo apt update
+sudo apt install isc-dhcp-client
 # Libérer l'ancienne adresse IP
 sudo dhclient -r $INTERFACE
 
