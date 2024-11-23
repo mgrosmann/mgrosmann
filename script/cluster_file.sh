@@ -1,6 +1,4 @@
 #!/bin/bash
-
-# Variables
 NODES=("192.168.1.101" "192.168.1.102" "192.168.1.103") # Remplacez par les adresses IP de vos nœuds
 USER="ubuntu"
 VOLUME_NAME="data_volume"
