@@ -4,7 +4,7 @@
 INTERFACE="enp0s3"
 
 # Créer le fichier de configuration Netplan
-sudo bash -c "cat > /etc/netplan/01-netcfg.yaml" <<EOF
+sudo bash -c "cat > /etc/netplan/50-netcfg.yaml" <<EOF
 network:
   version: 2
   ethernets:
