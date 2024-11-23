@@ -38,27 +38,3 @@ curl -s --user "$API_KEY:$API_SECRET" \
   }'
 
 echo "Rapport envoyé via Mailjet."
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
