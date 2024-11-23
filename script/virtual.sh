@@ -68,7 +68,7 @@ test_dynamic_disk_resizing() {
 # Fonction pour envoyer le rapport par email
 send_report() {
     echo "Envoi du rapport par email à $EMAIL..."
-    mail -s "$SUBJECT" $EMAIL < $REPORT_FILE
+    cat $REPORT_FILE | msmtp --subject="$SUBJECT" $EMAIL
     echo "Rapport envoyé."
 }
 
