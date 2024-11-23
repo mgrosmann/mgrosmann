@@ -1,9 +1,13 @@
 #!/bin/bash
 
 # Variables
-EMAIL="grosmann14889@lasalle63.fr"
-SUBJECT="Rapport de tests de virtualisation"
-REPORT_FILE="/tmp/virtualization_report.txt"
+EMAIL="grosmann14889@lasalle63.fr"               # Adresse email du destinataire
+SUBJECT="Rapport de tests de virtualisation"    # Objet de l'email
+REPORT_FILE="/tmp/virtualization_report.txt"    # Emplacement du fichier de rapport
+API_KEY="d93122a21dde577e1672d0bd94fe2f0a"      # Clé API de Mailjet
+API_SECRET="4621386e806cbb838353ae50e77ecfd6"   # Secret API de Mailjet
+FROM_EMAIL="grosmannmatheo@gmail.com"                # Adresse email de l'expéditeur (doit être validée dans Mailjet)
+FROM_NAME="Rapport Virtualisation"              # Nom affiché comme expéditeur
 
 # Fonction pour comparer les logiciels de virtualisation
 compare_virtualization_software() {
@@ -29,55 +33,53 @@ compare_costs() {
 performance_test() {
     echo "=== Test de performance : utilisation du CPU et de la mémoire ===" >> $REPORT_FILE
     echo "Test sur Oracle VM VirtualBox..." >> $REPORT_FILE
-    # Exemple avec stress-ng pour tester la consommation CPU
     stress-ng --cpu 4 --timeout 30s
     echo "Test sur VMware ESXi..." >> $REPORT_FILE
-    # Exécutez un test de performance similaire sur VMware (par exemple avec sysbench)
-    sysbench --test=cpu --cpu-max-prime=20000 run
+    sysbench --test=cpu --cpu-max-prime=20000 run >> $REPORT_FILE
     echo "Test sur Proxmox VE..." >> $REPORT_FILE
-    sysbench --test=cpu --cpu-max-prime=20000 run
+    sysbench --test=cpu --cpu-max-prime=20000 run >> $REPORT_FILE
     echo "Test sur Hyper-V..." >> $REPORT_FILE
-    sysbench --test=cpu --cpu-max-prime=20000 run
+    sysbench --test=cpu --cpu-max-prime=20000 run >> $REPORT_FILE
     echo "" >> $REPORT_FILE
 }
 
-# Fonction pour tester la convertibilité des machines virtuelles
-test_vm_convertibility() {
-    echo "=== Tests de convertibilité des machines virtuelles ===" >> $REPORT_FILE
-    echo "Test de conversion P2V avec VMware vCenter Converter..." >> $REPORT_FILE
-    # Commande d'exemple pour convertir une machine physique en machine virtuelle (P2V)
-    echo "Test de conversion V2V avec qemu-img..." >> $REPORT_FILE
-    # Exemple de conversion V2V (Virtual to Virtual) avec qemu-img
-    qemu-img convert -f vmdk -O qcow2 /path/to/source.vmdk /path/to/destination.qcow2
-    echo "Conversion V2V terminée." >> $REPORT_FILE
-    echo "" >> $REPORT_FILE
-}
-
-# Fonction pour tester le redimensionnement dynamique des disques
-test_dynamic_disk_resizing() {
-    echo "=== Tests de redimensionnement dynamique des disques ===" >> $REPORT_FILE
-    echo "Test de redimensionnement avec qemu-img..." >> $REPORT_FILE
-    original_size=$(qemu-img info /path/to/disk.img | grep "virtual size" | awk '{print $3}')
-    qemu-img resize /path/to/disk.img +10G
-    new_size=$(qemu-img info /path/to/disk.img | grep "virtual size" | awk '{print $3}')
-    echo "Taille originale: $original_size, Taille après redimensionnement: $new_size" >> $REPORT_FILE
-    echo "Redimensionnement terminé." >> $REPORT_FILE
-    echo "" >> $REPORT_FILE
-}
-
-# Fonction pour envoyer le rapport par email
+# Fonction pour envoyer le rapport par email via Mailjet API
 send_report() {
-    echo "Envoi du rapport par email à $EMAIL..."
-    cat $REPORT_FILE | msmtp --subject="$SUBJECT" $EMAIL
-    echo "Rapport envoyé."
+    echo "Envoi du rapport par email via Mailjet..."
+    curl -s --user "$API_KEY:$API_SECRET" \
+        https://api.mailjet.com/v3.1/send \
+        -H 'Content-Type: application/json' \
+        -d '{
+            "Messages":[
+              {
+                "From": {
+                  "Email": "'"$FROM_EMAIL"'",
+                  "Name": "'"$FROM_NAME"'"
+                },
+                "To": [
+                  {
+                    "Email": "'"$EMAIL"'",
+                    "Name": "Destinataire"
+                  }
+                ],
+                "Subject": "'"$SUBJECT"'",
+                "TextPart": "Voici le rapport des tests de virtualisation.",
+                "HTMLPart": "'"$(cat $REPORT_FILE | sed ':a;N;$!ba;s/\n/<br>/g')"'"
+              }
+            ]
+          }'
+
+    if [ $? -eq 0 ]; then
+        echo "Rapport envoyé avec succès via Mailjet."
+    else
+        echo "Erreur lors de l'envoi du rapport par Mailjet."
+    fi
 }
 
 # Main
 compare_virtualization_software
 compare_costs
 performance_test
-test_vm_convertibility
-test_dynamic_disk_resizing
 send_report
 
 echo "Script terminé avec succès."
