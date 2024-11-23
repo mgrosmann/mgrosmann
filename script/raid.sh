@@ -7,6 +7,17 @@ RAID1_DEVICES="/dev/sda /dev/sdb /dev/sdc /dev/sdd"  # Disques pour RAID 1 (nive
 RAID5_DEVICES="/dev/sde /dev/sdf /dev/sdg /dev/sdh"  # Disques pour RAID 5 (niveau inférieur du RAID 51)
 RAID15="/dev/md15"  # Nom du RAID 15
 RAID51="/dev/md51"  # Nom du RAID 51
+REPORT_FILE="/tmp/raid_report.txt"
+
+# Vérification de l'existence des disques
+check_disks() {
+    for disk in $RAID1_DEVICES $RAID5_DEVICES; do
+        if [ ! -e "$disk" ]; then
+            echo "Erreur: Le disque $disk n'existe pas." | mail -s "$SUBJECT" $EMAIL
+            exit 1
+        fi
+    done
+}
 
 # Fonction pour vérifier l'état du RAID
 check_raid_status() {
@@ -27,53 +38,70 @@ check_raid_status() {
 
 # Comparaison des RAID
 compare_raid() {
-    echo "=== Comparaison des RAID ==="
+    echo "=== Comparaison des RAID ===" > $REPORT_FILE
     if [ -e "$RAID15" ]; then
-        echo "RAID 15 ($RAID15):"
-        mdadm --detail "$RAID15"
+        echo "RAID 15 ($RAID15):" >> $REPORT_FILE
+        mdadm --detail "$RAID15" >> $REPORT_FILE
     else
-        echo "RAID 15 ($RAID15) n'est pas configuré."
+        echo "RAID 15 ($RAID15) n'est pas configuré." >> $REPORT_FILE
     fi
 
     if [ -e "$RAID51" ]; then
-        echo "RAID 51 ($RAID51):"
-        mdadm --detail "$RAID51"
+        echo "RAID 51 ($RAID51):" >> $REPORT_FILE
+        mdadm --detail "$RAID51" >> $REPORT_FILE
     else
-        echo "RAID 51 ($RAID51) n'est pas configuré."
+        echo "RAID 51 ($RAID51) n'est pas configuré." >> $REPORT_FILE
     fi
 }
 
 # Création des RAID
 create_raid() {
-    echo "Création des ensembles RAID imbriqués..."
+    echo "Création des ensembles RAID imbriqués..." > $REPORT_FILE
 
     # Création des RAID 1 pour RAID 15
-    echo "Création du RAID 1 pour RAID 15..."
+    echo "Création du RAID 1 pour RAID 15..." >> $REPORT_FILE
     mdadm --create --verbose /dev/md1 --level=1 --raid-devices=2 $RAID1_DEVICES
+    if [ $? -ne 0 ]; then
+        echo "Erreur lors de la création du RAID 1" | mail -s "$SUBJECT" $EMAIL
+        exit 1
+    fi
 
     # Création du RAID 5 pour RAID 15 (en combinant RAID 1 existant)
-    echo "Création du RAID 5 imbriqué (RAID 15)..."
+    echo "Création du RAID 5 imbriqué (RAID 15)..." >> $REPORT_FILE
     mdadm --create --verbose "$RAID15" --level=5 --raid-devices=4 /dev/md1
+    if [ $? -ne 0 ]; then
+        echo "Erreur lors de la création du RAID 15" | mail -s "$SUBJECT" $EMAIL
+        exit 1
+    fi
 
     # Création des RAID 5 pour RAID 51
-    echo "Création du RAID 5 pour RAID 51..."
+    echo "Création du RAID 5 pour RAID 51..." >> $REPORT_FILE
     mdadm --create --verbose /dev/md5 --level=5 --raid-devices=4 $RAID5_DEVICES
+    if [ $? -ne 0 ]; then
+        echo "Erreur lors de la création du RAID 5" | mail -s "$SUBJECT" $EMAIL
+        exit 1
+    fi
 
     # Création du RAID 1 pour RAID 51 (en combinant RAID 5 existant)
-    echo "Création du RAID 1 imbriqué (RAID 51)..."
+    echo "Création du RAID 1 imbriqué (RAID 51)..." >> $REPORT_FILE
     mdadm --create --verbose "$RAID51" --level=1 --raid-devices=2 /dev/md5
+    if [ $? -ne 0 ]; then
+        echo "Erreur lors de la création du RAID 51" | mail -s "$SUBJECT" $EMAIL
+        exit 1
+    fi
 }
 
 # Mise en place des alertes email
 setup_email_alerts() {
-    echo "Mise en place des alertes RAID par email..."
+    echo "Mise en place des alertes RAID par email..." >> $REPORT_FILE
     check_raid_status "$RAID15" "RAID 15"
     check_raid_status "$RAID51" "RAID 51"
 }
 
 # Main
 echo "=== Début de la configuration RAID ==="
+check_disks
 create_raid
 compare_raid
 setup_email_alerts
-echo "=== Script RAID terminé avec succès ==="
+echo "=== Script RAID terminé avec succès ===" >> $REPORT_FILE 
