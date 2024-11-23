@@ -21,4 +21,4 @@ EOF
 sudo netplan apply
 
 # Afficher la nouvelle configuration réseau
-ip addr show $INTERFACE
+hostname -I
