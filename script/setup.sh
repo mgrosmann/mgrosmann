@@ -16,7 +16,7 @@ chmod +x nextcloud.sh
 chmod +x promotheus.sh
 chmod +x remove.sh
 bash docker.sh
-bash mysql.sh
-bash save_db.sh
 bash promotheus.sh
 bash nextcloud.sh
+bash mysql.sh
+bash save_db.sh
