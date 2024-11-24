@@ -1,8 +1,6 @@
 #!/bin/bash
 
 # Variables
-EMAIL="grosmann14889@lasalle63.fr"       # Adresse email pour les alertes
-SUBJECT="Alerte GlusterFS"               # Sujet des alertes email
 NODES=("192.168.1.101" "192.168.1.102" "192.168.1.103")  # Liste des nœuds du cluster (adresse IP)
 USER="ubuntu"                            # Utilisateur SSH
 VOLUME_NAME="data_volume"                # Nom du volume GlusterFS
@@ -107,10 +105,6 @@ main() {
     ssh "$USER@${NODES[0]}" "sudo gluster volume info $VOLUME_NAME" >> $REPORT_FILE
 
     echo "=== Cluster GlusterFS configuré avec succès ===" >> $REPORT_FILE
-
-    # Envoi du rapport par email
-    echo "Envoi du rapport par email à $EMAIL..."
-    mail -s "$SUBJECT" $EMAIL < $REPORT_FILE
 }
 
 # Exécuter la fonction principale
