@@ -1,11 +1,4 @@
 #!/bin/bash
-
-# S'assurer que le script est exécuté avec les privilèges d'administrateur
-if [ "$(id -u)" -ne 0 ]; then
-  echo "Ce script doit être exécuté avec les privilèges d'administrateur." >&2
-  exit 1
-fi
-
 # Définir le fichier de rapport
 rapport="/tmp/rapport_comparaison_virtualisation.txt"
 echo "Rapport de Comparaison des Logiciels de Virtualisation - $(date)" > "$rapport"
