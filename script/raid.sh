@@ -14,8 +14,8 @@ check_disks() {
 
     # Recherche de tous les disques /dev/sdX (ajustez selon votre besoin)
     for disk in /dev/sd?; do
-        # Exclure les disques déjà utilisés pour RAID 1 ou RAID 5
-        if [[ ! " ${RAID1_DEVICES[@]} " =~ " ${disk} " ]] && [[ ! " ${RAID5_DEVICES[@]} " =~ " ${disk} " ]]; then
+        # Exclure les disques déjà utilisés pour RAID 1 ou RAID 5 et /dev/sda
+        if [[ ! " ${RAID1_DEVICES[@]} " =~ " ${disk} " ]] && [[ ! " ${RAID5_DEVICES[@]} " =~ " ${disk} " ]] && [[ "$disk" != "/dev/sda" ]]; then
             if [ ${#RAID1_DEVICES[@]} -lt 4 ]; then
                 RAID1_DEVICES+=("$disk")
             elif [ ${#RAID5_DEVICES[@]} -lt 4 ]; then
