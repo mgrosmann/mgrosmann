@@ -3,15 +3,29 @@
 # Variables
 EMAIL="grosmann14889@lasalle63.fr"
 SUBJECT="Alerte RAID"
-RAID1_DEVICES="/dev/sda /dev/sdb /dev/sdc /dev/sdd"  # Disques pour RAID 1 (niveau inférieur du RAID 15)
-RAID5_DEVICES="/dev/sde /dev/sdf /dev/sdg /dev/sdh"  # Disques pour RAID 5 (niveau inférieur du RAID 51)
 RAID15="/dev/md15"  # Nom du RAID 15
 RAID51="/dev/md51"  # Nom du RAID 51
 REPORT_FILE="/tmp/raid_report.txt"
 
 # Vérification de l'existence des disques
 check_disks() {
-    for disk in $RAID1_DEVICES $RAID5_DEVICES; do
+    RAID1_DEVICES=()
+    RAID5_DEVICES=()
+
+    # Recherche de tous les disques /dev/sdX (ajustez selon votre besoin)
+    for disk in /dev/sd?; do
+        # Exclure les disques déjà utilisés pour RAID 1 ou RAID 5
+        if [[ ! " ${RAID1_DEVICES[@]} " =~ " ${disk} " ]] && [[ ! " ${RAID5_DEVICES[@]} " =~ " ${disk} " ]]; then
+            if [ ${#RAID1_DEVICES[@]} -lt 4 ]; then
+                RAID1_DEVICES+=("$disk")
+            elif [ ${#RAID5_DEVICES[@]} -lt 4 ]; then
+                RAID5_DEVICES+=("$disk")
+            fi
+        fi
+    done
+
+    # Vérification de l'existence des disques
+    for disk in "${RAID1_DEVICES[@]}" "${RAID5_DEVICES[@]}"; do
         if [ ! -e "$disk" ]; then
             echo "Erreur: Le disque $disk n'existe pas." | mail -s "$SUBJECT" $EMAIL
             exit 1
@@ -60,7 +74,7 @@ create_raid() {
 
     # Création des RAID 1 pour RAID 15
     echo "Création du RAID 1 pour RAID 15..." >> $REPORT_FILE
-    mdadm --create --verbose /dev/md1 --level=1 --raid-devices=2 $RAID1_DEVICES
+    mdadm --create --verbose /dev/md1 --level=1 --raid-devices=2 "${RAID1_DEVICES[@]:0:2}"
     if [ $? -ne 0 ]; then
         echo "Erreur lors de la création du RAID 1" | mail -s "$SUBJECT" $EMAIL
         exit 1
@@ -76,7 +90,7 @@ create_raid() {
 
     # Création des RAID 5 pour RAID 51
     echo "Création du RAID 5 pour RAID 51..." >> $REPORT_FILE
-    mdadm --create --verbose /dev/md5 --level=5 --raid-devices=4 $RAID5_DEVICES
+    mdadm --create --verbose /dev/md5 --level=5 --raid-devices=4 "${RAID5_DEVICES[@]:0:4}"
     if [ $? -ne 0 ]; then
         echo "Erreur lors de la création du RAID 5" | mail -s "$SUBJECT" $EMAIL
         exit 1
@@ -104,4 +118,4 @@ check_disks
 create_raid
 compare_raid
 setup_email_alerts
-echo "=== Script RAID terminé avec succès ===" >> $REPORT_FILE 
+echo "=== Script RAID terminé avec succès ===" >> $REPORT_FILE
