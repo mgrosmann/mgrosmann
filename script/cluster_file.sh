@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Variables
-NODES=("192.168.1.101" "192.168.1.102" "192.168.1.103")  # Liste des nœuds du cluster (adresse IP)
-USER="ubuntu"                            # Utilisateur SSH
+NODES=("192.168.1.110" "192.168.1.111")  # Liste des nœuds du cluster (adresse IP)
+USER="mgrosmann"                            # Utilisateur SSH
 PASSWORD="password"                      # Mot de passe SSH pour toutes les machines
 VOLUME_NAME="data_volume"                # Nom du volume GlusterFS
 MOUNT_POINT="/mnt/glusterfs"             # Point de montage local
