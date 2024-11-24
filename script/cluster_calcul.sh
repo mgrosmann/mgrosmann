@@ -1,13 +1,12 @@
 #!/bin/bash
 
 # Variables
-EMAIL="grosmann14889@lasalle63.fr"
-SUBJECT="Alerte Cluster"
+
+PASSWORD="password"            # Mot de passe SSH
 RAID5_DEVICES="/dev/sda /dev/sdb /dev/sdc /dev/sdd /dev/sde /dev/sdf"
 RAID1_DEVICES="/dev/sdg /dev/sdh"
 NODES=("192.168.1.101" "192.168.1.102" "192.168.1.103")
-USER="ubuntu"
-SSH_KEY="$HOME/.ssh/id_rsa"
+USER="mgrosmann"
 MPI_HOSTFILE="/etc/mpi_hostfile"
 SERVICE_NAME="apache2"  # Exemple de service à exécuter (par défaut Apache)
 
@@ -17,20 +16,20 @@ check_service_status() {
     local service=$2
 
     echo "Vérification du service $service sur $node..."
-    ssh -i "$SSH_KEY" "$USER@$node" "systemctl is-active --quiet $service"
+    sshpass -p "$PASSWORD" ssh -o StrictHostKeyChecking=no "$USER@$node" "systemctl is-active --quiet $service"
     if [ $? -ne 0 ]; then
-        echo "$service n'est pas actif sur $node" | mail -s "$SUBJECT" $EMAIL
+        echo "$service n'est pas actif sur $node."
     else
         echo "$service est actif sur $node."
     fi
 }
 
-# Test de la connexion SSH sans mot de passe
+# Test de la connexion SSH avec sshpass
 check_ssh_connection() {
     for NODE in "${NODES[@]}"; do
-        ssh -i "$SSH_KEY" "$USER@$NODE" "exit"
+        sshpass -p "$PASSWORD" ssh -o StrictHostKeyChecking=no "$USER@$NODE" "exit"
         if [ $? -ne 0 ]; then
-            echo "Échec de la connexion SSH sans mot de passe à $NODE" | mail -s "$SUBJECT" $EMAIL
+            echo "Échec de la connexion SSH à $NODE. Vérifiez les informations de connexion."
             exit 1
         fi
     done
@@ -42,13 +41,13 @@ install_and_start_service() {
     local service=$2
 
     echo "Installation et démarrage du service $service sur $node..."
-    ssh -i "$SSH_KEY" "$USER@$node" "sudo apt update && sudo apt install -y $service"
+    sshpass -p "$PASSWORD" ssh -o StrictHostKeyChecking=no "$USER@$node" "sudo apt update && sudo apt install -y $service"
     if [ $? -ne 0 ]; then
-        echo "Erreur lors de l'installation du service $service sur $node" | mail -s "$SUBJECT" $EMAIL
+        echo "Erreur lors de l'installation du service $service sur $node."
         exit 1
     fi
-    ssh -i "$SSH_KEY" "$USER@$node" "sudo systemctl start $service"
-    ssh -i "$SSH_KEY" "$USER@$node" "sudo systemctl enable $service"
+    sshpass -p "$PASSWORD" ssh -o StrictHostKeyChecking=no "$USER@$node" "sudo systemctl start $service"
+    sshpass -p "$PASSWORD" ssh -o StrictHostKeyChecking=no "$USER@$node" "sudo systemctl enable $service"
 }
 
 # Configuration du fichier hostfile pour MPI
@@ -77,7 +76,7 @@ run_parallel_application() {
 
 # Fonction principale
 main() {
-    # Vérifier la connexion SSH sans mot de passe
+    # Vérifier la connexion SSH avec sshpass
     check_ssh_connection
 
     # Installer et démarrer les services
