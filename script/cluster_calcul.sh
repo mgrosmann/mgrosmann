@@ -8,7 +8,7 @@ RAID1_DEVICES="/dev/sdg /dev/sdh"
 NODES=("192.168.1.101" "192.168.1.102" "192.168.1.103")
 USER="mgrosmann"
 MPI_HOSTFILE="/etc/mpi_hostfile"
-SERVICE_NAME="apache2"  # Exemple de service à exécuter (par défaut Apache)
+SERVICES=("apache2" "ssh" "mysql-server") # Exemple de service à exécuter (par défaut Apache)
 
 # Fonction pour vérifier l'état du service
 check_service_status() {
