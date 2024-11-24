@@ -1,21 +1,22 @@
 #!/bin/bash
 
 # Variables
-NODES=("192.168.1.110" "192.168.1.111")  # Liste des nœuds du cluster (adresse IP)
+NODES=("192.168.1.110" "192.168.1.111" "192.168.1.112")  # Liste des nœuds du cluster (adresse IP)
 USER="mgrosmann"                            # Utilisateur SSH
-PASSWORD="password"                      # Mot de passe SSH pour toutes les machines
-VOLUME_NAME="data_volume"                # Nom du volume GlusterFS
-MOUNT_POINT="/mnt/glusterfs"             # Point de montage local
-REPORT_FILE="/tmp/glusterfs_report.txt"  # Fichier de rapport
-DISK_PREFIX="/dev/sd"                    # Préfixe des disques à chercher
-DISK_LABEL="brick"                       # Label pour identifier les disques vides
+PASSWORD="password"                         # Mot de passe SSH pour toutes les machines
+VOLUME_NAME="data_volume"                   # Nom du volume GlusterFS
+MOUNT_POINT="/mnt/glusterfs"                 # Point de montage local
+REPORT_FILE="/tmp/glusterfs_report.txt"     # Fichier de rapport
+DISK_PREFIX="/dev/sd"                       # Préfixe des disques à chercher
+DISK_LABEL="brick"                          # Label pour identifier les disques vides
 
 # Fonction pour formater et partitionner un disque
 format_disk() {
-    local disk=$1
-    echo "Formatage et partitionnement du disque $disk..."
+    local node=$1
+    local disk=$2
+    echo "Formatage et partitionnement du disque $disk sur $node..."
 
-    # Créer une table de partition GPT
+    # Créer une table de partition GPT et partitionner
     sshpass -p "$PASSWORD" ssh "$USER@$node" "sudo parted $disk mklabel gpt -s"
     sshpass -p "$PASSWORD" ssh "$USER@$node" "sudo parted -a optimal $disk mkpart primary ext4 0% 100%"
 
@@ -26,7 +27,7 @@ format_disk() {
     sshpass -p "$PASSWORD" ssh "$USER@$node" "sudo mkdir -p /data/brick1"
     sshpass -p "$PASSWORD" ssh "$USER@$node" "sudo mount ${disk}1 /data/brick1"
 
-    echo "Disque $disk formaté et monté sur /data/brick1"
+    echo "Disque $disk formaté et monté sur /data/brick1 sur $node"
 }
 
 # Fonction pour ajouter un brick à GlusterFS
@@ -34,7 +35,7 @@ add_brick_to_gluster() {
     local node=$1
     echo "Ajout du brick à GlusterFS sur $node..."
 
-    # Ajouter le brick à GlusterFS (utilise le premier nœud pour ajouter les autres)
+    # Ajouter le brick à GlusterFS
     sshpass -p "$PASSWORD" ssh "$USER@$node" "sudo gluster volume add-brick $VOLUME_NAME ${USER}@${NODES[0]}:/data/brick1"
     if [ $? -ne 0 ]; then
         echo "Erreur lors de l'ajout du brick sur $node" >> $REPORT_FILE
@@ -77,7 +78,7 @@ find_empty_disk() {
         # Si le disque n'est pas déjà partitionné, il est considéré comme "vide"
         if ! sshpass -p "$PASSWORD" ssh "$USER@$node" "lsblk | grep ${disk}"; then
             echo "Disque vide trouvé: $disk sur $node"
-            format_disk $disk
+            format_disk $node $disk
             break
         fi
     done

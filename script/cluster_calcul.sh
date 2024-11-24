@@ -1,14 +1,13 @@
 #!/bin/bash
 
 # Variables
-
 PASSWORD="password"            # Mot de passe SSH
 RAID5_DEVICES="/dev/sda /dev/sdb /dev/sdc /dev/sdd /dev/sde /dev/sdf"
 RAID1_DEVICES="/dev/sdg /dev/sdh"
 NODES=("192.168.1.101" "192.168.1.102" "192.168.1.103")
 USER="mgrosmann"
 MPI_HOSTFILE="/etc/mpi_hostfile"
-SERVICES=("apache2" "ssh" "mysql-server") # Exemple de service à exécuter (par défaut Apache)
+SERVICES=("apache2" "ssh" "mysql-server") # Liste des services à vérifier et installer
 
 # Fonction pour vérifier l'état du service
 check_service_status() {
@@ -81,7 +80,9 @@ main() {
 
     # Installer et démarrer les services
     for NODE in "${NODES[@]}"; do
-        install_and_start_service "$NODE" "$SERVICE_NAME"
+        for SERVICE in "${SERVICES[@]}"; do
+            install_and_start_service "$NODE" "$SERVICE"
+        done
     done
 
     # Configuration du fichier hostfile pour MPI
@@ -95,7 +96,9 @@ main() {
 
     # Vérification du service sur chaque nœud
     for NODE in "${NODES[@]}"; do
-        check_service_status "$NODE" "$SERVICE_NAME"
+        for SERVICE in "${SERVICES[@]}"; do
+            check_service_status "$NODE" "$SERVICE"
+        done
     done
 
     echo "Cluster configuré et applications lancées avec succès."
