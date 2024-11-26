@@ -23,5 +23,8 @@ cat <<EOF > /etc/apache2/sites-available/${site}-ssl.conf
 EOF
 cd /etc/apache2/
 echo "Listen ${port}" >> ports.conf
-/sbin/a2ensite monsite
+/sbin/a2ensite ${site}
 systemctl restart apache2
+systemctl reload apache2
+ip=$(hostname -I)
+echo "votre site https est maintenant pres veuillez vous rendre sur $ip:${port}"
