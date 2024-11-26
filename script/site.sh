@@ -19,6 +19,22 @@ EOF
 # Create the document root directory for the new site
 mkdir /var/www/nouveausite
 
+# Add some HTML content to the new site's document root
+cat <<EOF > /var/www/nouveausite/index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to SCCRRIIIPPTTTIINNGGG</title>
+</head>
+<body>
+    <h1>VIVE LE SCCRRIIPPTTIINNGG</h1>
+    <p>HELLO WORLD.</p>
+</body>
+</html>
+EOF
+
 # Navigate to the Apache configuration directory
 cd /etc/apache2/
 
