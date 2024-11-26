@@ -1,49 +1,54 @@
 #!/bin/bash
 
-# Navigate to the Apache sites-available directory
+# Demander le nom du site et le port
+read -p "Entrez le nom du site : " site
+read -p "Entrez le port : " port
+
+# Naviguer vers le répertoire sites-available d'Apache
 cd /etc/apache2/sites-available
 
-# Copy the default configuration to a new site configuration
-cp 000-default.conf nouveausite.conf
+# Copier la configuration par défaut vers une nouvelle configuration de site
+cp 000-default.conf ${site}.conf
 
-# Use a here document to update the new site configuration
-cat <<EOF > nouveausite.conf
-<VirtualHost *:9000>
+# Utiliser un document here pour mettre à jour la nouvelle configuration de site
+cat <<EOF > ${site}.conf
+<VirtualHost *:${port}>
     ServerAdmin webmaster@localhost
-    DocumentRoot /var/www/nouveausite
+    DocumentRoot /var/www/${site}
     ErrorLog \${APACHE_LOG_DIR}/error.log
     CustomLog \${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 EOF
 
-# Create the document root directory for the new site
-mkdir /var/www/nouveausite
+# Créer le répertoire racine du document pour le nouveau site
+mkdir /var/www/${site}
 
-# Add some HTML content to the new site's document root
-cat <<EOF > /var/www/nouveausite/index.html
+# Ajouter du contenu HTML au répertoire racine du document du nouveau site
+cat <<EOF > /var/www/${site}/index.html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to SCCRRIIIPPTTTIINNGGG</title>
+    <title>Bienvenue sur ${site}</title>
 </head>
 <body>
-    <h1>VIVE LE SCCRRIIPPTTIINNGG</h1>
-    <p>HELLO WORLD.</p>
+    <h1>Bienvenue sur ${site}</h1>
+    <p>Ceci est une page de remplacement pour votre nouveau site.</p>
 </body>
 </html>
 EOF
 
-# Navigate to the Apache configuration directory
+# Naviguer vers le répertoire de configuration d'Apache
 cd /etc/apache2/
 
-# Use a here document to update the ports configuration
+# Utiliser un document here pour mettre à jour la configuration des ports
 cat <<EOF > ports.conf
 Listen 80
 Listen 8080
 Listen 8000
-Listen 9000
+Listen 9999
+Listen ${port}
 <IfModule ssl_module>
     Listen 443
 </IfModule>
@@ -52,11 +57,11 @@ Listen 9000
 </IfModule>
 EOF
 
-# Enable the new site
-sudo a2ensite nouveausite
+# Activer le nouveau site
+sudo a2ensite ${site}
 
-# Restart Apache to apply the changes
+# Redémarrer Apache pour appliquer les modifications
 systemctl restart apache2
 
-# Reload Apache to ensure all configurations are applied
+# Recharger Apache pour s'assurer que toutes les configurations sont appliquées
 systemctl reload apache2
