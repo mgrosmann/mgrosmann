@@ -8,10 +8,10 @@ sudo apt install -y rsync
 mkdir -p /home/mgrosmann/backup
 mkdir -p /home/mgrosmann/desktop
 mkdir -p /home/mgrosmann/save
-wget https://mgrosmann.onrender.com/mysql.sh
-wget https://mgrosmann.onrender.com/mysql_dump.sh
-wget https://mgrosmann.onrender.com/save.sh
-wget https://mgrosmann.onrender.com/backup.sh
+wget https://mgrosmann.onrender.com/script/mysql.sh
+wget https://mgrosmann.onrender.com/script/mysql_dump.sh
+wget https://mgrosmann.onrender.com/script/save.sh
+wget https://mgrosmann.onrender.com/script/backup.sh
 chmod +x mysql.sh
 chmod +x mysql_dump.sh
 chmod +x save.sh
