@@ -7,24 +7,29 @@ chmod 440 /etc/ssl/private/${site}.key
 cat <<EOF > /etc/apache2/sites-available/${site}-ssl.conf
 <VirtualHost *:${port}>
     ServerAdmin webmaster@localhost
+    ServerName ${site}
     DocumentRoot /var/www/${site}
+
     ErrorLog \${APACHE_LOG_DIR}/${site}.error.log
     CustomLog \${APACHE_LOG_DIR}/${site}.access.log combined
+
     SSLEngine on
     SSLCertificateFile /etc/ssl/certs/${site}.crt
     SSLCertificateKeyFile /etc/ssl/private/${site}.key
+
+    <Directory /var/www/${site}>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
     <FilesMatch "\.(?:cgi|shtml|phtml|php)$">
-                SSLOptions +StdEnvVars
-        </FilesMatch>
-        <Directory /usr/lib/cgi-bin>
-                SSLOptions +StdEnvVars
-        </Directory>
+        SSLOptions +StdEnvVars
+    </FilesMatch>
 </VirtualHost>
 EOF
-cd /etc/apache2/
-echo "Listen ${port}" >> ports.conf
-/sbin/a2ensite ${site}
+echo "Listen ${port}" >> /etc/apache2/ports.conf
+/sbin/a2ensite ${site}-ssl.conf
 systemctl restart apache2
-systemctl reload apache2
 ip=$(hostname -I)
-echo "votre site https est maintenant pres veuillez vous rendre sur $ip:${port}"
+echo "Votre site HTTPS est maintenant prêt. Accédez à https://${ip}:${port}"
