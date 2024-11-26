@@ -2,7 +2,6 @@
 read -p "Entrez le nom du site : " site
 read -p "Entrez le port : " port
 cd /etc/apache2/sites-available
-cp 000-default.conf ${site}.conf
 cat <<EOF > ${site}.conf
 <VirtualHost *:${port}>
     ServerAdmin webmaster@localhost
