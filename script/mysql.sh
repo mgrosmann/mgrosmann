@@ -1,10 +1,18 @@
 #!/bin/bash
-apt update && apt install mariadb-server -y
+apt update
+apt install mariadb-server -y
+mysql_secure_installation <<EOF
+y
+n
+y
+y
+y
+y
+EOF
 mysql  <<EOF
-DROP USER 'root'@'localhost';
-CREATE USER 'root'@'localhost' IDENTIFIED BY 'root';
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';
+CREATE USER 'mgrosmann'@'localhost' IDENTIFIED BY 'password';
 CREATE DATABASE test;
 GRANT ALL PRIVILEGES ON test.* TO 'root'@'localhost';
 FLUSH PRIVILEGES;
-EXIT;
 EOF
