@@ -8,21 +8,21 @@ groupadd EquipeF
 adduser denis EquipeD
 adduser evelyne EquipeE
 adduser fabrice EquipeF
-mkdir /home/folderD
-mkdir /home/folderE
-mkdir /home/folderF
-mkdir /home/DossierG
-mkdir /home/DossierH
-mkdir /home/DossierI
-mkdir /home/ProjetG
-mkdir /home/ProjetH
-mkdir /home/ProjetI
-chown :EquipeD folderD
-chown :EquipeE folderE
-chown :EquipeF folderF
-chmod 770 folderD
-chmod 770 folderE
-chmod 770 folderF
+mkdir /home/dossierD
+mkdir /home/dossierE
+mkdir /home/dossierF
+mkdir /home/dossierG
+mkdir /home/dossierH
+mkdir /home/dossierI
+mkdir /home/folderG
+mkdir /home/folderH
+mkdir /home/folderI
+chown :EquipeD dossierD
+chown :EquipeE dossierE
+chown :EquipeF dossierF
+chmod 770 dossierD
+chmod 770 dossierE
+chmod 770 dossierF
 groupadd projetG
 groupadd projetH
 groupadd projetI
@@ -32,35 +32,35 @@ adduser evelyne projetH
 adduser evelyne projetG
 adduser fabrice projetH
 adduser fabrice projetI
-cd /home/folderD
-ln -s /home/ProjetG ProjetG
-ln -s /home/ProjetI ProjetI
-cd /home/folderE
-ln -s /home/ProjetG ProjetG
-ln -s /home/ProjetH ProjetH
-cd /home/folderF
-ln -s /home/ProjetH ProjetH
-ln -s /home/ProjetI ProjetI
-groupadd GroupG
-groupadd GroupH
-groupadd GroupI
-adduser denis GroupG
-adduser denis GroupI
-adduser evelyne GroupG
-adduser evelyne GroupH
-adduser fabrice GroupH
-adduser fabrice GroupI
+cd /home/dossierD
+ln -s /home/folderG folderG
+ln -s /home/folderI folderI
+cd /home/dossierE
+ln -s /home/folderG folderG
+ln -s /home/folderH folderH
+cd /home/dossierF
+ln -s /home/folderH folderH
+ln -s /home/folderI folderI
+groupadd groupG
+groupadd groupH
+groupadd groupI
+adduser denis groupG
+adduser denis groupI
+adduser evelyne groupG
+adduser evelyne groupH
+adduser fabrice groupH
+adduser fabrice groupI
 cd ..
-chown :GroupG ProjetG
-chown :GroupH ProjetH
-chown :GroupI ProjetI
-chmod 770 ProjetG
-chmod 770 ProjetH
-chmod 770 ProjetI
-cd /home/ProjetG
-ln -s /home/DossierG DossierG
-cd /home/ProjetH
-ln -s /home/DossierH DossierH
-cd /home/ProjetI
-ln -s /home/DossierI DossierI
+chown :groupG folderG
+chown :groupH folderH
+chown :groupI folderI
+chmod 770 folderG
+chmod 770 folderH
+chmod 770 folderI
+cd /home/folderG
+ln -s /home/dossierG dossierG
+cd /home/folderH
+ln -s /home/dossierH dossierH
+cd /home/folderI
+ln -s /home/dossierI dossierI
 cd ..
