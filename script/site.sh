@@ -27,7 +27,7 @@ cat <<EOF > /var/www/${site}/index.html
 EOF
 cd /etc/apache2/
 echo "Listen ${port}" >> ports.conf
-sudo a2ensite ${site}
+a2ensite ${site}
 systemctl restart apache2
 systemctl reload apache2
 ip=$(hostname -I)
