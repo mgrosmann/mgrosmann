@@ -4,6 +4,6 @@ wget mgrosmann.vercel.app/script/site.sh
 dos2unix *.sh
 cat https.sh >/usr/local/bin/https
 cat site.sh >/usr/local/bin/site
-cd /bin
+cd /usr/local/bin
 chmod +x https
 chmod +x site
