@@ -9,3 +9,4 @@ bash debian.sh
 
 Pour tout installer= apt update && apt install -y git &&
 git clone https://github.com/mgrosmann/script.git
+
