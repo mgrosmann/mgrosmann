@@ -6,9 +6,7 @@ wget https://mgrosmann.onrender.com/script/nextcloud.sh
 wget https://mgrosmann.onrender.com/script/promotheus.sh
 wget https://mgrosmann.onrender.com/script/rsync.sh
 wget https://mgrosmann.onrender.com/script/remove.sh
-wget https://mgrosmann.onrender.com/script/proxy.sh
 chmod +x *.sh
-bash proxy.sh
 bash glpi.sh
 bash docker.sh
 bash promotheus.sh
