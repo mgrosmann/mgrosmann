@@ -1,9 +1,4 @@
 #!/bin/bash
-read -p "sur quel conteneur voulez vous appliquez des commandes linux" name
-  docker cp "/bin/wget" "$name:/bin"
-  docker cp "/bin/touch" "$name:/bin"
-  docker cp "/bin/nano" "$name:/bin"
-chmod +x wget
-chmod +x touch
-chmod +x nano
-echo "Commandes linux copiées avec succès dans le conteneur $name"
+read -p "Sur quel conteneur voulez-vous appliquer des commandes Linux : " name
+docker exec -it "$name" /bin/bash -c "apt-get update && apt-get install -y wget nano"
+echo "Commandes Linux installées avec succès dans le conteneur $name"
