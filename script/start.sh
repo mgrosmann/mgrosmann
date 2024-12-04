@@ -1,6 +1,6 @@
 #!/bin/bash
-for file in *.yaml; do
-  if [ -f "$file" ]; then
+for file in *.yaml
+do 
     docker compose -f "$file" start
   else
     echo "Aucun fichier .yaml trouvé."
