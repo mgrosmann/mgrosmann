@@ -34,4 +34,3 @@ elif [ "$choice" -eq 2 ]; then
     echo "Le dossier /var/www/$folder_name n'existe pas."
   fi
 fi
-

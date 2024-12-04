@@ -5,6 +5,8 @@ services:
   db:
     container_name: db
     image: mysql
+    ports:
+      - "33306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: P@ssw0rd
       MYSQL_DATABASE: mysql_db
