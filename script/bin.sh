@@ -18,18 +18,18 @@ wget mgrosmann.vercel.app/script/cours/https.sh
 wget mgrosmann.vercel.app/script/cours/site.sh
 wget mgrosmann.vercel.app/script/docker/apocker.sh
 wget mgrosmann.vercel.app/script/docker/compose.sh
-wget mgrosmann.vercel.app/script/docker/ssh_container.sh
+wget mgrosmann.vercel.app/script/docker/ssh_ct.sh
 wget mgrosmann.vercel.app/script/docker/start.sh
 wget mgrosmann.vercel.app/script/docker/stop.sh
 wget mgrosmann.vercel.app/script/docker/linux.sh
 dos2unix *.sh
 cat https.sh > /usr/local/bin/https
 cat site.sh > /usr/local/bin/site
-cat apocker.sh > /usr/local/bin/container-httpd
-cat compose.sh > /usr/local/bin/container-setup
-cat ssh_container.sh > /usr/local/bin/container-connect
-cat start.sh > /usr/local/bin/container-start
-cat stop.sh > /usr/local/bin/container-stop
-cat linux.sh > /usr/local/bin/container-linux
+cat apocker.sh > /usr/local/bin/ct-httpd
+cat compose.sh > /usr/local/bin/ct-setup
+cat ssh_ct.sh > /usr/local/bin/ct-connect
+cat start.sh > /usr/local/bin/ct-start
+cat stop.sh > /usr/local/bin/ct-stop
+cat linux.sh > /usr/local/bin/ct-linux
 cd /usr/local/bin
 chmod +x *
