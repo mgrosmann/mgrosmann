@@ -8,10 +8,10 @@ services:
     ports:
       - "33306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: P@ssw0rd
+      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: mysql_db
       MYSQL_USER: mgrosmann
-      MYSQL_PASSWORD: P@ssw0rd
+      MYSQL_PASSWORD: password
     networks:
       - "db_network"
 
@@ -23,7 +23,7 @@ services:
     environment:
       HOST: mysql_db
       USERNAME: mgrosmann
-      PASSWORD: P@ssw0rd
+      PASSWORD: password
     depends_on:
       - "db"
     networks:
