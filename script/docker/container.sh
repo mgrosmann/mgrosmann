@@ -20,26 +20,18 @@ echo -e "${RED}4)${NC} Démarrer tous les ${GREEN}conteneurs${NC}"
 echo -e "${RED}5)${NC} Arrêter tous les ${GREEN}conteneurs${NC}"
 echo -e "${RED}6)${NC} Installer ${BLUE}nano${NC} et ${YELLOW}wget${NC} sur un ${GREEN}conteneur${NC}"
 read -p "Entrez le numéro de votre choix: " choix
-case $choix in
-    1)
-        /usr/local/bin/ct-httpd
-        ;;
-    2)
-        /usr/local/bin/ct-setup
-        ;;
-    3)
-        /usr/local/bin/ct-connect
-        ;;
-    4)
-        /usr/local/bin/ct-start
-        ;;
-    5)
-        /usr/local/bin/ct-stop
-        ;;
-    6)
-        /usr/local/bin/ct-linux
-        ;;
-    *)
-        echo "Choix invalide. Veuillez réessayer."
-        ;;
-esac
+if [ "$choix" -eq 1 ]; then
+    bash /usr/local/bin/ct-httpd
+elif [ "$choix" -eq 2 ]; then
+    bash /usr/local/bin/ct-setup
+elif [ "$choix" -eq 3 ]; then
+    bash /usr/local/bin/ct-connect
+elif [ "$choix" -eq 4 ]; then
+    bash /usr/local/bin/ct-start
+elif [ "$choix" -eq 5 ]; then
+    bash /usr/local/bin/ct-stop
+elif [ "$choix" -eq 6 ]; then
+    bash /usr/local/bin/ct-linux
+else
+    echo -e "${RED}Choix invalide. Veuillez réessayer.${NC}"
+fi
