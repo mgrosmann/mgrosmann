@@ -14,14 +14,14 @@ then
 else
     echo "dos2unix est déjà installé."
 fi
-wget mgrosmann.vercel.app/script/https.sh
-wget mgrosmann.vercel.app/script/site.sh
-wget mgrosmann.vercel.app/script/apocker.sh
-wget mgrosmann.vercel.app/script/compose.sh
-wget mgrosmann.vercel.app/script/ssh_container.sh
-wget mgrosmann.vercel.app/script/start.sh
-wget mgrosmann.vercel.app/script/stop.sh
-wget mgrosmann.vercel.app/script/linux.sh
+wget mgrosmann.vercel.app/script/cours/https.sh
+wget mgrosmann.vercel.app/script/cours/site.sh
+wget mgrosmann.vercel.app/script/docker/apocker.sh
+wget mgrosmann.vercel.app/script/docker/compose.sh
+wget mgrosmann.vercel.app/script/docker/ssh_container.sh
+wget mgrosmann.vercel.app/script/docker/start.sh
+wget mgrosmann.vercel.app/script/docker/stop.sh
+wget mgrosmann.vercel.app/script/docker/linux.sh
 dos2unix *.sh
 cat https.sh > /usr/local/bin/https
 cat site.sh > /usr/local/bin/site
