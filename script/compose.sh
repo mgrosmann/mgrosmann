@@ -42,8 +42,8 @@ services:
       - "21:21"
       - "21100-21110:21100-21110"
     environment:
-      FTP_USER: user
-      FTP_PASS: pass
+      FTP_USER: mgrosmann
+      FTP_PASS: password
     networks:
       - "db_network"
 networks:
