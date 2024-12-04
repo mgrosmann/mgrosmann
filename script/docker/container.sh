@@ -12,9 +12,10 @@ ORANGE='\033[0;33m'
 BROWN='\033[0;33m'
 LIGHT_BLUE='\033[1;34m'
 LIGHT_GREEN='\033[1;32m'
+GRAY='\033[1;30m'
 NC='\033[0m'
 echo -e "${RED}1)${NC} Créer un nouveau ${GREEN}conteneur${NC} avec l'image ${BLUE}HTTPD${NC} ou en modifier un ${GREEN}existant${NC}"
-echo -e "${RED}2)${NC} Installer le ${GREEN}conteneur${NC} multi-service (${PINK}MySQL${NC}, ${RED}phpMyAdmin${NC}, ${ORANGE}FTP${NC}, ${LIGHT_BLUE}APACHE${NC})"
+echo -e "${RED}2)${NC} Installer le ${GREEN}conteneur${NC} multi-service (${PINK}MySQL${NC}, ${GRAY}phpMyAdmin${NC}, ${ORANGE}FTP${NC}, ${LIGHT_BLUE}APACHE${NC})"
 echo -e "${RED}3)${NC} Se connecter à un ${GREEN}conteneur${NC}"
 echo -e "${RED}4)${NC} Démarrer tous les ${GREEN}conteneurs${NC}"
 echo -e "${RED}5)${NC} Arrêter tous les ${GREEN}conteneurs${NC}"
