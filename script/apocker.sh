@@ -22,15 +22,12 @@ EOF
   docker exec "$site_name" rm -rf "$FILE_PATH"
   docker cp "docker_webfile/$site_name" "$site_name:/usr/local/apache2/htdocs"
 elif [ "$choice" -eq 2 ]; then
-  read -p "Entrez le nom du dossier existant dans /var/www : " folder_name
-  read -p "Entrez le port sur lequel appliquer le code HTML importé : " site_port
+  read -p "Entrez le repertoire du dossier a importer : " repertory_html
   read -p "Entrez le nom du site sur lequel appliquer le code HTML importé : " site_name
-  if [ -d "/var/www/$folder_name" ]; then
     FILE_PATH="/usr/local/apache2/htdocs"
     docker exec "$site_name" rm -rf "$FILE_PATH"
-    docker cp "/var/www/$folder_name" "$site_name:/usr/local/apache2/htdocs"
-    echo "Dossier /var/www/$folder_name associé avec succès au site $site_name."
-  else
-    echo "Le dossier /var/www/$folder_name n'existe pas."
-  fi
+    docker cp "/var/www/$repertory_html" "$site_name:/usr/local/apache2/htdocs"
+    echo "Dossier $repertory_html associé avec succès au site $site_name."
+else
+  echo "Choix incorrect, veuillez réessayer."
 fi
