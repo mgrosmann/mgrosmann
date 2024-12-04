@@ -1,11 +1,11 @@
 #!/bin/bash
-wget https://mgrosmann.onrender.com/script/agent-glpi.sh
-wget https://mgrosmann.onrender.com/script/deb_docker.sh
-wget https://mgrosmann.onrender.com/script/glpi.sh
-wget https://mgrosmann.onrender.com/script/nextcloud.sh
-wget https://mgrosmann.onrender.com/script/rsync.sh
-wget https://mgrosmann.onrender.com/script/promotheus.sh
-wget https://mgrosmann.onrender.com/script/remove.sh
+wget https://mgrosmann.onrender.com/script/projet/agent-glpi.sh
+wget https://mgrosmann.onrender.com/script/projet/deb_docker.sh
+wget https://mgrosmann.onrender.com/script/projet/glpi.sh
+wget https://mgrosmann.onrender.com/script/projet/nextcloud.sh
+wget https://mgrosmann.onrender.com/script/projet/rsync.sh
+wget https://mgrosmann.onrender.com/script/projet/promotheus.sh
+wget https://mgrosmann.onrender.com/script/projet/remove.sh
 apt install sudo
 chmod +x *.sh
 bash deb_docker.sh

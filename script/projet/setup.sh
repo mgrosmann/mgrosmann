@@ -1,11 +1,11 @@
 #!/bin/bash
-wget https://mgrosmann.onrender.com/script/agent-glpi.sh
-wget https://mgrosmann.onrender.com/script/docker.sh
-wget https://mgrosmann.onrender.com/script/glpi.sh
-wget https://mgrosmann.onrender.com/script/nextcloud.sh
-wget https://mgrosmann.onrender.com/script/promotheus.sh
-wget https://mgrosmann.onrender.com/script/rsync.sh
-wget https://mgrosmann.onrender.com/script/remove.sh
+wget https://mgrosmann.onrender.com/script/projet/agent-glpi.sh
+wget https://mgrosmann.onrender.com/script/projet/docker.sh
+wget https://mgrosmann.onrender.com/script/projet/glpi.sh
+wget https://mgrosmann.onrender.com/script/projet/nextcloud.sh
+wget https://mgrosmann.onrender.com/script/projet/promotheus.sh
+wget https://mgrosmann.onrender.com/script/projet/rsync.sh
+wget https://mgrosmann.onrender.com/script/projet/remove.sh
 chmod +x *.sh
 bash glpi.sh
 bash docker.sh
