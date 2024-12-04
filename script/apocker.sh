@@ -1,7 +1,7 @@
 #!/bin/bash
-read -p "Voulez-vous créer un nouveau site (1) ou associer un dossier existant (2) ? " choice
+read -p "Voulez-vous créer un nouveau conteneur/site (1) ou associer un dossier existant (2) ? " choice
 if [ "$choice" -eq 1 ]; then
-  read -p "Entrez le nom du nouveau site : " site_name
+  read -p "Entrez le nom du nouveau conteneur/site : " site_name
   read -p "Entrez le port pour le nouveau site : " site_port
   cat <<EOF >> compose_$site_name.yaml
 services:
@@ -23,7 +23,7 @@ EOF
   docker cp "docker_webfile/$site_name" "$site_name:/usr/local/apache2/htdocs"
 elif [ "$choice" -eq 2 ]; then
   read -p "Entrez le repertoire du dossier a importer : " repertory_html
-  read -p "Entrez le nom du site sur lequel appliquer le code HTML importé : " site_name
+  read -p "Entrez le nom du conteneur sur lequel appliquer le code HTML importé : " site_name
     FILE_PATH="/usr/local/apache2/htdocs"
     docker exec "$site_name" rm -rf "$FILE_PATH"
     docker cp "/var/www/$repertory_html" "$site_name:/usr/local/apache2/htdocs"
