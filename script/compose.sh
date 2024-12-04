@@ -1,7 +1,7 @@
 #!/bin/bash
-cat <<EOL > compose.yaml
+cat <<EOF > compose.yaml
 services:
-  
+
   db:
     container_name: db
     image: mysql
@@ -47,7 +47,7 @@ services:
     networks:
       - "db_network"
 networks:
-  db_network:    
-EOL
+  db_network:
+EOF
 docker compose up -d
 
