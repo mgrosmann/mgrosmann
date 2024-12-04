@@ -1,5 +1,5 @@
 #!/bin/bash
 for file in *.yaml
 do
-  docker compose -f $file stop ;
+  docker compose -f $file start ;
 done
