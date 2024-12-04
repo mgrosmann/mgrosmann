@@ -26,7 +26,7 @@ elif [ "$choice" -eq 2 ]; then
   read -p "Entrez le nom du conteneur sur lequel appliquer le code HTML importé : " site_name
     FILE_PATH="/usr/local/apache2/htdocs"
     docker exec "$site_name" rm -rf "$FILE_PATH"
-    docker cp "/var/www/$repertory_html" "$site_name:/usr/local/apache2/htdocs"
+    docker cp "$repertory_html" "$site_name:/usr/local/apache2/htdocs"
     echo "Dossier $repertory_html associé avec succès au site $site_name."
 else
   echo "Choix incorrect, veuillez réessayer."
