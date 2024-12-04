@@ -16,9 +16,20 @@ else
 fi
 wget mgrosmann.vercel.app/script/https.sh
 wget mgrosmann.vercel.app/script/site.sh
+wget mgrosmann.vercel.app/script/apocker.sh
+wget mgrosmann.vercel.app/script/compose.sh
+wget mgrosmann.vercel.app/script/ssh_container.sh
+wget mgrosmann.vercel.app/script/start.sh
+wget mgrosmann.vercel.app/script/stop.sh
+wget mgrosmann.vercel.app/script/linux.sh
 dos2unix *.sh
 cat https.sh > /usr/local/bin/https
 cat site.sh > /usr/local/bin/site
+cat apocker.sh > /usr/local/bin/container-httpd
+cat compose.sh > /usr/local/bin/container-setup
+cat ssh_container.sh > /usr/local/bin/container-connect
+cat start.sh > /usr/local/bin/container-start
+cat stop.sh > /usr/local/bin/container-stop
+cat linux.sh > /usr/local/bin/container-linux
 cd /usr/local/bin
-chmod +x https
-chmod +x site
+chmod +x *
