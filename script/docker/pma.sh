@@ -9,7 +9,8 @@
   read -p "Entrez le port pour phpMyAdmin : " phpmyadmin_port
   cat <<EOF >> docker-compose-$mysql_name.yaml
 services:
- $mysql_name:
+
+  $mysql_name:
     container_name: $mysql_name
     image: mysql
     ports:
