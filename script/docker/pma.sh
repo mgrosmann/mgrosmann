@@ -2,13 +2,14 @@
 read -p "Port MySQL: " port_sql
 read -p "Port phpMyAdmin: " port_pma
 read -p "Nom du projet: " name
+read -p "mot du passe du compte root: " root
 cat <<EOF > docker-compose.yml
 services:
   db:
     image: mysql
     container_name: db_$name
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: $root
     ports:
       - "$port_sql:3306"
 
