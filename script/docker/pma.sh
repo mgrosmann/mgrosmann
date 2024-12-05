@@ -1,43 +1,37 @@
 #!/bin/bash
-  read -p "Entrez le nom du conteneur MySQL : " mysql_name
-  read -p "Entrez le port MySQL : " mysql_port
-  read -p "Entrez le mot de passe root pour MySQL : " mysql_root_password
-  read -p "Entrez le nom de la base de données à créer : " mysql_database
-  read -p "Entrez le nom de l'utilisateur MySQL : " mysql_user
-  read -p "Entrez le mot de passe pour cet utilisateur : " mysql_user_password
-  read -p "Entrez le nom du conteneur phpMyAdmin : " phpmyadmin_name
-  read -p "Entrez le port pour phpMyAdmin : " phpmyadmin_port
-  cat <<EOF >> docker-compose-$mysql_name.yaml
+read -p "port myql" port_sql
+read -p "port pma" port_pma
+read -p "nom projet pma" name
+cat <<EOF > $name.yaml
 services:
 
-  $mysql_name:
-    container_name: $mysql_name
+  db_$name:
+    container_name: db_$name
     image: mysql
     ports:
-      - "$mysql_port:3306"
+      - "$port_sql:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: $mysql_root_password
-      MYSQL_DATABASE: $mysql_database
-      MYSQL_USER: $mysql_user
-      MYSQL_PASSWORD: $mysql_user_password
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mysql_db_$name
+      MYSQL_USER: mgrosmann
+      MYSQL_PASSWORD: password
     networks:
-      - "$mysql_name-network"
+      - "network_$name"
 
-  $phpmyadmin_name:
-    container_name: $phpmyadmin_name
+  phpmyadmin_$name:
+    container_name: phpmyadmin_$name
     image: phpmyadmin
     ports:
-      - "$phpmyadmin_port:80"
+      - "$port_pma:80"
     environment:
-      HOST: $mysql_database
-      USERNAME: $mysql_user
-      PASSWORD: $mysql_user_password
+      HOST: mysql_db_$name
+      USERNAME: mgrosmann
+      PASSWORD: password
     depends_on:
-      - "$mysql_name"
+      - "db_$name"
     networks:
-      - "$mysql_name-network"
-
+      - "network_$name"
 networks:
-  $mysql_name-network:
+  network_$name:
 EOF
-  docker compose -f docker-compose-$mysql_name.yaml up -d
+docker compose -f "$name.yaml" up -d
