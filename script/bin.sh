@@ -23,7 +23,7 @@ wget mgrosmann.vercel.app/script/docker/start.sh
 wget mgrosmann.vercel.app/script/docker/stop.sh
 wget mgrosmann.vercel.app/script/docker/linux.sh
 wget mgrosmann.vercel.app/script/docker/container.sh
-wget mgrosmann.vercel.app/script/docker/docker_all_in_one
+wget mgrosmann.vercel.app/script/docker/docker_all_in_one.sh
 dos2unix *.sh
 mv https.sh /usr/local/bin/https
 mv site.sh /usr/local/bin/site
