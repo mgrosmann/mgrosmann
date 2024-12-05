@@ -35,7 +35,7 @@ elif [ "$choix" -eq 5 ]; then
 elif [ "$choix" -eq 6 ]; then
     bash /usr/local/bin/ct-linux
 elif [ "$choix" -eq 7 ]; then
-    bash /usr/local/bin/docker_all_in_one
+    bash /usr/local/bin/docker_aio
 else
     echo -e "${RED}Choix invalide. Veuillez réessayer.${NC}"
 fi

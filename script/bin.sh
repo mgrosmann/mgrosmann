@@ -23,7 +23,7 @@ wget mgrosmann.vercel.app/script/docker/start.sh
 wget mgrosmann.vercel.app/script/docker/stop.sh
 wget mgrosmann.vercel.app/script/docker/linux.sh
 wget mgrosmann.vercel.app/script/docker/container.sh
-wget mgrosmann.vercel.app/script/docker/docker_all_in_one.sh
+wget mgrosmann.vercel.app/script/docker/docker_aio.sh
 dos2unix *.sh
 mv https.sh /usr/local/bin/https
 mv site.sh /usr/local/bin/site
@@ -34,6 +34,6 @@ mv start.sh /usr/local/bin/ct-start
 mv stop.sh /usr/local/bin/ct-stop
 mv linux.sh /usr/local/bin/ct-linux
 mv container.sh /usr/local/bin/container
-mv docker_all_in_one.sh /usr/local/bin/docker_all_in_one
+mv docker_aio.sh /usr/local/bin/docker_aio
 chmod +x /usr/local/bin/*
 
