@@ -37,7 +37,7 @@ elif [ "$choix" -eq 6 ]; then
     ct-linux
 elif [ "$choix" -eq 7 ]; then
     docker_aio
-elif [ "$choix" -eq 7 ]; then
+elif [ "$choix" -eq 8 ]; then
     pma
 else
     echo -e "${RED}Choix invalide. Veuillez réessayer.${NC}"
