@@ -38,4 +38,3 @@ mv container.sh /usr/local/bin/container
 mv docker_aio.sh /usr/local/bin/docker_aio
 mv pma.sh /usr/local/bin/pma
 chmod +x /usr/local/bin/*
-
