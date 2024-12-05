@@ -25,30 +25,38 @@ echo -e "${LIGHT_GREEN}8)${NC} Créer un conteneur détaché MySQL avec mot de p
 read -p "Entrez le numéro de votre choix: " choix
 if [ "$choix" -eq 1 ]; then
     read -p "Entrez le port à utiliser : " port
-    docker container run -it -p $port:80 --name apache3 httpd
+    read -p "Entrez le nom du conteneur : " name
+    docker container run -it -p $port:80 --name $name httpd
 elif [ "$choix" -eq 2 ]; then
     read -p "Entrez le port à utiliser : " port
-    docker container run -it -p $port:80 -v /var/www/test0:/usr/local/apache2/htdocs --name test0 httpd
+    read -p "Entrez le nom du conteneur : " name
+    docker container run -it -p $port:80 -v /var/www/test0:/usr/local/apache2/htdocs --name $name httpd
 elif [ "$choix" -eq 3 ]; then
-    read -p "Entrez le port à utiliser pour : " port
-    docker container run -it -p $port:3306 --name db mysql
+    read -p "Entrez le port à utiliser  : " port
+    read -p "Entrez le nom du conteneur : " name
+    docker container run -it -p $port:3306 --name $name mysql
 elif [ "$choix" -eq 4 ]; then
-    read -p "Entrez le port à utiliser pour MySQL (par défaut 3306) : " port
+    read -p "Entrez le port à utiliser  : " port
+    read -p "Entrez le nom du conteneur : " name
     read -p "Entrez le mot de passe root MySQL: " root_password
-    docker container run -it -p $port:3306 --name db -e MYSQL_ROOT_PASSWORD=$root_password mysql
+    docker container run -it -p $port:3306 --name $name -e MYSQL_ROOT_PASSWORD=$root_password mysql
 elif [ "$choix" -eq 5 ]; then
     read -p "Entrez le port à utiliser : " port
-    docker container run -d -p $port:80 --name apache4 httpd
+    read -p "Entrez le nom du conteneur : " name
+    docker container run -d -p $port:80 --name $name httpd
 elif [ "$choix" -eq 6]; then
     read -p "Entrez le port à utiliser : " port
-    docker container run -d -p $port:80 -v /var/www/test0:/usr/local/apache2/htdocs --name test0 httpd
+    read -p "Entrez le nom du conteneur : " name
+    docker container run -d -p $port:80 -v /var/www/test0:/usr/local/apache2/htdocs --name $name httpd
 elif [ "$choix" -eq 7 ]; then
     read -p "Entrez le port à utiliser : " port
-    docker container run -d -p $port:3306 --name db mysql
+    read -p "Entrez le nom du conteneur : " name
+    docker container run -d -p $port:3306 --name $name mysql
 elif [ "$choix" -eq 8 ]; then
     read -p "Entrez le port à utiliser : " port
+    read -p "Entrez le nom du conteneur : " name
     read -p "Entrez le mot de passe root MySQL: " root_password
-    docker container run -d -p $port:3306 --name db -e MYSQL_ROOT_PASSWORD=$root_password mysql
+    docker container run -d -p $port:3306 --name $name -e MYSQL_ROOT_PASSWORD=$root_password mysql
 else
     echo -e "${RED}Choix invalide. Veuillez réessayer.${NC}"
 fi
