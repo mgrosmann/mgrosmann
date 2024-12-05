@@ -23,6 +23,8 @@ echo -e "${LIGHT_GREEN}5)${NC} Créer un conteneur détaché Apache HTTPD"
 echo -e "${LIGHT_GREEN}6)${NC} Créer un conteneur détaché Apache HTTPD avec volume monté"
 echo -e "${LIGHT_GREEN}7)${NC} Créer un conteneur détaché MySQL sans mot de passe"
 echo -e "${LIGHT_GREEN}8)${NC} Créer un conteneur détaché MySQL avec mot de passe"
+echo -e "${LIGHT_GREEN}9)${NC} Créer un conteneur intéractif PhpMyadmin"
+echo -e "${LIGHT_GREEN}10)${NC} Créer un conteneur détaché PhpMyAdmin"
 
 read -p "Entrez le numéro de votre choix: " choix
 
@@ -62,7 +64,28 @@ elif [ "$choix" -eq 8 ]; then
     read -p "Entrez le nom du conteneur : " name
     read -p "Entrez le mot de passe root MySQL: " root_password
     docker container run -d -p $port:3306 --name $name -e MYSQL_ROOT_PASSWORD=$root_password mysql
+elif [ "$choix" -eq 9 ]; then
+    read -p "Entrez le port à utiliser : " name_sql
+    read -p "Entrez le port à utiliser : " port_sql
+    read -p "Entrez le port à utiliser : " port_pma
+    read -p "Entrez le port à utiliser : " mdp_root
+    read -p "Entrez le nom du conteneur : " name
+    docker network create $network
+    docker run -d --name sql_$name --network $network -e MYSQL_ROOT_PASSWORD=$mdp_root -p $port_sql:3306 mysql
+    docker run -it --name pma_$name --network $network -e PMA_HOST=sql_$name -e MYSQL_ROOT_PASSWORD=$mdp_root -p $port_pma:80 phpmyadmin/phpmyadmin
+
+elif [ "$choix" -eq 10 ]; then
+    read -p "Entrez le port à utiliser : " name_sql
+    read -p "Entrez le port à utiliser : " port_sql
+    read -p "Entrez le port à utiliser : " port_pma
+    read -p "Entrez le port à utiliser : " mdp_root
+    read -p "Entrez le nom du conteneur : " name
+    docker network create $network
+    docker run -d --name sql_$name --network $network -e MYSQL_ROOT_PASSWORD=$mdp_root -p $port_sql:3306 mysql
+    docker run -d --name pma_$name --network $network -e PMA_HOST=sql_$name -e MYSQL_ROOT_PASSWORD=$mdp_root -p $port_pma:80 phpmyadmin/phpmyadmin
 else
     echo -e "${RED}Choix invalide. Veuillez réessayer.${NC}"
 fi
+
+
 
