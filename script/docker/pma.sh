@@ -6,7 +6,7 @@ read -p "Mot de passe du compte root: " root
 
 cat <<EOF > docker-$name.yaml
 services:
-  db:
+  mysql_$name:
     image: mysql
     container_name: db_$name
     environment:
@@ -16,7 +16,7 @@ services:
     networks:
       - network_$name
 
-  phpmyadmin:
+  phpmyadmin_$name:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin_$name
     environment:
