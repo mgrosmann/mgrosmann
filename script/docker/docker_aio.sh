@@ -47,14 +47,13 @@ elif [ "$choix" -eq 4 ]; then
     read -p "Entrez le mot de passe root MySQL: " root_password
     docker container run -it -p $port:3306 --name $name -e MYSQL_ROOT_PASSWORD=$root_password mysql
 elif [ "$choix" -eq 5 ]; then
-    read -p "Entrez le port à utiliser : " name_sql
-    read -p "Entrez le port à utiliser : " port_sql
-    read -p "Entrez le port à utiliser : " port_pma
-    read -p "Entrez le port à utiliser : " mdp_root
+    read -p "Entrez le por sql à utiliser : " port_sql
+    read -p "Entrez le port pma à utiliser : " port_pma
+    read -p "Entrez le mot de passe du root à utiliser : " mdp_root
     read -p "Entrez le nom du conteneur : " name
-    docker network create $network
-    docker run -d --name sql_$name --network $network -e MYSQL_ROOT_PASSWORD=$mdp_root -p $port_sql:3306 mysql
-    docker run -it --name pma_$name --network $network -e PMA_HOST=sql_$name -e MYSQL_ROOT_PASSWORD=$mdp_root -p $port_pma:80 phpmyadmin/phpmyadmin
+    docker network create network-$name
+    docker run -d --name sql_$name --network network-$name -e MYSQL_ROOT_PASSWORD=$mdp_root -p $port_sql:3306 mysql
+    docker run -it --name pma_$name --network network-$name -e PMA_HOST=sql_$name -e MYSQL_ROOT_PASSWORD=$mdp_root -p $port_pma:80 phpmyadmin/phpmyadmin
 elif [ "$choix" -eq 6 ]; then
     read -p "Entrez le port à utiliser : " port
     read -p "Entrez le nom du conteneur : " name
@@ -75,14 +74,13 @@ elif [ "$choix" -eq 9 ]; then
     docker container run -d -p $port:3306 --name $name -e MYSQL_ROOT_PASSWORD=$root_password mysql
 
 elif [ "$choix" -eq 10 ]; then
-    read -p "Entrez le port à utiliser : " name_sql
-    read -p "Entrez le port à utiliser : " port_sql
-    read -p "Entrez le port à utiliser : " port_pma
-    read -p "Entrez le port à utiliser : " mdp_root
+    read -p "Entrez le por sql à utiliser : " port_sql
+    read -p "Entrez le port pma à utiliser : " port_pma
+    read -p "Entrez le mot de passe du root à utiliser : " mdp_root
     read -p "Entrez le nom du conteneur : " name
-    docker network create $network
-    docker run -d --name sql_$name --network $network -e MYSQL_ROOT_PASSWORD=$mdp_root -p $port_sql:3306 mysql
-    docker run -d --name pma_$name --network $network -e PMA_HOST=sql_$name -e MYSQL_ROOT_PASSWORD=$mdp_root -p $port_pma:80 phpmyadmin/phpmyadmin
+    docker network create network-$name
+    docker run -d --name sql_$name --network network-$name -e MYSQL_ROOT_PASSWORD=$mdp_root -p $port_sql:3306 mysql
+    docker run -d --name pma_$name --network network-$name -e PMA_HOST=sql_$name -e MYSQL_ROOT_PASSWORD=$mdp_root -p $port_pma:80 phpmyadmin/phpmyadmin
 else
     echo -e "${RED}Choix invalide. Veuillez réessayer.${NC}"
 fi
