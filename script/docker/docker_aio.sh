@@ -100,7 +100,3 @@ elif [ "$choix" -eq 12 ]; then
 else
     echo -e "${RED}Choix invalide. Veuillez réessayer.${NC}"
 fi
-
-
-
-
