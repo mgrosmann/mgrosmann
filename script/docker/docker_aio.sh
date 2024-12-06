@@ -25,6 +25,8 @@ echo -e "${LIGHT_GREEN}7)${NC} Créer un conteneur détaché Apache HTTPD avec v
 echo -e "${LIGHT_GREEN}8)${NC} Créer un conteneur détaché MySQL sans mot de passe"
 echo -e "${LIGHT_GREEN}9)${NC} Créer un conteneur détaché MySQL avec mot de passe"
 echo -e "${LIGHT_GREEN}10)${NC} Créer un conteneur détaché PhpMyadmin"
+echo -e "${LIGHT_GREEN}11)${NC} Créer un conteneur interactif Ubuntu SSH avec utilisateur et mot de passe"
+echo -e "${LIGHT_GREEN}12)${NC} Créer un conteneur détaché Ubuntu SSH avec utilisateur et mot de passe"
 
 read -p "Entrez le numéro de votre choix: " choix
 
@@ -81,9 +83,24 @@ elif [ "$choix" -eq 10 ]; then
     docker network create network-$name
     docker run -d --name sql_$name --network network-$name -e MYSQL_ROOT_PASSWORD=$mdp_root -p $port_sql:3306 mysql
     docker run -d --name pma_$name --network network-$name -e PMA_HOST=sql_$name -e MYSQL_ROOT_PASSWORD=$mdp_root -p $port_pma:80 phpmyadmin/phpmyadmin
+elif [ "$choix" -eq 11 ]; then
+    read -p "Entrez le port SSH à utiliser : " port
+    read -p "Entrez le nom du conteneur : " name
+    read -p "Entrez le nom de l'utilisateur : " user
+    read -p "Entrez le mot de passe : " password
+    docker container run -it -p $port:22 --name $name rastasheep/ubuntu-sshd && \
+    docker exec -it $name /bin/bash -c "adduser --disabled-password --gecos '' $user && echo '$user:$password' | chpasswd"
+elif [ "$choix" -eq 12 ]; then
+    read -p "Entrez le port SSH à utiliser : " port
+    read -p "Entrez le nom du conteneur : " name
+    read -p "Entrez le nom de l'utilisateur : " user
+    read -p "Entrez le mot de passe : " password
+    docker container run -d -p $port:22 --name $name rastasheep/ubuntu-sshd && \
+    docker exec -it $name /bin/bash -c "adduser --disabled-password --gecos '' $user && echo '$user:$password' | chpasswd"
 else
     echo -e "${RED}Choix invalide. Veuillez réessayer.${NC}"
 fi
+
 
 
 

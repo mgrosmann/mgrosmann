@@ -1,21 +1,11 @@
 #pas interessant
 ''=interessant
 () a voir
-
-
 'Sauvegarder un conteneur dans une image Docker.
 Restaurer un conteneur à partir d''une image Docker.'
 'Supprimer un volume Docker spécifique.'
 'Sauvegarder les données d’un volume Docker dans une archive compressée.
 Restaurer un volume Docker à partir d''une archive compressée.'
-'Vérifier et recréer les réseaux Docker manquants pour les conteneurs arrêtés.'
-'Exporter les logs d’un conteneur spécifique dans un fichier texte.'
-'Vérifier et recréer les réseaux Docker manquants pour les conteneurs arrêtés.'
-'Exporter les logs d’un conteneur spécifique dans un fichier texte.'
-'Vérifier et recréer les réseaux Docker manquants pour les conteneurs arrêtés.'
-'Exporter les logs d’un conteneur spécifique dans un fichier texte.
-#Lister tous les conteneurs actifs et arrêtés avec leurs détails (ID, noms, images, ports, état).
-#Nettoyer les conteneurs, images, volumes et réseaux inutilisés pour libérer de l'espace.
 'Vérifier et recréer les réseaux Docker manquants pour les conteneurs arrêtés.'
 'Exporter les logs d’un conteneur spécifique dans un fichier texte.'
 'Supprimer tous les conteneurs arrêtés.'
@@ -45,3 +35,5 @@ Supprimer toutes les images non utilisées (dangling images).
 #Analyser les performances d’un conteneur avec des outils comme cAdvisor.
 #Configurer des limites de ressources (CPU, mémoire) pour un conteneur au moment de sa création.
 #Gérer les secrets et variables d’environnement pour les conteneurs.
+#Lister tous les conteneurs actifs et arrêtés avec leurs détails (ID, noms, images, ports, état).
+#Nettoyer les conteneurs, images, volumes et réseaux inutilisés pour libérer de l'espace.
