@@ -22,7 +22,8 @@ echo -e "${RED}5)${NC} Arrêter tous les ${GREEN}conteneurs${NC}"
 echo -e "${RED}6)${NC} Installer ${BLUE}nano${NC} et ${YELLOW}wget${NC} sur un ${GREEN}conteneur${NC}"
 echo -e "${RED}7)${NC} Créer un nouveau ${GREEN}conteneur${NC} avec l'image ${PINK}MySQL${NC} et ${GRAY}phpMyAdmin${NC}"
 echo -e "${RED}8)${NC} Installer un ${GREEN}conteneur${NC} ${PINK}MySQL${NC}, ${BLUE}HTTPD${NC} ou ${GRAY}phpMyAdmin${NC}  en ${GRAY}session interactive${NC} ou ${ORANGE}détaché${NC} "
-
+echo -e "${RED}9)${NC} Vérifier et recréer les ${GREEN}réseaux Docker manquants${NC} pour les conteneurs arrêtés"
+echo -e "${RED}10)${NC} Supprimer tous les ${GREEN}conteneurs arrêtés${NC}"
 read -p "Entrez le numéro de votre choix: " choix
 if [ "$choix" -eq 1 ]; then
     ct-httpd
@@ -40,6 +41,10 @@ elif [ "$choix" -eq 7 ]; then
     pma
 elif [ "$choix" -eq 8 ]; then
     docker_aio
+elif [ "$choix" -eq 9 ]; then
+    network
+elif [ "$choix" -eq 10 ]; then
+    remove
 else
     echo -e "${RED}Choix invalide. Veuillez réessayer.${NC}"
 fi

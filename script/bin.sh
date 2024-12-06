@@ -25,7 +25,6 @@ wget mgrosmann.vercel.app/script/docker/linux.sh
 wget mgrosmann.vercel.app/script/docker/container.sh
 wget mgrosmann.vercel.app/script/docker/docker_aio.sh
 wget mgrosmann.vercel.app/script/docker/pma.sh
-dos2unix *.sh
 mv https.sh /usr/local/bin/https
 mv site.sh /usr/local/bin/site
 mv apocker.sh /usr/local/bin/ct-httpd
@@ -37,4 +36,9 @@ mv linux.sh /usr/local/bin/ct-linux
 mv container.sh /usr/local/bin/container
 mv docker_aio.sh /usr/local/bin/docker_aio
 mv pma.sh /usr/local/bin/pma
+wget mgrosmann.vercel.app/script/cours/remove.sh
+mv remove.sh /usr/local/bin/remove
+wget mgrosmann.vercel.app/script/cours/network.sh
+mv network.sh /usr/local/bin/network
 chmod +x /usr/local/bin/*
+dos2unix /usr/local/bin/*.sh
