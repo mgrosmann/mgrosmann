@@ -28,6 +28,7 @@ services:
       - "db"
     networks:
       - "db_network"
+      
   apache:
     container_name: apache
     image: httpd
@@ -35,19 +36,33 @@ services:
       - "8000:80"
     networks:
       - "db_network"
+
   ftp:
     container_name: ftp
     image: fauria/vsftpd
     ports:
-      - "21:21"
+      - "7000:21"
       - "21100-21110:21100-21110"
     environment:
       FTP_USER: mgrosmann
       FTP_PASS: password
     networks:
       - "db_network"
+
+  sftp:
+    container_name: sftp
+    image: atmoz/sftp
+    ports:
+      - "2222:22"
+    volumes:
+      - ./data:/home/mgrosmann/uploads
+    environment:
+      SFTP_USERS: "mgrosmann:password:::uploads"
+    networks:
+      - "db_network"
+
 networks:
   db_network:
 EOF
-docker compose up -d
 
+docker compose up -d
