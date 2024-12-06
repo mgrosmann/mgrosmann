@@ -20,8 +20,9 @@ echo -e "${RED}3)${NC} Se connecter à un ${GREEN}conteneur${NC}"
 echo -e "${RED}4)${NC} Démarrer tous les ${GREEN}conteneurs${NC}"
 echo -e "${RED}5)${NC} Arrêter tous les ${GREEN}conteneurs${NC}"
 echo -e "${RED}6)${NC} Installer ${BLUE}nano${NC} et ${YELLOW}wget${NC} sur un ${GREEN}conteneur${NC}"
-echo -e "${RED}7)${NC} Installer un ${GREEN}conteneur${NC} ${PINK}MySQL${NC} ou ${BLUE}HTTPD${NC} en ${GRAY}session interactive${NC} ou ${ORANGE}détaché${NC} "
-echo -e "${RED}8)${NC} Créer un nouveau ${GREEN}conteneur${NC} avec l'image ${PINK}MySQL${NC} et ${GRAY}phpMyAdmin${NC}"
+echo -e "${RED}7)${NC} Créer un nouveau ${GREEN}conteneur${NC} avec l'image ${PINK}MySQL${NC} et ${GRAY}phpMyAdmin${NC}"
+echo -e "${RED}8)${NC} Installer un ${GREEN}conteneur${NC} ${PINK}MySQL${NC} ou ${BLUE}HTTPD${NC} en ${GRAY}session interactive${NC} ou ${ORANGE}détaché${NC} "
+"
 read -p "Entrez le numéro de votre choix: " choix
 if [ "$choix" -eq 1 ]; then
     ct-httpd
@@ -36,9 +37,9 @@ elif [ "$choix" -eq 5 ]; then
 elif [ "$choix" -eq 6 ]; then
     ct-linux
 elif [ "$choix" -eq 7 ]; then
-    docker_aio
-elif [ "$choix" -eq 8 ]; then
     pma
+elif [ "$choix" -eq 8 ]; then
+    docker_aio
 else
     echo -e "${RED}Choix invalide. Veuillez réessayer.${NC}"
 fi
