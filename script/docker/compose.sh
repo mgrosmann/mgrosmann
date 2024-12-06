@@ -55,7 +55,7 @@ services:
     ports:
       - "2222:22"
     volumes:
-      - ./data:/home/mgrosmann/uploads
+      - ./data:/home/mgrosmann
     environment:
       SFTP_USERS: "mgrosmann:password:::uploads"
     networks:
