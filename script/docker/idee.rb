@@ -1,6 +1,13 @@
 #pas interessant
 ''=interessant
 () a voir
+
+
+'Vérifier et recréer les réseaux Docker manquants pour les conteneurs arrêtés.'
+'Supprimer tous les conteneurs arrêtés.'
+
+
+
 'Sauvegarder un conteneur dans une image Docker.
 Restaurer un conteneur à partir d''une image Docker.'
 'Supprimer un volume Docker spécifique.'
