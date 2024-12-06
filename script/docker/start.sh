@@ -1,8 +1,8 @@
 #!/bin/bash
 for file in *.yaml; do
-  docker compose -f "$file" start
+  docker compose -f "$file" up -d
 done
-docker ps -a -q | while read container_id; do
+docker ps --format "{{.ID}} {{.Names}}" | while read container_id container_name; do
   networks=$(docker inspect --format '{{range $k, $v := .NetworkSettings.Networks}}{{$k}} {{end}}' "$container_id")
   for network in $networks; do
     if ! docker network ls | grep -qw "$network"; then
@@ -10,4 +10,5 @@ docker ps -a -q | while read container_id; do
     fi
   done
   docker start "$container_id"
+  echo "le conteneur $container_name est démarré"
 done
