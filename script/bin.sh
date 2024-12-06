@@ -36,9 +36,9 @@ mv linux.sh /usr/local/bin/ct-linux
 mv container.sh /usr/local/bin/container
 mv docker_aio.sh /usr/local/bin/docker_aio
 mv pma.sh /usr/local/bin/pma
-wget mgrosmann.vercel.app/script/cours/remove.sh
+wget mgrosmann.vercel.app/script/docker/remove.sh
 mv remove.sh /usr/local/bin/remove
-wget mgrosmann.vercel.app/script/cours/network.sh
+wget mgrosmann.vercel.app/script/docker/network.sh
 mv network.sh /usr/local/bin/network
 chmod +x /usr/local/bin/*
 dos2unix /usr/local/bin/*.sh
