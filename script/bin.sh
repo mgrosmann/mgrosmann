@@ -41,4 +41,4 @@ mv remove.sh /usr/local/bin/remove
 wget mgrosmann.vercel.app/script/docker/network.sh
 mv network.sh /usr/local/bin/network
 chmod +x /usr/local/bin/*
-dos2unix /usr/local/bin/*.sh
+dos2unix /usr/local/bin/*

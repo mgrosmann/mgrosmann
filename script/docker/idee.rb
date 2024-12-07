@@ -1,67 +1,91 @@
-#!/bin/bash
+#pas interessant
+''=interessant
+() a voir
 
-# Couleurs pour la mise en forme
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[0;33m'
-BLUE='\033[0;34m'
-PINK='\033[1;35m'
-LIGHT_GREEN='\033[1;32m'
-LIGHT_BLUE='\033[1;34m'
-GRAY='\033[1;30m'
-ORANGE='\033[0;33m'
-NC='\033[0m'
 
-# Menu principal : Choix de la catégorie
-echo -e "${LIGHT_GREEN}Veuillez choisir une catégorie :${NC}"
-echo -e "${RED}1)${NC} Création/installation de conteneurs"
-echo -e "${RED}2)${NC} Gestion des conteneurs existants"
-read -p "Entrez le numéro de votre choix : " categorie
+'Vérifier et recréer les réseaux Docker manquants pour les conteneurs arrêtés.'
+'Supprimer tous les conteneurs arrêtés.'
+'lors de l'entrée d''un port proposer entrer un aléatoire parmi ceux disponibles'
+'proposer d'entrer un mot de passe sécurisé qui sera envoyé dans un password.txt que l'utilisateur' devra supprimer'
 
-# Selon le choix de catégorie
-if [ "$categorie" -eq 1 ]; then
-    echo -e "\n${LIGHT_GREEN}Création/installation de conteneurs :${NC}"
-    echo -e "  ${RED}1)${NC} Créer un nouveau ${GREEN}conteneur${NC} avec l'image ${BLUE}HTTPD${NC} ou en modifier un ${GREEN}existant${NC}"
-    echo -e "  ${RED}2)${NC} Installer le ${GREEN}conteneur multi-service${NC} (${PINK}MySQL${NC}, ${GRAY}phpMyAdmin${NC}, ${ORANGE}FTP${NC}, ${LIGHT_BLUE}APACHE${NC})"
-    echo -e "  ${RED}3)${NC} Créer un nouveau ${GREEN}conteneur${NC} avec l'image ${PINK}MySQL${NC} et ${GRAY}phpMyAdmin${NC}"
-    echo -e "  ${RED}4)${NC} Installer un ${GREEN}conteneur${NC} (${PINK}MySQL${NC}, ${BLUE}HTTPD${NC}, ${GRAY}phpMyAdmin${NC}) en ${RED}session interactive${NC} ou ${ORANGE}détaché${NC}"
-    read -p "Entrez le numéro de votre choix : " choix
-    if [ "$choix" -eq 1 ]; then
-        ct-httpd
-    elif [ "$choix" -eq 2 ]; then
-        ct-setup
-    elif [ "$choix" -eq 3 ]; then
-        pma
-    elif [ "$choix" -eq 4 ]; then
-        docker_aio
-    else
-        echo -e "${RED}Choix invalide dans cette catégorie.${NC}"
-    fi
+'Sauvegarder un conteneur dans une image Docker.
+Restaurer un conteneur à partir d''une image Docker.'
+'Supprimer un volume Docker spécifique.'
+'Sauvegarder les données d’un volume Docker dans une archive compressée.
+Restaurer un volume Docker à partir d''une archive compressée.'
+'Vérifier et recréer les réseaux Docker manquants pour les conteneurs arrêtés.'
+'Exporter les logs d’un conteneur spécifique dans un fichier texte.'
+'Supprimer tous les conteneurs arrêtés.'
+'Mettre à jour une image Docker et recréer les conteneurs associés.'
+'Lister toutes les images Docker avec leur taille et leur utilisation.'
+'Afficher les détails d’un conteneur spécifique (inspecter les métadonnées et la configuration).'
+'Créer une image Docker personnalisée à partir d’un Dockerfile.'
+'Vérifier la consommation d’espace disque totale par Docker (images, conteneurs, volumes).'
+'Redémarrer un conteneur spécifique.'
+'Copier des fichiers entre un hôte et un conteneur.'
+'Automatiser les déploiements avec des pipelines CI/CD pour construire et déployer des images Docker.'
+'Auditer la sécurité des conteneurs avec des outils comme Clair ou Trivy.'
+'Exposer les ports spécifiques d’un conteneur (mapping de ports).'
+(Déployer des applications conteneurisées sur des orchestrateurs comme Kubernetes ou Docker Swarm.)
+Supprimer toutes les images non utilisées (dangling images).
+(Créer et exécuter un conteneur interactif basé sur une image (par exemple, Ubuntu ou Debian).)
+(Rechercher un conteneur spécifique par nom ou par image.)
+(Créer un nouveau volume Docker.)
+#Lister tous les volumes Docker existants.
+#Configurer le redémarrage automatique pour un conteneur (policy: always ou unless-stopped).
+#Afficher l’utilisation des ressources (CPU, mémoire, disque) par conteneur avec docker stats.
+#Gérer les conteneurs multi-services avec Docker Compose (démarrage/arrêt).
+#Tester la connectivité réseau entre deux conteneurs.
+#Attribuer un alias réseau à un conteneur pour simplifier les connexions.
+#Changer les ressources allouées à un conteneur (mémoire, CPU) sans le recréer.
+#Visualiser les logs en temps réel d’un conteneur spécifique.
+#Analyser les performances d’un conteneur avec des outils comme cAdvisor.
+#Configurer des limites de ressources (CPU, mémoire) pour un conteneur au moment de sa création.
+#Gérer les secrets et variables d’environnement pour les conteneurs.
+#Lister tous les conteneurs actifs et arrêtés avec leurs détails (ID, noms, images, ports, état).
+#Nettoyer les conteneurs, images, volumes et réseaux inutilisés pour libérer de l'espace.
 
-elif [ "$categorie" -eq 2 ]; then
-    echo -e "\n${LIGHT_GREEN}Gestion des conteneurs existants :${NC}"
-    echo -e "  ${RED}1)${NC} Se connecter à un ${GREEN}conteneur${NC}"
-    echo -e "  ${RED}2)${NC} Démarrer tous les ${GREEN}conteneurs${NC}"
-    echo -e "  ${RED}3)${NC} Arrêter tous les ${GREEN}conteneurs${NC}"
-    echo -e "  ${RED}4)${NC} Installer ${BLUE}nano${NC} et ${YELLOW}wget${NC} sur un ${GREEN}conteneur${NC}"
-    echo -e "  ${RED}5)${NC} Vérifier et recréer les ${GREEN}réseaux Docker manquants${NC} pour les conteneurs arrêtés"
-    echo -e "  ${RED}6)${NC} Supprimer tous les ${GREEN}conteneurs arrêtés${NC}"
-    read -p "Entrez le numéro de votre choix : " choix
-    if [ "$choix" -eq 1 ]; then
-        ct-connect
-    elif [ "$choix" -eq 2 ]; then
-        ct-start
-    elif [ "$choix" -eq 3 ]; then
-        ct-stop
-    elif [ "$choix" -eq 4 ]; then
-        ct-linux
-    elif [ "$choix" -eq 5 ]; then
-        network
-    elif [ "$choix" -eq 6 ]; then
-        remove
-    else
-        echo -e "${RED}Choix invalide dans cette catégorie.${NC}"
-    fi
-else
-    echo -e "${RED}Choix de catégorie invalide. Veuillez réessayer.${NC}"
-fi
+
+
+
+Creation/installation conteneur conteneur:
+1) Créer un nouveau conteneur avec l'image HTTPD ou en modifier un existant
+2) Installer le conteneur multi-service (MySQL, phpMyAdmin, FTP, APACHE)
+7) Créer un nouveau conteneur avec l'image MySQL et phpMyAdmin
+8) Installer un conteneur MySQL, HTTPD ou phpMyAdmin  en session interactive ou détaché 
+
+
+Gestion des conteneurs existants
+3) Se connecter à un conteneur
+4) Démarrer tous les conteneurs
+5) Arrêter tous les conteneurs
+6) Installer nano et wget sur un conteneur
+9) Vérifier et recréer les réseaux Docker manquants pour les conteneurs arrêtés
+10) Supprimer tous les conteneurs arrêtés
+
+
+
+Conteneur interactif
+Httpd
+echo -e "${LIGHT_GREEN}1)${NC} Créer un conteneur interactif Apache HTTPD"
+echo -e "${LIGHT_GREEN}2)${NC} Créer un conteneur interactif Apache HTTPD avec volume monté"
+Mysql 
+echo -e "${LIGHT_GREEN}3)${NC} Créer un conteneur interactif MySQL sans mot de passe"
+echo -e "${LIGHT_GREEN}4)${NC} Créer un conteneur interactif MySQL avec mot de passe"
+PhpMyadmin
+echo -e "${LIGHT_GREEN}5)${NC} Créer un conteneur intéractif PhpMyadmin"
+SSH/SFTP
+echo -e "${LIGHT_GREEN}11)${NC} Créer un conteneur interactif Ubuntu SSH avec utilisateur et mot de passe"
+
+
+Conteneur détaché
+Httpd
+echo -e "${LIGHT_GREEN}6)${NC} Créer un conteneur détaché Apache HTTPD"
+echo -e "${LIGHT_GREEN}7)${NC} Créer un conteneur détaché Apache HTTPD avec volume monté"
+Mysql 
+echo -e "${LIGHT_GREEN}8)${NC} Créer un conteneur détaché MySQL sans mot de passe"
+echo -e "${LIGHT_GREEN}9)${NC} Créer un conteneur détaché MySQL avec mot de passe"
+PhpMyadmin
+echo -e "${LIGHT_GREEN}10)${NC} Créer un conteneur détaché PhpMyadmin"
+SSH/SFTP
+echo -e "${LIGHT_GREEN}12)${NC} Créer un conteneur détaché Ubuntu SSH avec utilisateur et mot de passe"

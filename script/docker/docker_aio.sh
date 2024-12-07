@@ -25,7 +25,7 @@ if [ "$categorie" -eq 1 ]; then
     echo -e "${LIGHT_GREEN}1)${NC} Apache HTTPD"
     echo -e "${LIGHT_GREEN}2)${NC} MySQL"
     echo -e "${LIGHT_GREEN}3)${NC} PhpMyAdmin"
-    echo -e "${LIGHT_GREEN}4)${NC} Ubuntu SSH avec utilisateur et mot de passe"
+    echo -e "${LIGHT_GREEN}4)${NC} SSH/SFTP"
 
     read -p "Entrez le numéro de votre choix : " choix_interactif
 
@@ -90,7 +90,7 @@ elif [ "$categorie" -eq 2 ]; then
     echo -e "${LIGHT_GREEN}1)${NC} Apache HTTPD"
     echo -e "${LIGHT_GREEN}2)${NC} MySQL"
     echo -e "${LIGHT_GREEN}3)${NC} PhpMyAdmin"
-    echo -e "${LIGHT_GREEN}4)${NC} Ubuntu SSH avec utilisateur et mot de passe"
+    echo -e "${LIGHT_GREEN}4)${NC} SSH/SFTP"
 
     read -p "Entrez le numéro de votre choix : " choix_detache
 
