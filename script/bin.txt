@@ -1,2 +1,0 @@
-wget mgrosmann.vercel.app/script/cours/network.sh
-mv network.sh /usr/local/bin/network
