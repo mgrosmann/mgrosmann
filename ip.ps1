@@ -8,3 +8,9 @@ Write-Host "Configuration de l'adresse IP..."
 New-NetIPAddress -InterfaceAlias $InterfaceAlias -IPAddress $IPAddress -PrefixLength $PrefixLength -DefaultGateway $DefaultGateway -Confirm:$false
 Write-Host "Configuration du serveur DNS..."
 Set-DnsClientServerAddress -InterfaceAlias $InterfaceAlias -ServerAddresses $DNSServer
+
+
+
+netsh winhttp set proxy "192.168.151.254:3128"
+netsh winhttp set proxy "192.168.151.254:3128" bypass-list="192.168.*"
+netsh winhttp import proxy source=ie
