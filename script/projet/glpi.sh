@@ -1,7 +1,7 @@
 #!/bin/bash
 apt update
 apt install -y apache2 php php-{apcu,cli,common,curl,gd,imap,ldap,mysql,xmlrpc,xml,mbstring,bcmath,intl,zip,redis,bz2} libapache2-mod-php php-soap php-cas
-mysql -uroot -pmysql <<EOF
+mysql -uroot -proot <<EOF
 CREATE DATABASE glpi;
 CREATE USER 'glpi'@'localhost' IDENTIFIED BY 'yourstrongpassword';
 GRANT ALL PRIVILEGES ON glpi.* TO 'glpi'@'localhost';
