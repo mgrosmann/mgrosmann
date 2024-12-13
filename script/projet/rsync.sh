@@ -1,4 +1,4 @@
-echo "Installation de rsync..."
+#!/bin/bash
 sudo apt update
 sudo apt install -y rsync
 mkdir -p /home/mgrosmann/backup
