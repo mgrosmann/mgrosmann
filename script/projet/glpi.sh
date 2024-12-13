@@ -1,14 +1,6 @@
 #!/bin/bash
 apt-get update && apt-get upgrade -y
-apt-get install -y apache2 mariadb-server php php-mysql php-xml php-mbstring php-curl php-gd php-intl php-ldap php-apcu
-mysql_secure_installation <<EOF
-n
-n
-n
-n
-y
-y
-EOF
+apt-get install -y apache2  php php-mysql php-xml php-mbstring php-curl php-gd php-intl php-ldap php-apcu
 mysql <<EOF
 CREATE DATABASE glpi;
 CREATE USER 'glpi'@'localhost' IDENTIFIED BY 'glpi';
