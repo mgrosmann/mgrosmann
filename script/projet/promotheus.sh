@@ -16,8 +16,8 @@ sudo chown prometheus:prometheus /etc/prometheus
 sudo chown -R prometheus:prometheus /etc/prometheus/consoles
 sudo chown -R prometheus:prometheus /etc/prometheus/console_libraries
 sudo chown -R prometheus:prometheus /var/lib/prometheus
-sudo nano /etc/systemd/system/prometheus.service
-cat <<EOF
+cd /etc/systemd/system/
+cat <<EOF > prometheus.service
 [Unit]
 Description=Prometheus
 Wants=network-online.target
