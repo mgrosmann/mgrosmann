@@ -6,7 +6,3 @@ mkdir -p /home/mgrosmann/desktop
 mkdir -p /home/mgrosmann/save
 wget https://mgrosmann.onrender.com/script/save.sh
 wget https://mgrosmann.onrender.com/script/backup.sh
-chmod +x save.sh
-chmod +x backup.sh
-bash mysql.sh
-bash mysql_dump.sh
