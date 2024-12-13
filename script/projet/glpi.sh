@@ -43,3 +43,4 @@ cat <<EOF > glpi.conf
 
 # End of the VirtualHost configuration for port 80
 EOF
+systemctl restart apache2
