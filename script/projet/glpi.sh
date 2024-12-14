@@ -13,31 +13,4 @@ wget https://github.com/glpi-project/glpi/releases/download/10.0.17/glpi-10.0.17
 tar -xvzf glpi-10.0.17.tgz
 chown root:root /var/www/html/glpi/ -R
 chown www-data:www-data /var/www/html/glpi/ -R
-cat <<EOF > glpi.conf
-# Start of the VirtualHost configuration for port 80
-
-<VirtualHost *:80>
-    ServerName yourglpi.yourdomain.com
-    # Specify the server's hostname
-    DocumentRoot /var/www/html/glpi/public
-    # The directory where the website's files are located
-    # Start of a Directory directive for the website's directory
-    <Directory /var/www/html/glpi/public>
-        Require all granted
-        # Allow all access to this directory
-        RewriteEngine On
-        # Enable the Apache rewrite engine
-        # Ensure authorization headers are passed to PHP.
-        # Some Apache configurations may filter them and break usage of API, CalDAV, ...
-        RewriteCond %{HTTP:Authorization} ^(.+)$
-        RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-        # Redirect all requests to GLPI router, unless the file exists.
-        RewriteCond %{REQUEST_FILENAME} !-f
-        RewriteRule ^(.*)$ index.php [QSA,L]
-    </Directory>
-    # End of the Directory directive for /var/www/glpi/public
-</VirtualHost>
-
-# End of the VirtualHost configuration for port 80
-EOF
 systemctl restart apache2
