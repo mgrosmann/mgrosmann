@@ -1,11 +1,11 @@
 #!/bin/bash
 apt update
 apt install -y apache2 php php-{apcu,cli,common,curl,gd,imap,ldap,mysql,xmlrpc,xml,mbstring,bcmath,intl,zip,redis,bz2} libapache2-mod-php php-soap php-cas
-mysql -uroot -proot  <<EOF
-CREATE DATABASE glpi;
+mysql   <<EOF
 CREATE USER 'glpi'@'localhost' IDENTIFIED BY 'glpi';
+CREATE DATABASE glpi;
 GRANT ALL PRIVILEGES ON glpi.* TO 'glpi'@'localhost';
-GRANT SELECT ON `mysql`.`time_zone_name` TO 'glpi'@'localhost';
+GRANT SELECT ON \`mysql\`.\`time_zone_name\` TO 'glpi'@'localhost';
 FLUSH PRIVILEGES;
 EOF
 cd /var/www/html
