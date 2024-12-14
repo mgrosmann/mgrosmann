@@ -113,6 +113,49 @@
            <li>Programmeur analyste</li><br>
            <li>Programmeur d’applications</li><br>
            <li>Technicien d’études informatiques</li><br>
+<section id="projets" class="section">
+    <div class="container">
+        <h2>Projets</h2>
+        <div class="projet-liste">
+            <!-- Projet 1 -->
+            <div class="projet">
+                <h3>Projet 1 : Conception de solution technique (Terminé, en groupe de 3)</h3>
+                <p>Dans ce projet, une société fictive appelée "Spoon" avait une infrastructure informatique obsolète. Nous avions pour mission de proposer diverses solutions techniques pour moderniser cette infrastructure tout en recherchant le meilleur rapport qualité/prix.</p>
+            </div>
+            <!-- Projet 2 -->
+            <div class="projet">
+                <h3>Projet 2 : Mise en place de services informatiques avec VirtualBox (Terminé, en groupe de 2)</h3>
+                <p>Dans ce second projet, toujours pour la société fictive "Spoon", nous devions mettre en place divers services à l'aide de machines virtuelles (VM) afin de moderniser leur infrastructure informatique obsolète :</p>
+                <ul>
+                    <li>Une VM Linux (Ubuntu/Debian) pour le serveur de messagerie (Postfix), le cloud local (Nextcloud) et le système de sauvegarde (Deja-dup).</li>
+                    <li>Une VM pfSense pour le serveur DHCP et le portail captif.</li>
+                    <li>Une VM TrueNAS pour le serveur fichier.</li>
+                    <li>Une VM Windows Server pour configurer un Active Directory.</li>
+                    <li>Une VM Windows 10 pour tester l'Active Directory, configurer le pare-feu pfSense sur l'interface web, et configurer les connexions à distance (RDP).</li>
+                </ul>
+                <p>Pour en savoir plus, vous pouvez accéder à la documentation du projet en <a href="documentation/index.html" class="btn">cliquant ici</a></p>
+            </div>
+            <!-- Projet 3 -->
+            <div class="projet">
+                <h3>Projet 3 : Mise en place de services informatiques sur un serveur avec Proxmox (en cours, en groupe de 3)</h3>
+                <p>Dans ce troisième projet, pour le laboratoire GSB, nous devions optimiser l’infrastructure informatique, améliorer les services clients et renforcer la sécurité des données afin de contrer les cyber-attaques. Pour cela, à l'aide de l'outil de virtualisation Proxmox, nous devions configurer divers services sur un serveur :</p>
+                <ul>
+                    <li>Une VM pfSense pour configurer un pare-feu, serveur DHCP, VLAN, portail captif, mais aussi une DMZ (zone démilitarisée).</li>
+                    <li>Une VM Windows Server pour configurer un Active Directory et le serveur DNS.</li>
+                    <li>Une VM Windows 10 pour tester l'Active Directory et configurer le pare-feu pfSense sur l'interface web.</li>
+                    <li>D'autres VMs seront installées ou utiliseront celles déjà en place pour les déploiements automatisés, la gestion centralisée des mises à jour Windows, l'outil de gestion de parc et de tickets, l'outil de supervision, et la solution de sauvegarde.</li>
+                </ul>
+                <p>Ce projet est similaire au précédent, mais il est plus avancé car cette fois-ci, nous installons les machines virtuelles directement sur un serveur et nous devons configurer plus de services.</p>
+                <p>Pour ce projet, j'ai conçu plusieurs scripts, consultables en <a href="script/index.html" class="btn">cliquant ici</a></p>
+            </div>
+            <!-- Projet Perso 1 -->
+            <div class="projet">
+                <h3>Projet Perso 1 : Conception de script sh facilitant la gestion des conteneurs Docker (En cours)</h3>
+                <p>Ce projet est né de ma passion pour la conception de scripts, notamment sur Linux. Pour chaque fonctionnalité Linux que je découvre, je conçois un script sh. Docker, par son utilité, sa popularité et sa complexité, était très intéressant comme projet. J'ai créé divers scripts .sh permettant de créer et gérer des conteneurs très facilement, avec un script centralisé pour la gestion de ces conteneurs. Le dépôt GitHub de ce projet est disponible à l'adresse suivante : <a href="https://github.com/mgrosmann/docker">https://github.com/mgrosmann/docker</a>.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
 
         </div>
