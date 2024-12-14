@@ -9,8 +9,8 @@ GRANT SELECT ON \`mysql\`.\`time_zone_name\` TO 'glpi'@'localhost';
 FLUSH PRIVILEGES;
 EOF
 cd /var/www/html
-wget https://github.com/glpi-project/glpi/releases/download/10.0.15/glpi-10.0.15.tgz
-tar -xvzf glpi-10.0.15.tgz
+wget https://github.com/glpi-project/glpi/releases/download/10.0.17/glpi-10.0.17.tgz
+tar -xvzf glpi-10.0.17.tgz
 chown root:root /var/www/html/glpi/ -R
 chown www-data:www-data /etc/glpi -R
 chown www-data:www-data /var/lib/glpi -R
