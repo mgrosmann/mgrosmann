@@ -13,4 +13,3 @@ wget https://github.com/glpi-project/glpi/releases/download/10.0.17/glpi-10.0.17
 tar -xvzf glpi-10.0.17.tgz
 chown root:root /var/www/html/glpi/ -R
 chown www-data:www-data /var/www/html/glpi/ -R
-systemctl restart apache2
