@@ -12,10 +12,7 @@ cd /var/www/html
 wget https://github.com/glpi-project/glpi/releases/download/10.0.17/glpi-10.0.17.tgz
 tar -xvzf glpi-10.0.17.tgz
 chown root:root /var/www/html/glpi/ -R
-chown www-data:www-data /etc/glpi -R
-chown www-data:www-data /var/lib/glpi -R
-chown www-data:www-data /var/log/glpi -R
-chown www-data:www-data /var/www/html/glpi/marketplace -Rf
+chown www-data:www-data /var/www/html/glpi/ -R
 cat <<EOF > glpi.conf
 # Start of the VirtualHost configuration for port 80
 
