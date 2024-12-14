@@ -270,3 +270,20 @@ a {
         gap: 0.5rem; /* Réduire l'espacement entre les projets/stages */
     }
 }
+<style>
+  .section {
+    text-align: center;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .projet-liste {
+    width: 100%;
+    max-width: 800px;
+  }
+  .projet {
+    text-align: left;
+  }
+</style>
