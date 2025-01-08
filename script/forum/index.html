@@ -37,3 +37,16 @@
             if (message === '') return;
 
             const messages = JSON.parse(localStorage.getItem('messages')) || [];
+            messages.push(message);
+            localStorage.setItem('messages', JSON.stringify(messages));
+
+            messageInput.value = '';
+            loadMessages();
+        }
+
+        // Initialiser le formulaire et charger les messages
+        document.getElementById('messageForm').addEventListener('submit', addMessage);
+        loadMessages(); // Charger les messages au chargement de la page
+    </script>
+</body>
+</html>
