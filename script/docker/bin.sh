@@ -14,10 +14,6 @@ then
 else
     echo "dos2unix est déjà installé."
 fi
-if ! ls -r | grep -q "mgrosmann"; then
-  git clone https://github.com/mgrosmann/mgrosmann.git
-fi
-cd mgrosmann/docker
 chmod +x /*.sh
 dos2unix *.sh
 for script in *.sh
