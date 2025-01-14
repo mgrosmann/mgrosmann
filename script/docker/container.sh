@@ -27,9 +27,9 @@ if [ "$categorie" -eq 1 ]; then
     echo -e "  ${RED}4)${NC} Installer un ${GREEN}conteneur${NC} (${PINK}MySQL${NC}, ${BLUE}HTTPD${NC}, ${GRAY}phpMyAdmin${NC}) en ${RED}session interactive${NC} ou ${ORANGE}détaché${NC}"
     read -p "Entrez le numéro de votre choix : " choix
     if [ "$choix" -eq 1 ]; then
-        ct-httpd
+        apocker
     elif [ "$choix" -eq 2 ]; then
-        ct-setup
+        compose
     elif [ "$choix" -eq 3 ]; then
         pma
     elif [ "$choix" -eq 4 ]; then
@@ -48,13 +48,13 @@ elif [ "$categorie" -eq 2 ]; then
     echo -e "  ${RED}6)${NC} Supprimer tous les ${GREEN}conteneurs arrêtés${NC}"
     read -p "Entrez le numéro de votre choix : " choix
     if [ "$choix" -eq 1 ]; then
-        ct-connect
+        ssh-ct
     elif [ "$choix" -eq 2 ]; then
-        ct-start
+        start
     elif [ "$choix" -eq 3 ]; then
-        ct-stop
+        stop
     elif [ "$choix" -eq 4 ]; then
-        ct-linux
+        linux
     elif [ "$choix" -eq 5 ]; then
         network
     elif [ "$choix" -eq 6 ]; then
