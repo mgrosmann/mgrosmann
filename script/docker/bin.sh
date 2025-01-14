@@ -24,3 +24,4 @@ for script in *.sh
 do
   mv "$file" "/usr/local/bin/$(basename "$file" .sh)"
 done
+rm /usr/local/bin/bin.sh
