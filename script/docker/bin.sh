@@ -18,6 +18,6 @@ chmod +x /*.sh
 dos2unix *.sh
 for script in *.sh
 do
-  mv "$file" "/usr/local/bin/$(basename "$file" .sh)"
+  mv "$script" "/usr/local/bin/$(basename "$script" .sh)"
 done
 rm /usr/local/bin/bin.sh
