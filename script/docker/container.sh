@@ -48,7 +48,7 @@ elif [ "$categorie" -eq 2 ]; then
     echo -e "  ${RED}6)${NC} Supprimer tous les ${GREEN}conteneurs arrêtés${NC}"
     read -p "Entrez le numéro de votre choix : " choix
     if [ "$choix" -eq 1 ]; then
-        ssh-ct
+        ssh_ct
     elif [ "$choix" -eq 2 ]; then
         start
     elif [ "$choix" -eq 3 ]; then
