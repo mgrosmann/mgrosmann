@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo apt install -y ffmpeg curl apt-transport-https ca-certificates gnupg2
 curl -fsSL https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/jellyfin.gpg
 Add Repository:

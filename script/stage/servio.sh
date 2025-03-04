@@ -27,9 +27,6 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl enable serviio.service
 sudo systemctl start serviio.service
-
-
-
 ufw allow :44331
 ufw allow 23423
 ufw allow 23424
