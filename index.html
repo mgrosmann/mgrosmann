@@ -6,24 +6,12 @@
     <title>Portfolio - Matheo Grosmann</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="https://img.freepik.com/premium-vector/mg-logo-design_731343-231.jpg" type="image/jpeg">
-    <script>
-        function displayDateTime() {
-            const now = new Date();
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-            const dateTimeString = now.toLocaleDateString('fr-FR', options);
-            document.getElementById('date-time').textContent = dateTimeString;
-        }
-        window.onload = () => {
-            displayDateTime();
-            setInterval(displayDateTime, 1000);
-        };
-    </script>
 </head>
 <body>
     <header>
         <div class="container">
             <div id="date-time" style="text-align: center; margin-bottom: 10px; font-weight: bold; color: gray;"></div>
-            <h2 style="color: white;">Matheo Grosmann</h2>
+            <h2 style="color: white;">Matheo Grosmann Portfolio</h2>
             <nav>
                 <ul>
                     <li><a href="#accueil">Accueil</a></li>
@@ -36,6 +24,18 @@
                     <li><a href="#E4">Epreuve E4</a></li>
                     <li><a href="#veille">Veille Informatique</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <script>
+                        function displayDateTime() {
+                            const now = new Date();
+                            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+                            const dateTimeString = now.toLocaleDateString('fr-FR', options);
+                            document.getElementById('date-time').textContent = dateTimeString;
+                        }
+                        window.onload = () => {
+                            displayDateTime();
+                            setInterval(displayDateTime, 1000);
+                        };
+                    </script>
                 </ul>
             </nav>
         </div>
