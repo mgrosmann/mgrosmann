@@ -1,5 +1,6 @@
 #!/bin/bash
-wget https://repository.veeam.com/backup/linux/agent/dpkg/debian/public/pool/veeam/v/veeam-release-deb/veeam-release-deb_1.0.9_amd64.deb
-apt-get install veeam-release-deb_1.0.9_amd64.deb
-apt-get install veeam
+wget https://download2.veeam.com/VAL/v6/veeam-release-deb_1.0.9_amd64.deb
+dpkg -i ./veeam-release* && apt-get update
+apt-get install blksnap veeam -y
+apt-get installe veeam-nosnap -y
 echo "effectuez 'veeamconfig ui' pour vérifier si l'installation a réussi"
