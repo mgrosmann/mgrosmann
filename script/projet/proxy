@@ -1,0 +1,8 @@
+#!/bin/bash
+Configurer le proxy pour apt :
+echo " nano/etc/apt/apt.conf
+Acquire::http::proxy "http://192.168.151.254:3128/";"
+export http_proxy="http://192.168.151.254:3128"
+export https_proxy="http://192.168.151.254:3128"
+git config --global http.proxy http://192.168.151.254:3128
+git config --global https.proxy http://192.168.151.254:3128
