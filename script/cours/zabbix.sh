@@ -1,6 +1,7 @@
 #!/bin/bash
 pass=root
-wget https://repo.zabbix.com/zabbix/7.2/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.2+debian12_al>dpkg -i zabbix-release_latest_7.2+debian12_all.deb
+wget https://repo.zabbix.com/zabbix/7.2/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.2+debian12_all.deb
+dpkg -i zabbix-release_latest_7.2+debian12_all.deb
 apt update
 apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent -y
 apt install mariadb-server -y
