@@ -1,5 +1,5 @@
 #!.bin/bash
-pass=root
+pass=root  
 wget https://repo.zabbix.com/zabbix/7.2/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.2+ubuntu24.04_all.deb
 dpkg -i zabbix-release_latest_7.2+ubuntu24.04_all.deb
 apt update
@@ -9,8 +9,9 @@ echo "create user IF NOT EXISTS zabbix@localhost identified by 'zabbix';" >> zbx
 echo "grant all privileges on zabbix.* to zabbix@localhost;" >> zbx.sql
 echo "set global log_bin_trust_function_creators = 1;" >> zbx.sql
 echo "flush privileges;" >> zbx.sql
-zcat /usr/share/zabbix/sql-scripts/mysql/server.sql.gz > zbx.sql
-echo "set global log_bin_trust_function_creators = 0;" >> zbx.sql
+mysql -uroot -p$pass < zbx.sql
+zcat /usr/share/zabbix/sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -pzabbix zabbix
+echo "set global log_bin_trust_function_creators = 0;" > zbx.sql
 mysql -uroot -p$pass < zbx.sql
 echo "systemctl restart zabbix-server zabbix-agent apache2" > zbx.sh
 echo "systemctl enable zabbix-server zabbix-agent apache2" >> zbx.sh
