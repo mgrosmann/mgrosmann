@@ -1,5 +1,6 @@
 #!/bin/bash
-echo "Acquire::http::proxy "http://192.168.151.254:3128/";" >> /etc/apt/apt.conf
+echo "Acquire::http::proxy  "http://192.168.151.254:3128/";" >> /etc/apt/apt.conf
+echo "Acquire::https::proxy "http://192.168.151.254:3128/";" >> /etc/apt/apt.conf
 export http_proxy="http://192.168.151.254:3128"
 export https_proxy="http://192.168.151.254:3128"
 git config --global http.proxy http://192.168.151.254:3128
