@@ -14,6 +14,6 @@ zcat /usr/share/zabbix/sql-scripts/mysql/server.sql.gz | mysql --default-charact
 echo "set global log_bin_trust_function_creators = 0;" | mysql -uroot -p$pass
 systemctl restart zabbix-server zabbix-agent apache2
 systemctl enable zabbix-server zabbix-agent apache2
-echo "Editer /etc/zabbix/zabbix_server.conf avec DBPassword"
 systemctl restart zabbix-server zabbix-agent apache2
 systemctl enable zabbix-server zabbix-agent apache2
+echo "Editer /etc/zabbix/zabbix_server.conf avec DBPassword"
