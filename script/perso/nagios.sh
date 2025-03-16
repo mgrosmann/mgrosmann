@@ -6,8 +6,8 @@ sudo groupadd nagcmd
 sudo usermod -a -G nagcmd nagios
 cd /tmp
 wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.4.6.tar.gz
-tar xzf nagios-*.tar.gz
-cd nagios-*
+tar xzf nagios-4.4.6..tar.gz
+cd /tmp/nagios-4.4.6
 sudo ./configure --with-nagios-group=nagios --with-command-group=nagcmd
 sudo make all
 sudo make install
