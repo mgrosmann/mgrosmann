@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo apt update && sudo apt upgrade
-sudo apt install -y autoconf gcc libc6 make wget unzip apache2 php libapache2-mod-php7.4 libgd-dev
+sudo apt install -y autoconf gcc libc6 make wget unzip apache2 php libapache2-mod-php7.4 libgd-dev make
 sudo useradd nagios
 sudo groupadd nagcmd
 sudo usermod -a -G nagcmd nagios
