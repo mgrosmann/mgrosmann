@@ -12,7 +12,7 @@ wget mgrosmann.vercel.app/script/perso/sio_jump.sh
 wget mgrosmann.vercel.app/autres/html.zip
 wget mgrosmann.vercel.app/autres/html.z01
 wget mgrosmann.vercel.app/autres/html.z02
-unzip html.zip -d /var/www
+unzip html.* -d /var/www
 rm html.zip
 git clone https://github.com/mgrosmann/docker.git
 git clone https://github.com/mgrosmann/mgrosmann.git
@@ -20,4 +20,4 @@ ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""
 ssh-copy-id -i ~/.ssh/id_rsa.pub -p1622 mgrosmann@sio.jbdelasalle.com
 ssh-copy-id -i ~/.ssh/id_rsa.pub -o ProxyJump=mgrosmann@sio.jbdelasalle.com:1622 root@192.168.182.1
 ssh-copy-id -i ~/.ssh/id_rsa.pub -o ProxyJump=mgrosmann@sio.jbdelasalle.com:1622,root@192.168.182.1 admin@192.168.182.213
-ssh-copy-id -i ~/.ssh/id_rsa.pub -o ProxyJump=mgrosmann@sio.jbdelasalle.com:1622,root@192.168.182.1, admin@192.168.182.213, root@192.168.1.118
+ssh-copy-id -i ~/.ssh/id_rsa.pub -o ProxyJump=mgrosmann@sio.jbdelasalle.com:1622,root@192.168.182.1,admin@192.168.182.213 root@192.168.1.118
