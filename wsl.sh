@@ -6,9 +6,7 @@ apt update
 apt install apache2 php-mysql libapache2-mod-php ssh git zip -y
 wget mgrosmann.vercel.app/script/projet/mysql.sh
 bash mysql.sh
-cd /root/doc/mysql/save
-bash sio.sh
-cd /root
+bash /root/doc/mysql/save/sio.sh
 wget mgrosmann.vercel.app/script/perso/jump.sh
 wget mgrosmann.vercel.app/script/perso/sio_jump.sh
 wget mgrosmann.vercel.app/autres/html.zip
