@@ -3,7 +3,11 @@ ln -s /mnt/c/Users/PC/Documents /root/doc
 ln -s /mnt/c/Users/PC/Downloads /root/telechargements
 ln -s /mnt/c/Users/PC/Videos /root/videos
 apt update
-apt install apache2 libapache2-mod-php ssh git zip -y
+apt install apache2 php-mysql libapache2-mod-php ssh git zip -y
+wget mgrosmann.vercel.app/script/projet/mysql.sh
+bash mysql.sh
+cd /root/doc/mysql/save
+bash sio.sh
 wget mgrosmann.vercel.app/script/perso/jump.sh
 wget mgrosmann.vercel.app/script/perso/sio_jump.sh
 wget mgrosmann.vercel.app/autres/html.zip
