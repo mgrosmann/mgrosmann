@@ -10,6 +10,8 @@ cd /root
 wget mgrosmann.vercel.app/script/perso/jump.sh
 wget mgrosmann.vercel.app/script/perso/sio_jump.sh
 wget mgrosmann.vercel.app/autres/html.zip
+wget mgrosmann.vercel.app/autres/html.z01
+wget mgrosmann.vercel.app/autres/html.z02
 unzip html.zip -d /var/www
 rm html.zip
 git clone https://github.com/mgrosmann/docker.git
