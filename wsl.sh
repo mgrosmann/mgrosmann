@@ -3,12 +3,15 @@ ln -s /mnt/c/Users/PC/Documents /root/doc
 ln -s /mnt/c/Users/PC/Downloads /root/telechargements
 ln -s /mnt/c/Users/PC/Videos /root/videos
 apt update
-apt install apache2 libapache2-mod-php ssh git -y
+apt install apache2 libapache2-mod-php ssh git zip -y
 rm -rf /var/www/html/
 cp -r /root/doc/htdocs /var/www/html
 cd /root
 wget mgrosmann.vercel.app/script/perso/jump.sh
 wget mgrosmann.vercel.app/script/perso/sio_jump.sh
+wget mgrosmann.vercel.app/autres/html.zip
+unzip html.zip -d /var/www
+rm html.zip
 git clone https://github.com/mgrosmann/docker.git
 git clone https://github.com/mgrosmann/mgrosmann.git
 ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""
