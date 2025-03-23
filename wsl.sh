@@ -8,6 +8,7 @@ wget mgrosmann.vercel.app/script/projet/mysql.sh
 bash mysql.sh
 cd /root/doc/mysql/save
 bash sio.sh
+cd /root
 wget mgrosmann.vercel.app/script/perso/jump.sh
 wget mgrosmann.vercel.app/script/perso/sio_jump.sh
 wget mgrosmann.vercel.app/autres/html.zip
