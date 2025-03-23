@@ -1,5 +1,5 @@
 #!/bin/bash
-ssh -J  mgrosmann@sio.jbdelasalle.com:1622,root@192.168.182.1 \
+ssh -J mgrosmann@sio.jbdelasalle.com:1622,root@192.168.182.1,admin@192.168.182.213 \
    -L 8006:192.168.182.1:8006 \
    -L 2222:192.168.182.1:22 \
    -L 22022:192.168.1.114:22 \
@@ -7,5 +7,4 @@ ssh -J  mgrosmann@sio.jbdelasalle.com:1622,root@192.168.182.1 \
    -L 4430:192.168.1.1:443 \
    -L 2003:192.168.1.118:22 \
    -L 2004:192.168.1.118:80 \
-   admin@192.168.182.213
-
+   root@192.168.1.118
