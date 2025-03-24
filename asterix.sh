@@ -54,8 +54,4 @@ exten = 100,3,Playback(hello-world)
 exten = 100,4,Hangup()
 exten = _6XXX,1,Dial(PJSIP/${EXTEN},20)
 exten = _6XXX,2,Hangup()
-
-Configurer le client VoIP (softphone) Zoiper :
-Username / Login: 6001@192.168.151.205
-Password: P@ssw0rd
 EOF
