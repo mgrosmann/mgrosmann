@@ -1,5 +1,5 @@
 #!/bin/bash
-read -ps echo "quel password" passwd
+read -p  echo "quel password" -s passwd
 read -p echo "quel numero" numero
 cat << EOF >> /etc/asterisk/pjsip.conf
 [transport-udp]
