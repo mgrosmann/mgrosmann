@@ -12,8 +12,8 @@ type=endpoint
 context=sio
 disallow=all
 allow=ulaw
-auth=6001auth
-aors=6001aor
+auth=$numeroauth
+aors=$numeroaor
 
 [$numeroauth]
 type=auth
