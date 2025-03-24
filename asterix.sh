@@ -46,7 +46,7 @@ password=P@ssw0rd
 EOF
 reload
 pjsip show aors
-cat <<EOF >> /etc/asterisk/extensions.conf :
+cat <<EOF > /etc/asterisk/extensions.conf :
 [sio]
 exten = 100,1,Answer()
 exten = 100,2,Wait(1)
