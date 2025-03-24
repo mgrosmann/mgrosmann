@@ -1,6 +1,6 @@
 #!/bin/bash
-read -p  "quel password" -s passwd
-read -p  "quel numero" numero
+read -p  "quel numero: " numero
+read -p  "quel password: " -s passwd
 cat << EOF >> /etc/asterisk/pjsip.conf
 [transport-udp]
 type=transport
@@ -12,16 +12,16 @@ type=endpoint
 context=sio
 disallow=all
 allow=ulaw
-auth=$numeroauth
-aors=$numeroaor
+auth=${numero}auth
+aors=${numero}aor
 
-[$numeroauth]
+[${numero}auth]
 type=auth
 auth_type=userpass
 username=$numero
 password=$passwd
 
-[$numeroaor]
+[${numero}aor]
 type=aor
 max_contacts=1
 EOF
