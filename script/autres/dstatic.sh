@@ -20,5 +20,5 @@ iface $nterface inet static
     gateway $gateway
     dns-nameservers $dns
 EOF
-systemctl restart networking
+systemctl restart networking.service
 hostname -I
