@@ -1,24 +1,19 @@
 #!/bin/bash
-
-# Nom de l'interface réseau (remplacez par le nom de votre interface, par exemple enp0s3)
-INTERFACE="enp0s3"
-
-# Créer le fichier de configuration Netplan
-sudo bash -c "cat > /etc/netplan/50-cloud-netcfg.yaml" <<EOF
+read -p "entrer l'interface réseau: " interface
+read -p "entrer l'adresse ip: " ip
+read -p "entrer la passerelle: " gateway
+read -p "entrer le dns: " dns
+cat <<EOF > /etc/network/50-cloud-init.yaml
 network:
   version: 2
   ethernets:
-    $INTERFACE:
+    $interface:
       addresses:
-        - 192.168.1.80/24
-      gateway4: 192.168.1.1
+        - $ip
+      gateway4: $gateway
       nameservers:
         addresses:
-          - 192.168.1.1
+          - $dns
 EOF
-
-# Appliquer la configuration Netplan
 sudo netplan apply
-
-# Afficher la nouvelle configuration réseau
 hostname -I
