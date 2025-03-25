@@ -1,7 +1,24 @@
+#!/bin/bash
+read -p "entrer l'interface réseau: " interface
+read -p "entrer l'adresse ip: " ip
+read -p "entrer la passerelle: " gateway
+read -p "entrer le dns: " dns
+cat <<EOF > /etc/network/interfaces
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
 
+source /etc/network/interfaces.d/*
 
-llow-hotplug ens18
-iface ens18 inet static
-    address 192.168.1.11/24
-    gateway 192.168.1.1
-    dns-nameservers 192.168.182.254
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+allow-hotplug $interface
+iface $nterface inet static
+    address $ip
+    gateway $gateway
+    dns-nameservers $dns
+EOF
+systemctl restart networking
+hostname -I
