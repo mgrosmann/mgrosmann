@@ -15,7 +15,7 @@ iface lo inet loopback
 
 # The primary network interface
 allow-hotplug $interface
-iface $nterface inet static
+iface $interface inet static
     address $ip
     gateway $gateway
     dns-nameservers $dns
