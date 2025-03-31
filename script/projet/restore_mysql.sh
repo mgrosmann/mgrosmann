@@ -1,7 +1,7 @@
 #!/bin/bash
 DB_USER="root"
 DB_PASS="root"
-SOURCE_DIR="/home/mgrosmann/desktop"
+SOURCE_DIR="/root"
 LATEST_BACKUP=$(ls -t "$SOURCE_DIR"/all-databases-*.sql 2>/dev/null | head -n 1)
 if [ -z "$LATEST_BACKUP" ]; then
   echo "Aucune sauvegarde trouvée dans $SOURCE_DIR."
