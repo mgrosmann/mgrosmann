@@ -18,5 +18,5 @@ read -p "besoin de combien de jump ssh ?" juump
     read -p "nom de l'utilisateur du serveur ssh distant numero $i" user_$i
     read -p "hostname/Adresse ip du serveur ssh distant $i" host_$i
     echo "$user_$i@$host_$i" >> /root/host.txt
-echo "effectuer ssh -J user@host:port user@host avec les host presents dans /root/host.txt"
+echo "effectuer ssh-copy-id -J user@host:port user@host avec les host presents dans /root/host.txt"
 #echo "your key public" > ~/.ssh/authorized_keys
