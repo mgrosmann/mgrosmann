@@ -6,5 +6,6 @@ if [ ! -f ~/.ssh/id_rsa.pub   ]; then
     ssh-copy-id -i ~/.ssh/id_rsa.pub $user@$host
 elif
     ssh-copy-id -i ~/.ssh/id_rsa.pub $user@$host
+
 #ssh-copy-id -o ProxyJump=jumpuser@jumphost:2455 remoteuser@remotehost
 #echo "enter key public" > /root/.ssh/authorized_keys
