@@ -20,7 +20,7 @@ fi
   mysql -uroot -p$pass < zbx.sql
   zcat /usr/share/zabbix/sql-scripts/mysql/server.sql.gz > zbx.sql
   echo "set global log_bin_trust_function_creators = 0;" >> zbx.sql
-  mysql -uroot -p$pass < zbx.sql
+  mysql -uroot -p$pass zabbix < zbx.sql
   rm zbx.sql
   echo "systemctl restart zabbix-server zabbix-agent apache2" > zbx.sh
   echo "systemctl enable zabbix-server zabbix-agent apache2" >> zbx.sh
