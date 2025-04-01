@@ -1,4 +1,7 @@
 #!/bin/bash
+mkdir -p /root/bin
+echo "export PATH=$PATH:/root/bin" >> /root/.bashrc
+source .bashrc
 ln -s /mnt/c/Users/PC/Documents /root/doc
 ln -s /mnt/c/Users/PC/Downloads /root/telechargements
 ln -s /mnt/c/Users/PC/Videos /root/videos
@@ -21,4 +24,4 @@ ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""
 ssh-copy-id -i ~/.ssh/id_rsa.pub -p1622 mgrosmann@sio.jbdelasalle.com
 ssh-copy-id -i ~/.ssh/id_rsa.pub -o ProxyJump=mgrosmann@sio.jbdelasalle.com:1622 root@192.168.182.1
 ssh-copy-id -i ~/.ssh/id_rsa.pub -o ProxyJump=mgrosmann@sio.jbdelasalle.com:1622,root@192.168.182.1 admin@192.168.182.213
-ssh-copy-id -i ~/.ssh/id_rsa.pub -o ProxyJump=mgrosmann@sio.jbdelasalle.com:1622,root@192.168.182.1,admin@192.168.182.213 root@192.168.1.118
+ssh-copy-id -i ~/.ssh/id_rsa.pub -o ProxyJump=mgrosmann@sio.jbdelasalle.com:1622,root@192.168.182.1,admin@192.168.182.213 root@192.168.1.11
