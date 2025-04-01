@@ -1,7 +1,6 @@
 @echo off
 if exist "C:\Program Files\zabbix agent\" (
-    exit /b
-    pause
+    exit
 )
 set "zabbix=\\192.168.1.10\script$\zabbix_agent-7.2.5-windows-amd64-openssl.msi"
 set "server=192.168.1.11"
