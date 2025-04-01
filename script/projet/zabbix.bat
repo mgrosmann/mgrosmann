@@ -1,4 +1,4 @@
-@echo OFF
+@echo off
 if exist "C:\Program Files\zabbix agent\" (
     exit /b
     pause
