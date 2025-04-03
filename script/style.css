@@ -17,14 +17,14 @@ body {
 .container {
     text-align: center;
     background-color: rgba(0, 0, 0, 0.6); 
-    padding: 30px 20px;
-    border-radius: 15px;
+    padding: 20px 10px;
+    border-radius: 10px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); 
 }
 .container h1 {
     color: #ffffff;
     margin-bottom: 15px;
-    font-size: 24px;
+    font-size: 19px;
     font-weight: bold;
     text-transform: uppercase;
 }
