@@ -139,15 +139,12 @@
                         afin de contrer les cyber-attaques. Pour cela a l'aide de l'outil de virtualisation roxmox, nous devions configurer divers service sur un serveur: 
                     </p><br>
                     <ul>
-                       <li>Une VM pfSense pour configurer un pare feu, serveur dhcp, vlan, portail captif mais aussi dmz(zone démilitarisée)</li>
-                       <li>Une VM Windows Server pour configurer un Active Directory et le serveur dns.</li>
+                       <li>Une VM pfSense pour configurer un serveur dhcp et dns, vlan, portail captif, proxy et dmz(zone démilitarisée)</li>
+                       <li>Une VM Windows Server pour configurer un Active Directory et la gestion centralisé de mises à jour windows avec WSUS.</li>
                        <li>Une VM Windows 10 pour tester l'Active Directory et configurer le pare-feu pfSense sur l'interface web</li>
-                       <li>Nous installerons d'autres VM ou utiliserons celles déja installés pour les Déploiements automatisés, Gestion centralisée des mises à jour Windows,
-                        Outil de gestion de parc et de tickets,Outil de supervision et solution de sauvegarde.
-                       </li><br>
-                        <p> Ce projet est similaire au précédent, mais il est plus avancé car cette fois-ci, nous installons les machines virtuelles directement sur un serveur
-                            et nous devons configurer plus de services.
-                        </p>
+                       <li>Une VM linux pour mettre en place la gestion du parc informatique et des tickets avec GLPI, l'outil de supervision avec zabbix, la solution de sauvegarde avec Veeam Backup et les dépoloiements automatisés avec fog project</li>
+                       <br>
+                        <p> Ce projet est similaire au précédent, mais il est plus avancé car cette fois-ci, nous installons les machines virtuelles directement sur un serveur proxmox et non pas indivuellement sur nos machines ce qui permet que les services que nous mettons en place sont interconnectés et nous devons configurer plus de services. </p>
                     </ul>
                     <br>
                         <p>Pour ce projet, j'ai concu plusieurs scripts, consultable en sélectionnant le bouton ci dessus: <a href="script/index.html" class="btn">cliquer ici</a></p>
