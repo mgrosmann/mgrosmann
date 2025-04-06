@@ -1,5 +1,5 @@
 #!/bin/bash
-echo 'Acquire::http::proxy  "http://192.168.182.254:3128/";' > /etc/apt/apt.conf
+echo 'Acquire::http::proxy "http://192.168.182.254:3128/";' > /etc/apt/apt.conf
 echo 'Acquire::https::proxy "http://192.168.182.254:3128/";' >> /etc/apt/apt.conf
 echo "https_proxy = http://192.168.182.254:3128/" >> /etc/wgetrc
 echo "http_proxy = http://192.168.182.254:3128/" >> /etc/wgetrc
