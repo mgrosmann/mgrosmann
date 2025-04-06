@@ -23,7 +23,7 @@ unzip html.zip -d /var/www
 rm html*
 git clone https://github.com/mgrosmann/docker.git
 git clone https://github.com/mgrosmann/mgrosmann.git
-#cp -r mgrosmann /var/www/html/portfolio
+cp -r mgrosmann /var/www/html/portfolio
 ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""
 ssh-copy-id -i ~/.ssh/id_rsa.pub -p1622 mgrosmann@sio.jbdelasalle.com
 ssh-copy-id -i ~/.ssh/id_rsa.pub -o ProxyJump=mgrosmann@sio.jbdelasalle.com:1622 root@192.168.182.1
