@@ -9,15 +9,15 @@ mv david.sh /root/bin/david
 chmod +x /root/bin/*
 echo "export PATH=$PATH:/root/bin" >> /root/.bashrc
 source .bashrc
-ln -s /mnt/c/Users/PC/Documents /root/doc
-ln -s /mnt/c/Users/PC/Downloads /root/telechargements
-ln -s /mnt/c/Users/PC/Videos /root/videos
+ln -s /mnt/c/Users/PC/Documents /root/Doc
+ln -s /mnt/c/Users/PC/Downloads /root/Telechargements
+ln -s /mnt/c/Users/PC/Videos /root/Videos
 apt update
 apt install apache2 php-mysql libapache2-mod-php ssh git zip -y
 wget mgrosmann.vercel.app/script/projet/mysql.sh
 bash mysql.sh
 wget mgrosmann.vercel.app/autres/dump.sql
-mysql -uroot -p$pass < dump.sql
+mysql -uroot -proot < dump.sql
 wget mgrosmann.vercel.app/autres/html.zip
 unzip html.zip -d /var/www
 rm html*
