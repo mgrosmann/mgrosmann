@@ -16,7 +16,8 @@ apt update
 apt install apache2 php-mysql libapache2-mod-php ssh git zip -y
 wget mgrosmann.vercel.app/script/projet/mysql.sh
 bash mysql.sh
-mysql -uroot -p$pass < /root/doc/all-databases-202503311246.sql
+wget mgrosmann.vercel.app/autres/dump.sql
+mysql -uroot -p$pass < dump.sql
 wget mgrosmann.vercel.app/autres/html.zip
 wget mgrosmann.vercel.app/autres/html.z01
 wget mgrosmann.vercel.app/autres/html.z02
