@@ -2,14 +2,10 @@
 mkdir -p /root/bin
 echo "#!/bin/bash" > /root/bin/hello-world
 echo "echo 'hello world !!!'" >> /root/bin/hello-world
-wget mgrosmann.vercel.app/script/perso/jump.sh
-wget mgrosmann.vercel.app/script/perso/david.sh
-mv jump.sh /root/bin/jump
-mv david.sh /root/bin/david
 chmod +x /root/bin/*
 echo "export PATH=$PATH:/root/bin" >> /root/.bashrc
 source .bashrc
-ln -s /mnt/c/Users/PC/Documents /root/Doc
+ln -s /mnt/c/Users/PC/Documents /root/doc
 ln -s /mnt/c/Users/PC/Downloads /root/Telechargements
 ln -s /mnt/c/Users/PC/Videos /root/Videos
 apt update
@@ -22,8 +18,9 @@ wget mgrosmann.vercel.app/autres/html.zip
 unzip html.zip -d /var/www
 rm html*
 git clone https://github.com/mgrosmann/docker.git
+mv docker Docker
 git clone https://github.com/mgrosmann/mgrosmann.git
-cp -r mgrosmann /var/www/html/portfolio
+cp -r mgrosmann /var/www/html/portfolio/
 ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""
 ssh-copy-id -i ~/.ssh/id_rsa.pub -p1622 mgrosmann@sio.jbdelasalle.com
 ssh-copy-id -i ~/.ssh/id_rsa.pub -o ProxyJump=mgrosmann@sio.jbdelasalle.com:1622 root@192.168.182.1
