@@ -14,6 +14,7 @@ wget mgrosmann.vercel.app/script/projet/mysql.sh
 bash mysql.sh
 wget mgrosmann.vercel.app/autres/dump.sql
 mysql -uroot -proot < dump.sql
+rm /var/www/html/index.html
 wget mgrosmann.vercel.app/autres/html.zip
 unzip html.zip -d /var/www
 rm html*
