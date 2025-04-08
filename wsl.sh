@@ -1,7 +1,7 @@
 #!/bin/bash
 mkdir -p /root/bin
-echo "#!/bin/bash" > /root/bin/hello-world
-echo "echo 'hello world !!!'" >> /root/bin/hello-world
+echo "#!/bin/bash" > /root/bin/hw
+echo "echo 'hello world !!!'" >> /root/bin/hw
 chmod +x /root/bin/*
 echo "export PATH=$PATH:/root/bin" >> /root/.bashrc
 ln -s /mnt/c/Users/PC/Documents /root/doc
