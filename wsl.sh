@@ -6,8 +6,8 @@ chmod +x /root/bin/*
 echo "export PATH=$PATH:/root/bin" >> /root/.bashrc
 source ~/.bashrc
 ln -s /mnt/c/Users/PC/Documents /root/doc
-ln -s /mnt/c/Users/PC/Downloads /root/Telechargements
-ln -s /mnt/c/Users/PC/Videos /root/Videos
+ln -s /mnt/c/Users/PC/Downloads /root/telechargements
+ln -s /mnt/c/Users/PC/Videos /root/videos
 apt update
 apt install apache2 php-mysql libapache2-mod-php ssh git zip -y
 wget mgrosmann.vercel.app/script/projet/mysql.sh
