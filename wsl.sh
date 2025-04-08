@@ -4,6 +4,7 @@ echo "#!/bin/bash" > /root/bin/hw
 echo "echo 'hello world !!!'" >> /root/bin/hw
 chmod +x /root/bin/*
 echo "export PATH=$PATH:/root/bin" >> /root/.bashrc
+source ~/.bashrc
 ln -s /mnt/c/Users/PC/Documents /root/doc
 ln -s /mnt/c/Users/PC/Downloads /root/Telechargements
 ln -s /mnt/c/Users/PC/Videos /root/Videos
