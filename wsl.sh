@@ -3,6 +3,7 @@ mkdir -p /root/bin
 echo "#!/bin/bash" > /root/bin/hw
 echo "echo 'hello world !!!'" >> /root/bin/hw
 chmod +x /root/bin/*
+echo " PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '" >> /root/.bashrc
 echo "export PATH=$PATH:/root/bin" >> /root/.bashrc
 source ~/.bashrc
 ln -s /mnt/c/Users/PC/Documents /root/doc
