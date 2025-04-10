@@ -10,26 +10,23 @@ ln -s /mnt/c/Users/PC/Documents /root/doc
 ln -s /mnt/c/Users/PC/Downloads /root/telechargements
 ln -s /mnt/c/Users/PC/Videos /root/videos
 apt update -y
-apt install apache2 php-mysql libapache2-mod-php ssh git zip -y
-mkdir /usr/share/web
-ln -s /usr/share/web /root/web
-echo "Alias /web /usr/share/web" > /etc/apache2/conf-available/web.conf
-a2enconf web
-systemctl restart apache2
+apt install apache2 php-mysql libapache2-mod-php ssh git zip python3 -y
+ln -s /var/www/html /root/html
 wget mgrosmann.vercel.app/script/projet/mysql.sh
 bash mysql.sh
 wget mgrosmann.vercel.app/autres/dump.sql
 mysql -uroot -proot < dump.sql
 rm /var/www/html/index.html
 wget mgrosmann.vercel.app/autres/html.zip
-unzip html.zip -d /usr/share/web
+unzip html.zip -d /var/www/html/
 rm html*
 git clone https://github.com/mgrosmann/docker.git
 git clone https://github.com/mgrosmann/mgrosmann.git
-cp -r mgrosmann  /usr/share/web/portfolio/
+cp -r mgrosmann  /var/www/html/portfolio/
 ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""
 ssh-copy-id -i ~/.ssh/id_rsa.pub -p1622 mgrosmann@sio.jbdelasalle.com
 ssh-copy-id -i ~/.ssh/id_rsa.pub -o ProxyJump=mgrosmann@sio.jbdelasalle.com:1622 root@192.168.182.1
 ssh-copy-id -i ~/.ssh/id_rsa.pub -o ProxyJump=mgrosmann@sio.jbdelasalle.com:1622,root@192.168.182.1 admin@192.168.182.213
 ssh-copy-id -i ~/.ssh/id_rsa.pub -o ProxyJump=mgrosmann@sio.jbdelasalle.com:1622,root@192.168.182.1,admin@192.168.182.213 root@192.168.1.11
-echo "pensez à faire 'source .bashrc' pour activer le repertoire /root/bin"
+source ~/.bashrc
+echo "pensez à faire 'source ~/.bashrc' pour activer le repertoire /root/bin"
