@@ -18,7 +18,7 @@ wget mgrosmann.vercel.app/autres/dump.sql
 mysql -uroot -proot < dump.sql
 rm /var/www/html/index.html
 wget mgrosmann.vercel.app/autres/html.zip
-unzip html.zip -d /var/www/html/
+unzip html.zip -d /var/www/
 rm html*
 git clone https://github.com/mgrosmann/docker.git
 git clone https://github.com/mgrosmann/mgrosmann.git
