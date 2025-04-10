@@ -8,16 +8,19 @@ source ~/.bashrc
 ln -s /mnt/c/Users/PC/Documents /root/doc
 ln -s /mnt/c/Users/PC/Downloads /root/telechargements
 ln -s /mnt/c/Users/PC/Videos /root/videos
-apt update
+apt update -y
 apt install apache2 php-mysql libapache2-mod-php ssh git zip -y
-ln -s /var/www/html /root/web
+mkdir /root/web/
+echo "Alias /web /root/web/" > etc/apache2/conf-available/web.conf
+a2enconf web
+systemctl restart apache2
 wget mgrosmann.vercel.app/script/projet/mysql.sh
 bash mysql.sh
 wget mgrosmann.vercel.app/autres/dump.sql
 mysql -uroot -proot < dump.sql
 rm /var/www/html/index.html
 wget mgrosmann.vercel.app/autres/html.zip
-unzip html.zip -d /var/www
+unzip html.zip -d /root/web/
 rm html*
 git clone https://github.com/mgrosmann/docker.git
 mv docker Docker
