@@ -10,6 +10,7 @@ ln -s /mnt/c/Users/PC/Downloads /root/telechargements
 ln -s /mnt/c/Users/PC/Videos /root/videos
 apt update
 apt install apache2 php-mysql libapache2-mod-php ssh git zip -y
+ln -s /var/www/html /root/web
 wget mgrosmann.vercel.app/script/projet/mysql.sh
 bash mysql.sh
 wget mgrosmann.vercel.app/autres/dump.sql
