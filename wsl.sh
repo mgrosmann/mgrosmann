@@ -22,12 +22,11 @@ wget mgrosmann.vercel.app/autres/dump.sql
 mysql -uroot -proot < dump.sql
 rm /var/www/html/index.html
 wget mgrosmann.vercel.app/autres/html.zip
-unzip html.zip -d /root/web/
+unzip html.zip -d /usr/share/web
 rm html*
 git clone https://github.com/mgrosmann/docker.git
-mv docker Docker
 git clone https://github.com/mgrosmann/mgrosmann.git
-cp -r mgrosmann /var/www/html/portfolio/
+cp -r mgrosmann  /usr/share/web/portfolio/
 ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""
 ssh-copy-id -i ~/.ssh/id_rsa.pub -p1622 mgrosmann@sio.jbdelasalle.com
 ssh-copy-id -i ~/.ssh/id_rsa.pub -o ProxyJump=mgrosmann@sio.jbdelasalle.com:1622 root@192.168.182.1
