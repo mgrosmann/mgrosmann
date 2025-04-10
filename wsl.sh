@@ -12,7 +12,7 @@ ln -s /mnt/c/Users/PC/Videos /root/videos
 apt update -y
 apt install apache2 php-mysql libapache2-mod-php ssh git zip -y
 mkdir /root/web/
-echo "Alias /web /root/web/" > etc/apache2/conf-available/web.conf
+echo "Alias /web /root/web/" > /etc/apache2/conf-available/web.conf
 a2enconf web
 systemctl restart apache2
 wget mgrosmann.vercel.app/script/projet/mysql.sh
