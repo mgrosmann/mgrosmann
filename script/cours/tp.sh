@@ -11,3 +11,6 @@ echo "<IfModule mod_userdir.c>
 		Require method GET POST OPTIONS
 	</Directory>
 </IfModule>" > /etc/apache2/mods-available/userdir.conf
+a2enmod rewrite
+a2enmod userdir
+systemctl restart apache2
