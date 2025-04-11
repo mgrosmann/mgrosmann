@@ -16,25 +16,15 @@ wget mgrosmann.vercel.app/autres/dump.sql
 mysql -uroot -proot < dump.sql
 rm /var/www/html/index.html
 wget mgrosmann.vercel.app/autres/html.zip
-unzip html.zip -d /usr/share
-mv /usr/share/html /usr/share/web
-ln -s /usr/share/web /root/web
-cat << EOF > /var/www/html/index.php
-<?php
-  header('Location: /web');
-  exit();
-?>
-EOF
-echo "Alias /web /usr/share/web" > /etc/apache2/conf-available/web.conf
-a2enconf web
-systemctl reload apache2
+unzip html.zip -d /var/www/
+ln -s /var/www/html/ /root/web
 rm html*
 git clone https://github.com/mgrosmann/docker.git
 git clone https://github.com/mgrosmann/mgrosmann.git
-cp -r mgrosmann  /usr/share/web/portfolio/
+cp -r mgrosmann  /var/www/html//portfolio/
 ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""
-ssh-copy-id -i ~/.ssh/id_rsa.pub -p1622 mgrosmann@sio.jbdelasalle.com
-ssh-copy-id -i ~/.ssh/id_rsa.pub -o ProxyJump=mgrosmann@sio.jbdelasalle.com:1622 root@192.168.182.1
-ssh-copy-id -i ~/.ssh/id_rsa.pub -o ProxyJump=mgrosmann@sio.jbdelasalle.com:1622,root@192.168.182.1 admin@192.168.182.213
-ssh-copy-id -i ~/.ssh/id_rsa.pub -o ProxyJump=mgrosmann@sio.jbdelasalle.com:1622,root@192.168.182.1,admin@192.168.182.213 root@192.168.1.11
+#ssh-copy-id -i ~/.ssh/id_rsa.pub -p1622 mgrosmann@sio.jbdelasalle.com
+#ssh-copy-id -i ~/.ssh/id_rsa.pub -o ProxyJump=mgrosmann@sio.jbdelasalle.com:1622 root@192.168.182.1
+#ssh-copy-id -i ~/.ssh/id_rsa.pub -o ProxyJump=mgrosmann@sio.jbdelasalle.com:1622,root@192.168.182.1 admin@192.168.182.213
+#ssh-copy-id -i ~/.ssh/id_rsa.pub -o ProxyJump=mgrosmann@sio.jbdelasalle.com:1622,root@192.168.182.1,admin@192.168.182.213 root@192.168.1.11
 echo "pensez à faire 'source ~/.bashrc' pour activer le repertoire /root/bin"
