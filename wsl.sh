@@ -19,7 +19,7 @@ wget mgrosmann.vercel.app/autres/html.zip
 unzip html.zip -d /usr/share
 mv /usr/share/html /usr/share/web
 ln -s /usr/share/web /root/web
-cat << EOF < /var/www/html/index.php
+cat << EOF > /var/www/html/index.php
 <?php
   header('Location: /web');
   exit();
