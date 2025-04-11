@@ -10,14 +10,18 @@ ln -s /mnt/c/Users/PC/Downloads /root/telechargements
 ln -s /mnt/c/Users/PC/Videos /root/videos
 apt update -y
 apt install apache2 php-mysql libapache2-mod-php ssh git zip python3 -y
-ln -s /var/www/html /root/html
 wget mgrosmann.vercel.app/script/projet/mysql.sh
 bash mysql.sh
 wget mgrosmann.vercel.app/autres/dump.sql
 mysql -uroot -proot < dump.sql
 rm /var/www/html/index.html
 wget mgrosmann.vercel.app/autres/html.zip
-unzip html.zip -d /var/www/
+unzip html.zip -d /usr/share
+mv /usr/share/html 
+ln -s /usr/share/web /root/web
+echo "Alias /web /usr/share/web" > /etc/apache2/conf-available/web.conf
+a2enconf web
+systemctl reload apache2
 rm html*
 git clone https://github.com/mgrosmann/docker.git
 git clone https://github.com/mgrosmann/mgrosmann.git
