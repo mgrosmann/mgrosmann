@@ -2,7 +2,7 @@
 user="test_users.csv"
 tmp="/tmp/test"
 home="/home/test"
-read -p "Mode d'initialisation (complet 1 / test 2) ?" reponse
+read -p "Mode d'initialisation (complet 1 / test 2) : " reponse
 if [[ ! -z $reponse && $reponse == "1" ]]; then
 	user="users.csv"
 fi
@@ -30,10 +30,10 @@ while IFS=";" read -r id first_name last_name gender email function hiring_date	
 		<head>
 			<meta charset='utf-8'>
 			<meta name='viewport' content='width=device-width, initial-scale=1'>
-			<title>"$first_name" "$last_name"</title>
+			<title>"$email"</title>
 		</head>
 		<body>
-			"$first_name" "$last_name"
+			espace web de "$email"
 		</body>
 	</html>" > $path_user_public_html"/index.html"
 	echo "<div><a href='~"$email"/index.html'>"$first_name" "$last_name"</a></div>" >> /var/www/html/user.html
