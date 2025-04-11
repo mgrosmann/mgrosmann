@@ -5,6 +5,7 @@ useradd $user -m -d /home/html/$user
 mkdir /home/html/$user/perso_html
 chown -R $user /home/html/$user
 echo "coucou bienvenue sur le site de moi, $user" > /home/html/$user/perso_html/index.html
+if [[ ! -f /etc/apache2/mods-available/userdir.conf ]]; then
 cat << EOF > /etc/apache2/mods-available/userdir.conf
 <IfModule mod_userdir.c>
 	UserDir perso_html
@@ -20,6 +21,7 @@ cat << EOF > /etc/apache2/mods-available/userdir.conf
 #path = 
 #a2enmod userdir puis systemctl restart apache2
 EOF
+fi
 a2enmod userdir
 a2enmod rewrite
 systemctl restart apache2
