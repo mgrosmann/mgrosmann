@@ -17,8 +17,14 @@ mysql -uroot -proot < dump.sql
 rm /var/www/html/index.html
 wget mgrosmann.vercel.app/autres/html.zip
 unzip html.zip -d /usr/share
-mv /usr/share/html 
+mv /usr/share/html /usr/share/web
 ln -s /usr/share/web /root/web
+cat << EOF < /var/www/html/index.php
+<?php
+  header('Location: /web');
+  exit();
+?>
+EOF
 echo "Alias /web /usr/share/web" > /etc/apache2/conf-available/web.conf
 a2enconf web
 systemctl reload apache2
