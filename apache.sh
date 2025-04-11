@@ -1,5 +1,5 @@
 #!/bin/bash
-read -p "quel nom pour votre user" user
+read -p "quel nom pour votre user: " user
 mkdir -p /home/html/
 useradd $user -m -d /home/html/$user
 mkdir /home/html/$user/perso_html
