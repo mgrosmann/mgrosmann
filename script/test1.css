@@ -1,0 +1,18 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/020/084/501/small/digital-technology-metaverse-neon-blue-green-background-cyber-information-abstract-speed-connect-communication-innovation-future-meta-tech-internet-network-connection-ai-big-data-illustration-3d-vector.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: black;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2vh 2vw;
+}
