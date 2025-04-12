@@ -5,7 +5,7 @@ echo "<IfModule mod_userdir.c>
 	UserDir public_html
 	UserDir disabled root
 	
-	<Directory /home/test/*/*/*/public_html>
+	<Directory /home/html/*/public_html>
 		AllowOverride FileInfo AuthConfig Limit Indexes
 		Options MultiViews Indexes SymLinksIfOwnerMatch IncludesNoExec
 		Require method GET POST OPTIONS
