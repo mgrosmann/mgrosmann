@@ -1,5 +1,5 @@
 #!/bin/bash
-#la synatxe du csv doit être : id,nom,prenom,pays region dans https://www.mockaroo.com/schemas/683987
+#la synatxe du csv doit être : id,nom,prenom,pays region dans https://www.mockaroo.com/
 csv="/mnt/c/Users/PC/Downloads/test.csv"
 home="/home/html"
 mkdir -p $home
