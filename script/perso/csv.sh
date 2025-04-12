@@ -21,7 +21,7 @@ tail -n +2 $csv | while IFS=',' read -r id nom prenom; do #lit le csv ligne par 
     index_file="$public_html/index.html"
     if ! id $username &>/dev/null; then #si une manip foire et que le script doit etre reexcecuté, on skippe la creation de l'utilisateur mais on execute le reste pour etre sur que le reste de la config soit effectué
         useradd $username -m -d $user_home
-        echo "$username:root" | chpasswd
+        echo $username:root | chpasswd
         usermod -aG www-data $username
     fi
     mkdir -p $public_html
