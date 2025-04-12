@@ -5,21 +5,19 @@ useradd $user -m -d /home/html/$user
 mkdir /home/html/$user/perso_html
 chown -R $user /home/html/$user
 echo "coucou bienvenue sur le site de moi, $user" > /home/html/$user/perso_html/index.html
-if [[ ! -f /etc/apache2/mods-available/userdir.conf ]]; then
-	echo "
-	<IfModule mod_userdir.c>
-		UserDir perso_html
-		UserDir disabled root
-	
-		<Directory /home/html/*/perso_html>
-			AllowOverride FileInfo AuthConfig Limit Indexes
-			Options MultiViews Indexes SymLinksIfOwnerMatch IncludesNoExec
-			Require method GET POST OPTIONS
-		</Directory>
-	</IfModule>
-	# vim: syntax=apache ts=4 sw=4 sts=4 sr noet" > /etc/apache2/mods-available/userdir.conf
+echo "
+<IfModule mod_userdir.c>
+	UserDir perso_html
+	UserDir disabled root
+
+	<Directory /home/html/*/perso_html>
+		AllowOverride FileInfo AuthConfig Limit Indexes
+		Options MultiViews Indexes SymLinksIfOwnerMatch IncludesNoExec
+		Require method GET POST OPTIONS
+	</Directory>
+</IfModule>
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet" > /etc/apache2/mods-available/userdir.conf
 echo "config userdir crée"
-fi
 a2enmod userdir
 a2enmod rewrite
 systemctl restart apache2
