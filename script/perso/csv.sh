@@ -26,7 +26,7 @@ tail -n +2 "$csv" | while IFS=',' read -r id nom prenom; do
     echo "$username:root" | chpasswd
     usermod -aG www-data "$username"
     mkdir -p "$public_html"
-    echo "coucou moi c'est $username" > "$index_file"
+    echo "Espace web de $prenom $nom" > "$index_file"
     chmod 755 "$index_file"
     chmod -R 755 "$user_home"
     echo "Ajout de $prenom $nom dans l'annuaire"
