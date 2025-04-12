@@ -12,7 +12,7 @@ echo "<!DOCTYPE html>
     <title>Titre de votre page WEB</title>
 </head>
 <body>" > /var/www/html/user.html #creation de l'annuaire user.html
-tail -n +2 $csv | while IFS=',' read -r id nom prenom; do #lit le csv ligne par ligne
+while IFS=',' read -r id nom prenom; do #lit le csv ligne par ligne
     test=$(echo $prenom | cut -c 1 | tr '[:upper:]' '[:lower:]') #pour creer un login premier lettre du prenom suivi du nom et forcer en minuscule
     test1=$(echo $nom | tr '[:upper:]' '[:lower:]')
     username=${test}${test1}
@@ -30,6 +30,6 @@ tail -n +2 $csv | while IFS=',' read -r id nom prenom; do #lit le csv ligne par 
     chmod -R 755 $user_home
     echo "<div><a href='~$username/index.html'>$prenom $nom</a></div>" >> /var/www/html/user.html #ajout du $user dans l'annuaire user.html
     echo "repertoire web de l'utilisateur $username n°$id créé avec succès."
-done
+done < <(tail -n +2 $csv)
 echo '</body>
 </html>' >> /var/www/html/user.html
