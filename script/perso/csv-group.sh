@@ -39,6 +39,6 @@ while IFS=',' read -r id nom prenom pays region; do #lit le csv ligne par ligne
     chmod -R 755 $user_home
     echo "<div><a href='~$username/index.html'>$prenom $nom</a></div>" >> /var/www/html/user.html #ajout du $user dans l'annuaire user.html
     echo "repertoire web de l'utilisateur $username n°$id créé avec succès."
-done < <(tail -n +2 "$csv")
+done < <(tail -n +2 $csv)
 echo '</body>
 </html>' >> /var/www/html/user.html
