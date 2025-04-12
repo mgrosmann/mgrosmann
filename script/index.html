@@ -1,48 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scripts Projet</title>
-    <link rel="stylesheet" href="style.css">
-</head> 
+    <link rel="stylesheet" href="test1.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+        }
+        th, td {
+            border: 1px solid #aaa;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #eee;
+        }
+    </style>
+</head>
 <body>
-        <div class="container">
-        <h2 style="color: green;">Scripts shells concu pour les cours/perso</h2>
-        <a href="perso/static.sh">static.sh</a>
-        <a href="perso/dhcp.sh">dhcp.sh</a>
-        <a href="cours/asterix.sh">asterisk.sh</a>
-        <a href="cours/https.sh">https.sh</a>
-        <a href="cours/site.sh">site.sh</a> 
-        <a href="cours/zabbix.sh">zabbix.sh</a> 
-    </div>
+
     <div class="container">
-        <h2 style="color: red;">Scripts shell/bat concu pour le projet</h2>
-        <a href="projet/agent-glpi.sh">agent-glpi.sh</a>
-        <a href="projet/agent-zabbix.sh">agent-zabbix.sh</a>
-        <a href="projet/captif.sh">captif.sh</a>
-        <a href="projet/glpi.sh">glpi.sh</a>
-        <a href="projet/docker.sh">docker.sh</a>
-        <a href="projet/mysql.sh">mysql.sh</a>
-        <a href="projet/nextcloud.sh">nextcloud.sh</a>
-        <a href="projet/promotheus.sh">promotheus.sh</a>
-        <a href="projet/proxy.sh">proxy.sh</a>
-        <a href="projet/veeam.sh">veeam.sh</a>   
-        <a href="projet/glpi.bat">agent-glpi.bat</a>
-        <a href="projet/zabbix.bat">agent-zabbix.bat</a>
+        <h2 style="color: green;">Scripts cours</h2>
+        <table>
+            <tr><th>Script</th><th>Description</th><th>Lien</th></tr>
+            <tr><td>acl.sh</td><td>Automatise la configuration des ACL</td><td><a href="cours/acl.sh">Voir</a></td></tr>
+            <tr><td>asterix.sh</td><td>Installe automatiquement un serveur Asterisk</td><td><a href="cours/asterix.sh">Voir</a></td></tr>
+            <tr><td>change_acl.sh</td><td>Modifie les ACL créées avec acl.sh</td><td><a href="cours/change_acl.sh">Voir</a></td></tr>
+            <tr><td>cron_mysql.sh</td><td>Automatise les backups SQL via cron</td><td><a href="cours/cron_mysql.sh">Voir</a></td></tr>
+            <tr><td>https.sh</td><td>Active HTTPS sur un site Apache</td><td><a href="cours/https.sh">Voir</a></td></tr>
+            <tr><td>proxy.sh</td><td>Configure un proxy Apache automatiquement</td><td><a href="cours/proxy.sh">Voir</a></td></tr>
+            <tr><td>site.sh</td><td>Ajoute un second site Apache sur un autre port</td><td><a href="cours/site.sh">Voir</a></td></tr>
+            <tr><td>user-html.sh</td><td>Crée un utilisateur avec un répertoire public_html</td><td><a href="cours/user-html.sh">Voir</a></td></tr>
+            <tr><td>userdir.sh</td><td>Active la configuration UserDir pour Apache</td><td><a href="cours/userdir.sh">Voir</a></td></tr>
+            <tr><td>voipuser.sh</td><td>Ajoute des utilisateurs pour la VoIP via Asterisk</td><td><a href="cours/voipuser.sh">Voir</a></td></tr>
+            <tr><td>zabbix.sh</td><td>Installe un serveur de supervision Zabbix</td><td><a href="cours/zabbix.sh">Voir</a></td></tr>
+        </table>
     </div>
+
     <div class="container">
-        <h2 style="color: purple;">Scripts shells concu pendant le stage de deuxième année</h2>
-        <a href="stage/diapo.sh">diapo.sh</a>
-        <a href="stage/emby.sh">emby.sh</a>
-        <a href="stage/jellyfin.sh">jellyfin.sh</a>
-        <a href="stage/mount.sh">mount.sh</a>
-        <a href="stage/photoprism.sh">photoprism.sh</a>
-        <a href="stage/piwigo.sh">piwigo.sh</a>
-        <a href="stage/plex.sh">plex.sh</a>
-        <a href="stage/portainer.sh">portainer.sh</a>
-        <a href="stage/servio.sh">servio.sh</a>
-        <a href="stage/sql.sh">sql.sh</a>
+        <h2 style="color: blue;">Scripts perso</h2>
+        <table>
+            <tr><th>Script</th><th>Description</th><th>Lien</th></tr>
+            <tr><td>csv.sh</td><td>Création d'utilisateurs via fichier CSV</td><td><a href="perso/csv.sh">Voir</a></td></tr>
+            <tr><td>clean.csv.sh</td><td>Suppression des utilisateurs créés via CSV</td><td><a href="perso/clean.csv.sh">Voir</a></td></tr>
+            <tr><td>groupe.csv.sh</td><td>Création d'utilisateurs + groupes via CSV</td><td><a href="perso/groupe.csv.sh">Voir</a></td></tr>
+            <tr><td>clean.groupe.csv.sh</td><td>Suppression des utilisateurs + groupes</td><td><a href="perso/clean.groupe.csv.sh">Voir</a></td></tr>
+            <tr><td>dhcp.sh</td><td>Configure DHCP automatiquement (Debian/Ubuntu)</td><td><a href="perso/dhcp.sh">Voir</a></td></tr>
+            <tr><td>static.sh</td><td>Configure IP statique (Debian/Ubuntu)</td><td><a href="perso/static.sh">Voir</a></td></tr>
+            <tr><td>import.sh</td><td>Importe fichiers via SSH</td><td><a href="perso/import.sh">Voir</a></td></tr>
+            <tr><td>export.sh</td><td>Exporte fichiers via SSH</td><td><a href="perso/export.sh">Voir</a></td></tr>
+            <tr><td>jump.sh</td><td>Crée tunnel SSH avec sauts intermédiaires</td><td><a href="perso/jump.sh">Voir</a></td></tr>
+            <tr><td>pfsense</td><td>Crée tunnel SSH sans NAT avec pfSense</td><td><a href="perso/pfsense.sh">Voir</a></td></tr>
+            <tr><td>ssh.sh</td><td>Exporte les clés SSH vers les serveurs</td><td><a href="perso/ssh.sh">Voir</a></td></tr>
+        </table>
     </div>
+
+    <div class="container">
+        <h2 style="color: yellow;">Scripts projet</h2>
+        <table>
+            <tr><th>Script</th><th>Description</th><th>Lien</th></tr>
+            <tr><td>agent-glpi.sh</td><td>Installe agent GLPI (Linux)</td><td><a href="projet/agent-glpi.sh">Voir</a></td></tr>
+            <tr><td>glpi.bat</td><td>Installe agent GLPI (Windows)</td><td><a href="projet/glpi.bat">Voir</a></td></tr>
+            <tr><td>agent-zabbix.sh</td><td>Installe agent Zabbix (Linux)</td><td><a href="projet/agent-zabbix.sh">Voir</a></td></tr>
+            <tr><td>zabbix.bat</td><td>Installe agent Zabbix (Windows)</td><td><a href="projet/zabbix.bat">Voir</a></td></tr>
+            <tr><td>captif.sh</td><td>Login portail captif avec curl</td><td><a href="projet/captif.sh">Voir</a></td></tr>
+            <tr><td>docker.sh</td><td>Installe Docker (Debian/Ubuntu)</td><td><a href="projet/docker.sh">Voir</a></td></tr>
+            <tr><td>glpi.sh</td><td>Installe un serveur GLPI</td><td><a href="projet/glpi.sh">Voir</a></td></tr>
+            <tr><td>mysql.sh</td><td>Installe & configure un serveur MySQL</td><td><a href="projet/mysql.sh">Voir</a></td></tr>
+            <tr><td>nextcloud.sh</td><td>Déploie un serveur Nextcloud</td><td><a href="projet/nextcloud.sh">Voir</a></td></tr>
+            <tr><td>prometheus.sh</td><td>Installe Prometheus + Grafana</td><td><a href="projet/prometheus.sh">Voir</a></td></tr>
+            <tr><td>nodex.sh</td><td>Installe Node Exporter</td><td><a href="projet/nodex.sh">Voir</a></td></tr>
+            <tr><td>veeam.sh</td><td>Installe Veeam Backup</td><td><a href="projet/veeam.sh">Voir</a></td></tr>
+        </table>
+    </div>
+
+    <div class="container">
+        <h2 style="color: purple;">Scripts stage</h2>
+        <table>
+            <tr><th>Script</th><th>Description</th><th>Lien</th></tr>
+            <tr><td>diapo.sh</td><td>Crée une diapo avec ffmpeg et .jpg</td><td><a href="stage/diapo.sh">Voir</a></td></tr>
+            <tr><td>emby.sh</td><td>Installe un serveur Emby</td><td><a href="stage/emby.sh">Voir</a></td></tr>
+            <tr><td>jellyfin.sh</td><td>Installe un serveur Jellyfin</td><td><a href="stage/jellyfin.sh">Voir</a></td></tr>
+            <tr><td>mount.sh</td><td>Monte les partages réseaux CIFS</td><td><a href="stage/mount.sh">Voir</a></td></tr>
+            <tr><td>photoprism.sh</td><td>Installe un serveur PhotoPrism</td><td><a href="stage/photoprism.sh">Voir</a></td></tr>
+            <tr><td>piwigo.sh</td><td>Installe un serveur Piwigo</td><td><a href="stage/piwigo.sh">Voir</a></td></tr>
+            <tr><td>plex.sh</td><td>Installe un serveur Plex</td><td><a href="stage/plex.sh">Voir</a></td></tr>
+            <tr><td>portainer.sh</td><td>Installe un serveur Portainer</td><td><a href="stage/portainer.sh">Voir</a></td></tr>
+            <tr><td>servio.sh</td><td>Installe un serveur Serviio</td><td><a href="stage/servio.sh">Voir</a></td></tr>
+            <tr><td>sql.sh</td><td>Installe un serveur SQL + bases pour services</td><td><a href="stage/sql.sh">Voir</a></td></tr>
+        </table>
+    </div>
+
 </body>
 </html>
