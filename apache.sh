@@ -21,4 +21,4 @@ echo "config userdir crée"
 a2enmod userdir
 a2enmod rewrite
 systemctl restart apache2
-echo "le 'systemctl restart apache2' a deja ete effectuer par le script, votre site est disponible sur http://localhost/~user"
+echo "le 'systemctl restart apache2' a deja ete effectuer par le script, votre site est disponible sur http://localhost/~$user"
