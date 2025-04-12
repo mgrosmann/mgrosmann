@@ -1,2 +1,0 @@
-#!/bin/bash
-apt install sl cowsay fortune figlet toilet cmatrix lolcat neofetch ponysay bb asciiquarium -y
