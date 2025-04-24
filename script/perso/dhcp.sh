@@ -1,8 +1,7 @@
 #!/bin/bash
 read -p "sur quel distri linux êtes vous ? (1 pour debian,2 pour ubntu) " linux
 if [[ $linux == 1 ]]; then
-  cat <<EOF > /etc/network/interfaces
-  # This file describes the network interfaces available on your system
+  echo "# This file describes the network interfaces available on your system
   # and how to activate them. For more information, see interfaces(5).
 
   source /etc/network/interfaces.d/*
@@ -13,18 +12,15 @@ if [[ $linux == 1 ]]; then
 
   # The primary network interface
   allow-hotplug $interface
-  iface $interface inet dhcp
-  EOF
+  iface $interface inet dhcp" > /etc/network/interfaces
   systemctl restart networking.service
   hostname -I
-if [[ $linux == 2 ]]; then
-  cat <<EOF > /etc/netplan/50-cloud-init.yaml
-  network:
+elif [[ $linux == 2 ]]; then
+  echo "network:
     version: 2
     ethernets:
       $interface:
-          dhcp4: true
-  EOF
+          dhcp4: true" > /etc/netplan/50-cloud-init.yaml
   netplan apply
   hostname -I
 else
