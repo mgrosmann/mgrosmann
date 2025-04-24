@@ -1,4 +1,5 @@
 #!/bin/bash
+read -p "Entrer l'interface réseau: " interface
 read -p "sur quel distri linux êtes vous ? (1 pour debian,2 pour ubntu) " linux
 if [[ $linux == 1 ]]; then
   echo "# This file describes the network interfaces available on your system
