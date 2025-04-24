@@ -1,10 +1,11 @@
 #!/bin/bash
-read -p "quel est le mot de passe root du serveur sql ? " pass
+echo "quel est le mot de passe root du serveur sql ? "
+read -s pass
 read -p "quel est votre distrib linux ? (1 pour debian 2 pour ubuntu) " linux
 if [[ $linux == 1 ]]; then
   wget https://repo.zabbix.com/zabbix/7.2/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.2+debian12_all.deb
   dpkg -i zabbix-release_latest_7.2+debian12_all.deb
-elif [[ $linux == 1 ]]; then
+elif [[ $linux == 2 ]]; then
   wget https://repo.zabbix.com/zabbix/7.2/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.2+ubuntu24.04_all.deb
   dpkg -i zabbix-release_latest_7.2+ubuntu24.04_all.deb
 else
