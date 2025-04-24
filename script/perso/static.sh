@@ -23,8 +23,7 @@ if [[ $linux == 1 ]]; then
   systemctl restart networking.service
   hostname -I
 elif [[ $linux == 2 ]]; then
-  echo " 
-  network:
+  echo "network:
     version: 2
     ethernets:
       $interface:
