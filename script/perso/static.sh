@@ -36,6 +36,7 @@ elif [[ $linux == 2 ]]; then
         nameservers:
           addresses:
             - $dns" > /etc/netplan/50-cloud-init.yaml
+  apt install openvswitch-switch -y
   netplan apply
   hostname -I
 else
