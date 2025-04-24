@@ -5,8 +5,7 @@ read -p "Entrer la passerelle: " gateway
 read -p "Entrer le DNS: " dns
 read -p "sur quel distri linux êtes vous ? (1 pour debian,2 pour ubntu) " linux
 if [[ $linux == 1 ]]; then
-  cat <<EOF > /etc/network/interfaces
-  # This file describes the network interfaces available on your system
+  echo"  # This file describes the network interfaces available on your system
   # and how to activate them. For more information, see interfaces(5).
 
   source /etc/network/interfaces.d/*
@@ -20,12 +19,11 @@ if [[ $linux == 1 ]]; then
   iface $interface inet static
       address $ip
       gateway $gateway
-      dns-nameservers $dns
-  EOF
+      dns-nameservers $dns" > /etc/network/interfaces
   systemctl restart networking.service
   hostname -I
-if [[ $linux == 2 ]]; then
-  cat <<EOF > /etc/netplan/50-cloud-init.yaml
+elif [[ $linux == 2 ]]; then
+  echo " 
   network:
     version: 2
     ethernets:
@@ -37,8 +35,7 @@ if [[ $linux == 2 ]]; then
             via: $gateway
         nameservers:
           addresses:
-            - $dns
-  EOF
+            - $dns" > /etc/netplan/50-cloud-init.yaml
   netplan apply
   hostname -I
 else
