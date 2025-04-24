@@ -22,6 +22,7 @@ elif [[ $linux == 2 ]]; then
     ethernets:
       $interface:
           dhcp4: true" > /etc/netplan/50-cloud-init.yaml
+  apt install openvswitch-switch -y
   netplan apply
   hostname -I
 else
