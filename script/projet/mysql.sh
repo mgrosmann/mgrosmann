@@ -11,7 +11,6 @@ y
 EOF
 mysql  <<EOF
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';
-CREATE USER 'mgrosmann'@'localhost' IDENTIFIED BY 'password';
 CREATE DATABASE test;
 GRANT ALL PRIVILEGES ON test.* TO 'root'@'localhost';
 FLUSH PRIVILEGES;
