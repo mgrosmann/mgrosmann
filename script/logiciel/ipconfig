@@ -46,6 +46,36 @@ if [ "$choix" -eq 1 ]; then
             - $dns" > /etc/netplan/50-cloud-init.yaml
         apt install openvswitch-switch -y
         netplan apply
+    fi
+else; then
+    interface=$(dialog --inputbox "Entrez l'interface réseau a configurer :" 8 50 2>&1 >/dev/tty
+     linux=$(dialog --clear --backtitle "ditri linux" \
+        --title "Choix de la distribution linux" \
+        --menu "quel distri linux vous utilisez" 15 50 2 \
+        1 "debian" \
+        2 "ubuntu" \
+    if [ "$linux" -eq 1 ]; then
+         echo "# This file describes the network interfaces available on your system
+  # and how to activate them. For more information, see interfaces(5).
+
+  source /etc/network/interfaces.d/*
+
+  # The loopback network interface  
+  auto lo
+  iface lo inet loopback
+
+  # The primary network interface
+  allow-hotplug $interface
+  iface $interface inet dhcp" > /etc/network/interfaces
+      systemctl restart networking.service
+else; then
+    echo "network:
+    version: 2
+    ethernets:
+      $interface:
+          dhcp4: true" > /etc/netplan/50-cloud-init.yaml
+  apt install openvswitch-switch -y
+  netplan apply
 fi
 echo "config ip appliqué"
 hostname -I
