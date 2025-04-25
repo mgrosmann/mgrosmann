@@ -1,0 +1,15 @@
+#!/bin/bash
+DIALOG=${DIALOG=dialog}
+
+categorie=$($DIALOG --clear --backtitle "Configuration ip" \
+    --title "Ipconfig" \
+    --menu "Choissisez un type de configuration ip :" 15 50 3 \
+    1 "statique" \
+    2 "dhcp" \
+    2>&1 >/dev/tty)
+clear
+
+case $categorie in
+    1) script ;;  
+    2) dhcp ;;  
+esac
