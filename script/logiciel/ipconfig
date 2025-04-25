@@ -1,15 +1,51 @@
 #!/bin/bash
-DIALOG=${DIALOG=dialog}
-
-categorie=$($DIALOG --clear --backtitle "Configuration ip" \
-    --title "Ipconfig" \
-    --menu "Choissisez un type de configuration ip :" 15 50 3 \
+choix=$(dialog --clear --backtitle "ipconfig" \
+    --title "Menu Principal" \
+    --menu "quel config ip" 15 50 2 \
     1 "statique" \
     2 "dhcp" \
-    2>&1 >/dev/tty)
-clear
+if [ "$choix" -eq 1 ]; then
+    interface=$(dialog --inputbox "Entrez l'interface réseau a configurer :" 8 50 2>&1 >/dev/tty)
+    ip=$(dialog --inputbox "Entrez l'adresse ip a affecter (au format CIDR tel que 192.168.1.1/24) :" 8 50 2>&1 >/dev/tty)
+    gateway=$(dialog --inputbox "Entrez la passerelle par défaut :" 8 50 2>&1 >/dev/tty)
+    dns=$(dialog --inputbox "Entrez le serveur dns principal :" 8 50 2>&1 >/dev/tty)
+    linux=$(dialog --clear --backtitle "ditri linux" \
+        --title "Choix de la distribution linux" \
+        --menu "quel distri linux vous utilisez" 15 50 2 \
+        1 "debian" \
+        2 "ubuntu" \
+    if [ "$linux" -eq 1 ]; then
+        echo"  # This file describes the network interfaces available on your system
+  # and how to activate them. For more information, see interfaces(5).
 
-case $categorie in
-    1) script ;;  
-    2) dhcp ;;  
-esac
+  source /etc/network/interfaces.d/*
+
+  # The loopback network interface  
+  auto lo
+  iface lo inet loopback
+
+  # The primary network interface
+  allow-hotplug $interface
+  iface $interface inet static
+      address $ip
+      gateway $gateway
+      dns-nameservers $dns" > /etc/network/interfaces
+        systemctl restart networking.service
+    else; then
+        echo "network:
+    version: 2
+    ethernets:
+      $interface:
+        addresses:
+          - $ip
+        routes:
+          - to: default
+            via: $gateway
+        nameservers:
+          addresses:
+            - $dns" > /etc/netplan/50-cloud-init.yaml
+        apt install openvswitch-switch -y
+        netplan apply
+fi
+echo "config ip appliqué"
+hostname -I
