@@ -1,4 +1,8 @@
 #!/bin/bash
+if ! command -v mysql &> /dev/null; then
+  wget mgrosmann.vercel.app/script/projet/mysql.sh
+  bash mysql.sh
+fi
 echo "quel est le mot de passe root du serveur sql ? "
 read -s pass
 read -p "quel est votre distrib linux ? (1 pour debian 2 pour ubuntu) " linux
