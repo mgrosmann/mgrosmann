@@ -115,14 +115,34 @@
         <div class="container">
             <h2>Projets</h2>
             <div class="projet-liste">
+                  <div class="projet">
+                    <h3>Projet SLAM COMMUN 1 : Pergabri (fini, projet en solo)</h3><br>
+                    <p>Dans ce projet, une société fictive appelée "Pergabri" vendait des pergolas et nous devions confectionner un site web afin de presenter l'entreprise et mettre en valeur ce qu'elle vend. 
+                    Pour cela il fallait se familiariser avec les languages html, css et php qui sont les principaux languages utilisés pour concevoir un site web</p>
+                      <p>Pour visualiser le projet:<a href="https://sio.jbdelasalle.com/~mgrosmann/pergabri/" class="btn">cliquer ici</a></p>
+                </div>
+                  <div class="projet">
+                    <h3>Projet SLAM COMMUN 2 : Basketlub (fini, projet en solo)</h3><br>
+                    <p>Pour ce projet, nous avions une base de données, "basketclub" avec 3 tables qui nous intéressaient, entrainements, joueurs et matches, chaque membre de chaque groupe s'occupe de l'une de ces 3 tables
+                    avec l'utilisation du php et du sql réunis on devait afficher le contenu des tables directement en php. </p>
+                      <p>Pour visualiser le projet:<a href="https://sio.jbdelasalle.com/~mgrosmann/basketclub/?page=entrainements" class="btn">cliquer ici</a></p>
+                </div>
+                  <div class="projet">
+                   <h3>Projet SLAM COMMUN 3 : Messagerie (fini, projet en solo)</h3><br>
+                    <p>Projet semblable au precedent avec l'utilsation combiné du php et du sql, meme si il y a des fonctionnalités en plus.</p>
+                       <ul>
+                        <li>Une authentification utilisateur grace a la table utilisateur de la base de données "messagerie" qui contient une colonne utilisateur et le mot de passe chiffré en md5 avec un formulaire html qui compare les données entrés par l'utilisateur et les données présententes dans la base de données </li>
+                        <li>Comme il s'agit d'une messagerie il fallait afficher les messages de la table "message" mais uniquement ceux destiné à l'utilisateur s'étant authentifier donc faire une requete sql pour filtrer les messages</li>  
+                        <li>Il fallait également envoyer un message depuis l'interface web, donc pouvoir effectuer une requete sql pouvant ajouter un message a la table "message" depuis la page .php </li>
+                </div>
                 <div class="projet">
-                    <h3>Projet 1 : Conception de solution technique (Terminé, en groupe de 3)</h3><br>
+                    <h3>Projet SISR COMMUN 1 : SPOON (Terminé, en groupe de 3)</h3><br>
                     <p>Dans ce projet, une société fictive appelée "Spoon" avait une infrastructure informatique obsolète. 
                     Nous avions pour mission de proposer diverses solutions techniques pour moderniser cette infrastructure tout en recherchant le meilleur rapport qualité/prix.</p>
                     <p>Pour visualiser le compte rendu du projet:<a href="documentation/compte rendu spoon sisr.pdf" class="btn">cliquer ici</a></p>
                 </div>
                 <div class="projet">
-                    <h3>Projet 2 : Mise en place de services informatiques avec VirtualBox (Terminé, en groupe de 2)</h3><br>
+                    <h3>Projet Spécialité SISR 1 : Spoon (Terminé, en groupe de 2)</h3><br>
                     <p>Dans ce second projet, toujours pour la société fictive "Spoon", nous devions mettre en place divers services à l'aide de machines virtuelles (VM) afin de moderniser leur infrastructure informatique obsolète:
                     </p><br>
                    <ul>
@@ -135,16 +155,16 @@
                     <p>Pour visualiser le compte rendu du projet:<a href="documentation/compte rendu projet sisr grosmann et pereira.pdf" class="btn">cliquer ici</a></p>
                 </div>
                 <div class="projet">
-                    <h3>Projet 3 : mise en place de services informatiques sur un serveur avec Proxmox (en cours, en groupe de 3)</h3><br>
+                    <h3>Projet Specialité SISR 2 : GSB (fini, en groupe de 3)</h3><br>
                     <p>Dans ce trosième projet, pour le laboratoire GSB nous devions
                         optimiser l’infrastructure informatique, améliorer les services clients et renforcer la sécurité des données 
-                        afin de contrer les cyber-attaques. Pour cela a l'aide de l'outil de virtualisation roxmox, nous devions configurer divers service sur un serveur: 
+                        afin de contrer les cyber-attaques. Pour cela a l'aide de l'outil de virtualisation Proxmox, nous devions configurer divers service sur ce serveur: 
                     </p><br>
                     <ul>
-                       <li>Une VM pfSense pour configurer un serveur dhcp et dns, vlan, portail captif, proxy et dmz(zone démilitarisée)</li>
+                       <li>Une VM pfSense pour configurer un serveur dhcp et dns, vlan, portail captif et dmz(zone démilitarisée)</li>
                        <li>Une VM Windows Server pour configurer un Active Directory et la gestion centralisé de mises à jour windows avec WSUS.</li>
                        <li>Une VM Windows 10 pour tester l'Active Directory et configurer le pare-feu pfSense sur l'interface web</li>
-                       <li>Une VM linux pour mettre en place la gestion du parc informatique et des tickets avec GLPI, l'outil de supervision avec zabbix, la solution de sauvegarde avec Veeam Backup et les dépoloiements automatisés avec fog project</li>
+                       <li>Une VM linux pour mettre en place la gestion du parc informatique et des tickets avec GLPI, l'outil de supervision avec zabbix, la solution de sauvegarde avec Veeam Backup, un serveur proxy avec squid et les dépoloiements automatisés avec lstp</li>
                        <br>
                         <p> Ce projet est similaire au précédent, mais il est plus avancé car cette fois-ci, nous installons les machines virtuelles directement sur un serveur proxmox et non pas indivuellement sur nos machines ce qui permet que les services que nous mettons en place sont interconnectés et nous devons configurer plus de services. </p>
                     </ul>
