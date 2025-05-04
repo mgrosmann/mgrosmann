@@ -1,0 +1,20 @@
+#div_exemples {
+    padding: 20px ;
+    margin: 30px ;
+    display: flex ;
+    flex-wrap: wrap ;
+}
+
+article{
+    padding: 30px ;
+    margin: 10px ;
+    border: #ccccff medium solid ;
+    font-size: 2em ;
+    width: 200px ;
+    text-align: center ;
+    background-color: #ffcccc ;
+}
+article:hover{
+    background-color: #ff9999 ;
+}
+
