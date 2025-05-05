@@ -4,8 +4,8 @@ read -p "Le serveur GLPI est-il prêt ? (y/n): " confirm
 if [[ $confirm = "y" ]]; then
     read -p "veuillez entrez l'adresse ip du serveur glpi" server
     apt install perl
-    wget https://github.com/glpi-project/glpi-agent/releases/download/1.7.1/glpi-agent-1.7.1-linux-installer.pl
-    perl glpi-agent-1.7.1-linux-installer.pl -s $server/glpi --runnow --install
+    wget https://github.com/glpi-project/glpi-agent/releases/download/1.7.3/glpi-agent-1.7.3-linux-installer.pl
+    perl glpi-agent-1.7.3-linux-installer.pl -s $server/glpi --runnow --install
     systemctl enable glpi-agent
 elif [[ $confirm = "n" ]]; then
     echo "Veuillez finaliser l'installation du serveur GLPI avant de continuer."
