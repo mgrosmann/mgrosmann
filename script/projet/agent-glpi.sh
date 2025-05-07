@@ -7,6 +7,7 @@ if [[ $confirm = "y" ]]; then
     wget https://github.com/glpi-project/glpi-agent/releases/download/1.7.3/glpi-agent-1.7.3-linux-installer.pl
     perl glpi-agent-1.7.3-linux-installer.pl -s http://$server/glpi --runnow --install
     systemctl enable glpi-agent
+    glpi-agent --server http://$server/glpi --force
 elif [[ $confirm = "n" ]]; then
     echo "Veuillez finaliser l'installation du serveur GLPI avant de continuer."
 else
