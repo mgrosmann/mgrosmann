@@ -1,0 +1,1 @@
+curl -X POST -H "Content-Type: application/json" \ > -H "App-Token: hma6jQBip3An4bLfp5jWWCft71dNcj0LAJAWVYGi" \ > -d '{"login":"glpi","password":"glpi"}' \ > http://192.168.1.11/glpi/apirest.php/initSession
