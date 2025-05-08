@@ -13,3 +13,4 @@ apt update
 apt install zabbix-agent
 systemctl restart zabbix-agent
 systemctl enable zabbix-agent
+echo "pensez bien a effecutuez 'nano /etc/zabbix/zabbix_agentd.conf et remplacer (server=127.0.0.1) par (server=192.168.1.11)"
