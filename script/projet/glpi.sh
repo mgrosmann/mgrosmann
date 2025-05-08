@@ -16,7 +16,7 @@ GRANT ALL PRIVILEGES ON glpi.* TO 'glpi'@'localhost';
 GRANT SELECT ON \`mysql\`.\`time_zone_name\` TO 'glpi'@'localhost';
 FLUSH PRIVILEGES;
 " > glpi.sql
-mysql -uroot -p$mdp < glpi.sql
+mysql -uroot -p$pass < glpi.sql
 cd /var/www/html
 wget https://github.com/glpi-project/glpi/releases/download/10.0.17/glpi-10.0.17.tgz
 tar -xvzf glpi-10.0.17.tgz
