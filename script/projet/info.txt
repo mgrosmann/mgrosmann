@@ -1,4 +1,4 @@
-zabbix_get -s 192.168.2.107 -k system.uptime
+zabbix_get -s 192.168.2.107 -k system.uptime #tester depuis le serveur si on acces a l'agent zabbix
 zabbix_get -s 192.168.2.107 -k agent.ping #tester depuis le serveur si on acces a l'agent zabbix
 sudo ss -tulpn | grep zabbix #tester sur la machine cliente si l'agent marche 
 telnet 192.168.2.107 10050 #tester le port
