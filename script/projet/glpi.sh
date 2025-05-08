@@ -3,10 +3,13 @@ if ! command -v mysql &> /dev/null; then
   wget mgrosmann.vercel.app/script/projet/mysql.sh
   bash mysql.sh
 fi
+if [ ! -f /var/www/html ]; then
+  apt install apache2
+fi
 echo "quel est le mot de passe root du serveur sql ? "
 read -s pass
 apt update
-apt install -y apache2 php php-{apcu,cli,common,curl,gd,imap,ldap,mysql,xmlrpc,xml,mbstring,bcmath,intl,zip,redis,bz2} libapache2-mod-php php-soap php-cas
+apt install -y php php-{apcu,cli,common,curl,gd,imap,ldap,mysql,xmlrpc,xml,mbstring,bcmath,intl,zip,redis,bz2} libapache2-mod-php php-soap php-cas
 echo "CREATE USER 'glpi'@'localhost' IDENTIFIED BY 'glpi';
 CREATE DATABASE glpi;
 GRANT ALL PRIVILEGES ON glpi.* TO 'glpi'@'localhost';
