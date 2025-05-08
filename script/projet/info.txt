@@ -1,0 +1,1 @@
+zabbix_get -s 192.168.2.107 -k agent.ping
