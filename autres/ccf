@@ -1,4 +1,13 @@
-wget https://repo.zabbix.com/zabbix/7.2/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.2+ubuntu22.04_all.deb
-dpkg -i zabbix-release_latest_7.2+ubuntu22.04_all.deb
-apt update
-apt install zabbix-agent
+note pour ccf:
+restaurer la debian a l'etat glpi-zabbix-marche
+supprimer toutes les hotes sur glpi et zabbix
+
+restaurer ubuntu et wsus a l'etat avant-glpi
+
+executer le script d'installation glpi et zabbix agent sur ubuntu
+editer /etc/zabbix/zabbix_agentd.conf et noter le server tel que server=192.168.1.11 (enlever server=127.0.0.1)
+sur windows executer gpupdate /force et redemarrer 2 à 3 fois selon si les dossiers sont present dans PRogram files
+
+sur glpi les serveurs devrait etre ajouté
+
+sur zabbix ajouter a la main
