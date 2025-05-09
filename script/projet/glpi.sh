@@ -21,7 +21,3 @@ wget https://github.com/glpi-project/glpi/releases/download/10.0.17/glpi-10.0.17
 tar -xvzf glpi-10.0.17.tgz
 chown root:root /var/www/html/glpi/ -R
 chown www-data:www-data /var/www/html/glpi/ -R
-wget -P /var/www/html/glpi/plugins/ https://github.com/fusioninventory/fusioninventory-for-glpi/releases/download/glpi9.5%2B4.2/fusioninventory-9.5+4.2.zip
-apt install unzip -y
-unzip /var/www/html/glpi/plugins/fusioninventory-9.5+4.2.zip
-rm /var/www/html/glpi/plugins/fusioninventory-9.5+4.2.zip
