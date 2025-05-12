@@ -1,4 +1,4 @@
-#exemple utilisation dialog avec choix pour une selection d'option et interface=$ pour affecter une valeur a une variable
+#exemple utilisation dialog avec choix pour une selection d'option et interface=$ pour affecter une valeur a une variable, remplacer les ? 
 choix=$(dialog --clear --backtitle "?" \
     --title "?" \
     --menu "?" 15 50 2 \
