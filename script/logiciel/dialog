@@ -5,4 +5,6 @@ choix=$(dialog --clear --backtitle "?" \
     1 "?" \
     2 "?" \
     2>&1 >/dev/tty)
-  interface=$(dialog --inputbox "?" 8 50 2>&1 >/dev/tty)
+if [ "$choix" -eq 1 ]; then
+elif [ "$choix" -eq 2 ]; then
+interface=$(dialog --inputbox "?" 8 50 2>&1 >/dev/tty)
