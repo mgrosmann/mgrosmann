@@ -1,0 +1,2 @@
+pveum user add matheo@pam
+pveum aclmod / -user matheo@pam -role Administrator
