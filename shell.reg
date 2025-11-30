@@ -1,30 +1,14 @@
-Windows Registry Editor Version 5.00
+outils dev:
 
-; --- Ouvrir un terminal Debian (WSL) dans le dossier courant ---
-
-[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenInWSLHere]
-@="Open in WSL (Debian)"
-"Icon"="C:\\Windows\\System32\\wsl.exe"
-
-[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenInWSLHere\command]
-@="cmd.exe /c start \"\" wsl.exe -d debian -- bash -ic \"cd \\\"$(wslpath '%V')\\\" && exec bash\""
-
-; --- Ouvrir un terminal Debian (WSL) à partir d’un dossier ---
-
-[HKEY_CLASSES_ROOT\Directory\shell\OpenInWSLHere]
-@="Open in WSL (Debian)"
-"Icon"="C:\\Windows\\System32\\wsl.exe"
-
-[HKEY_CLASSES_ROOT\Directory\shell\OpenInWSLHere\command]
-@="cmd.exe /c start \"\" wsl.exe -d debian -- bash -ic \"cd \\\"$(wslpath '%1')\\\" && exec bash\""
-
-; --- Ouvrir un .sh dans WSL (terminal interactif) ---
-
-[HKEY_CLASSES_ROOT\.sh]
-@="WSLScriptFile"
-
-[HKEY_CLASSES_ROOT\WSLScriptFile\shell\OpenWithWSL]
-@="Open with WSL (Debian)"
-
-[HKEY_CLASSES_ROOT\WSLScriptFile\shell\OpenWithWSL\command]
-@="cmd.exe /c start \"\" wsl.exe -d debian -- bash -ic \"cd \\\"$(dirname $(wslpath '%1'))\\\" && exec bash\""
+workbench: sql
+vs code
+ extension:
+ {
+    remote explorer/repo/ssh (se connecter en ssh /repo github)
+    github copilot (ai code completion)
+    office viewer (preview office files (csv))
+    GitHub Repositories
+    tabnine (ai code completion)
+    wsl (remote wsl)
+ }
+ moba term/ text editor
