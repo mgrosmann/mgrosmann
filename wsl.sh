@@ -31,3 +31,9 @@ ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""
 #ssh-copy-id -i ~/.ssh/id_rsa.pub -o ProxyJump=mgrosmann@sio.jbdelasalle.com:1622,root@192.168.182.1 admin@192.168.182.213
 #ssh-copy-id -i ~/.ssh/id_rsa.pub -o ProxyJump=mgrosmann@sio.jbdelasalle.com:1622,root@192.168.182.1,admin@192.168.182.213 root@192.168.1.11
 echo "pensez à faire 'source ~/.bashrc' pour activer le repertoire /root/bin"
+#pour exporter puis importer une wsl (format .tar)
+wsl --export debian debian.tar
+#pour importer une wsl (toujours en .tar)
+wsl --import debian C:\wsl\debian debian.tar
+#pour compresse et passer de 3 a 1,2 go
+tar -czf debian.tar.gz debian.tar
