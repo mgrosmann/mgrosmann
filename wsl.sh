@@ -35,5 +35,5 @@ echo "pensez à faire 'source ~/.bashrc' pour activer le repertoire /root/bin"
 wsl --export debian debian.tar
 #pour importer une wsl (toujours en .tar)
 wsl --import debian C:\wsl\debian debian.tar
-#pour compresse et passer de 3 a 1,2 go
+#pour gz on est a 1,2 go avec 6 minutes et 3 secondes, pour bz2 (tar -cjf debian.tar.bz2 debian.tar) 1,1 go pour 11 minutes et 25 secondes,pour xz (xz -k -9 debian.tar)  870 mo pour 33 minutes 49 secondes
 tar -czf debian.tar.gz debian.tar
