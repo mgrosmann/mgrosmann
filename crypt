@@ -1,0 +1,3 @@
+alias crypt='ccrypt -b -r -e -S .crypt *'
+alias decrypt='ccrypt -b -r -d -S .crypt *'
+#-s pour interdire double cryptage
