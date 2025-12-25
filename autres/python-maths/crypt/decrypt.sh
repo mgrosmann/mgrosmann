@@ -32,6 +32,7 @@ for i in {1..10} # tail supprte pas les variables il faut définir manuellement 
 do
         tail -n"$i" total_key | head -n1 > $ikey
         python3 $decrypt
+        echo "Encryption pass $i done."
 done
 rm $decrypt
 echo "le fichier $file a été décrypté"
