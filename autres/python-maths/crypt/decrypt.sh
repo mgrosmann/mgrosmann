@@ -1,4 +1,5 @@
 #!/bin/bash
+file=$1
 if [ -z "$file" ]; then
     echo "Usage: $0 <file_to_encrypt> retry with a file to encrypt"
     exit 1
@@ -7,7 +8,6 @@ correct=$(ls total_key* | wc -m)
 decrypt=$(mktemp)
 #read -p \"fichier a decrypter\" file
 ikey=$(mktemp)
-file=$1
 key_file="/root/total_key"
 #read -s key
 echo "from cryptography.fernet import Fernet
