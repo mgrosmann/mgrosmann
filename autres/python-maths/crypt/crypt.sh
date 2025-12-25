@@ -38,4 +38,4 @@ rm $genkey $crypt $newkey
 #crypter x fois avec ccrypt
 for i in {1..3}; do ccrypt -b -r -e -S .crypt total_key*; done
 #send to usb drive if exist
-#mv total_key* /mnt/d
+#mv total_key* /mnt/d/
