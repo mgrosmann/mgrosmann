@@ -1,4 +1,5 @@
 #!/bin/bash
+file=$1
 if [ -z "$file" ]; then
     echo "Usage: $0 <file_to_encrypt> retry with a file to encrypt"
     exit 1
@@ -6,7 +7,6 @@ fi
 genkey=/tmp/genkey.py
 newkey=/tmp/newkey.key
 crypt=/tmp/crypt.py
-file=$1
 echo "from cryptography.fernet import Fernet
 fernet_key = Fernet.generate_key()
 print(fernet_key.decode())" > $genkey
