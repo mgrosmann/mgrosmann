@@ -27,7 +27,7 @@ with open('$file', 'wb') as f:
     f.write(encrypted)" > $crypt
 for i in {1..10} #crypter avec fernet x nombre de fois
 do
-    clef=$(python3 /tmp/genkey.py) && echo $clef > $newkey
+    clef=$(python3 $genkey) && echo $clef > $newkey
     echo $clef >> total_key
     #crypt the file with the new key
     python3 $crypt
