@@ -1,14 +1,12 @@
 #!/bin/bash
-#pour crypter plusieurs fois:
-#for i in {1..5}; do bash *.sh; done
 genkey=/tmp/genkey.py
 newkey=/tmp/newkey.key
+crypt=/tmp/crypt.py
 file=$1
 if [ -z "$file" ]; then
     echo "Usage: $0 <file_to_encrypt> retry with a file to encrypt"
     exit 1
 fi
-crypt=/tmp/crypt.py
 echo "from cryptography.fernet import Fernet
 fernet_key = Fernet.generate_key()
 print(fernet_key.decode())" > $genkey
@@ -36,7 +34,7 @@ do
     echo "Encryption pass $i done."
 done
 #delete key used and python script
-rm $genkey $crypt
+rm $genkey $crypt $newkey
 #crypter x fois avec ccrypt
 for i in {1..3}; do ccrypt -b -r -e -S .crypt total_key*; done
 #send to usb drive if exist
