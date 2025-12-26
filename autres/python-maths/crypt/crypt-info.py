@@ -40,3 +40,20 @@ decrypted = fernet.decrypt(encrypted)
 # Write the decrypted data back to the file
 with open('media.tar', 'wb') as f:
     f.write(decrypted)
+#####generer une chaine aléatoire, head -c x pour déterminer la longueur de la chaine##########################""
+random=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 10; echo)
+##################"tout sacoir sur head tail
+#retourner nombre de ligne
+wc -l totalkey
+#afficher ligne first
+head -n1 total_key
+#afficher derniere ligne
+tail -n1 total_key
+#afficher la x ligne en partant du haut
+head -nx total_key | tail -n1
+#afficher la x ligne en partant du bas
+tail -nx total_key | head -n1
+#afficher de la ligne x a y
+head -ny total_key | tail -n(y-x)+1
+#exemple de 7 a 20
+head -n20 number | tail -n14
