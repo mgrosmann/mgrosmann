@@ -1,0 +1,54 @@
+<div id="stats-container" style="display: none; padding: 40px 20px; max-width: 900px; margin: 0 auto;">
+    
+    <div class="stats-vertical-stack" style="display: flex; flex-direction: column; gap: 40px; align-items: center;">
+        
+        <div class="chart-card" style="background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); width: 100%; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+            <h3 style="text-align: center; color: white; margin-bottom: 20px; font-size: 1.4em;">📈 Activité Globale</h3>
+            <div style="height: 300px; position: relative;">
+                <canvas id="dailyScrobblesChart"></canvas>
+            </div>
+            <p style="color: #888; font-size: 0.8em; text-align: center; margin-top: 10px;">
+                Volume d'écoute quotidien sur la période
+            </p>
+        </div>
+
+        <div class="chart-card" style="background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); width: 100%; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+            <h3 style="text-align: center; color: white; margin-bottom: 20px; font-size: 1.4em;">🔥 Évolution du Top Artistes</h3>
+            <div style="height: 400px; position: relative;">
+                <canvas id="artistEvolutionChart"></canvas>
+            </div>
+            <p style="color: #888; font-size: 0.8em; text-align: center; margin-top: 10px;">
+                Comparaison de l'assiduité d'écoute entre vos artistes favoris
+            </p>
+        </div>
+
+        <div class="chart-card" style="background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); width: 100%; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+            <h3 style="text-align: center; color: white; margin-bottom: 20px; font-size: 1.4em;">⏳ Répartition par Décennies</h3>
+            <div style="height: 350px; position: relative;">
+                <canvas id="decadeChart"></canvas>
+            </div>
+            <p style="color: #1DB954; font-size: 0.85em; text-align: center; margin-top: 15px;">
+                💡 <i>Clique sur une barre pour voir les albums</i>
+            </p>
+            <div id="decade-details" style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;"></div>
+        </div>
+
+        <div class="chart-card" style="background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); width: 100%; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+            <h3 style="text-align: center; color: white; margin-bottom: 20px; font-size: 1.4em;">👨‍🎤 Top 20 Artistes</h3>
+            <div style="height: 600px; position: relative;">
+                <canvas id="artistChart"></canvas>
+            </div>
+            <p style="color: #888; font-size: 0.8em; text-align: center; margin-top: 10px;">
+                Survole une barre pour voir le détail des projets
+            </p>
+        </div>
+
+        <div class="chart-card" style="background: rgba(255,255,255,0.05); padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); width: 100%; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+            <h3 style="text-align: center; color: white; margin-bottom: 20px; font-size: 1.4em;">💽 Top 20 Albums</h3>
+            <div style="height: 600px; position: relative;">
+                <canvas id="albumChart"></canvas>
+            </div>
+        </div>
+
+    </div>
+</div>
