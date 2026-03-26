@@ -1,4 +1,0 @@
-artist1;artist2;fusion
-gims;GIMS;GIMS
-L2B;L2B Gang;L2B Gang
-Maître Gims;GIMS;GIMS
